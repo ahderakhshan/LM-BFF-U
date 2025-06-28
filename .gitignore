@@ -140,7 +140,6 @@ cython_debug/
 *.sh
 .venv
 .vscode
-data
 !data/k-shot/checksum
 log*
 runs
