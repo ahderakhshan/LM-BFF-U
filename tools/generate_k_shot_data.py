@@ -169,7 +169,7 @@ def main():
                     for line in label_list[label][:k]:
                         new_train.append(line)
                 new_train = DataFrame(new_train)
-                new_train.to_csv(os.path.join(setting_dir, 'train.csv'), header=False, index=False)
+                new_train.to_csv(os.path.join(setting_dir, 'train.csv'), header=True, index=False)
             
                 new_dev = []
                 for label in label_list:
@@ -177,7 +177,7 @@ def main():
                     for line in label_list[label][k:k*dev_rate]:
                         new_dev.append(line)
                 new_dev = DataFrame(new_dev)
-                new_dev.to_csv(os.path.join(setting_dir, 'dev.csv'), header=False, index=False)
+                new_dev.to_csv(os.path.join(setting_dir, 'dev.csv'), header=True, index=False)
 
 
 if __name__ == "__main__":
