@@ -33,7 +33,10 @@ def get_label(task, line):
         else:
             raise NotImplementedError
     else:
-        return line[0]
+        if task == "farstail":
+            return line[2]
+        else:
+            return line[0]
 
 def load_datasets(data_dir, tasks):
     datasets = {}
