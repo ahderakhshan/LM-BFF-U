@@ -177,15 +177,17 @@ class FarstailProcessor(DataProcessor):
 
     def get_train_examples(self, data_dir):
         """See base class."""
-        return self._create_examples(pd.read_csv(os.path.join(data_dir, "train.csv")), "train")
+        return self._create_examples(pd.read_csv(os.path.join(data_dir, "train.csv"), header=None).values.tolist(),
+                                     "train")
 
     def get_dev_examples(self, data_dir):
         """See base class."""
-        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv")), "dev")
+        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(), "dev")
 
     def get_test_examples(self, data_dir):
         """See base class."""
-        return self._create_examples(pd.read_csv(os.path.join(data_dir, "test.csv")), "test")
+        return self._create_examples(pd.read_csv(os.path.join(data_dir, "test.csv"), header=None).values.tolist(),
+                                     "test")
 
     def get_labels(self):
         """See base class."""
