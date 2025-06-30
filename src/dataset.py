@@ -474,6 +474,7 @@ class FewShotDataset(torch.utils.data.Dataset):
         """
         max_demo_per_label = 1
         counts = {k: 0 for k in self.label_list}
+        print(counts)
         if len(self.label_list) == 1:
             # Regression
             counts = {'0': 0, '1': 0}
