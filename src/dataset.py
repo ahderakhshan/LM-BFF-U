@@ -491,6 +491,8 @@ class FewShotDataset(torch.utils.data.Dataset):
 
             for i in order:
                 label = context_examples[i].label
+                if label not in counts.keys():
+                    continue
                 print(label)
                 print(context_examples[i].text_a)
                 if len(self.label_list) == 1:
