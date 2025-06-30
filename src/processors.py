@@ -196,9 +196,9 @@ class FarstailProcessor(DataProcessor):
     def _create_examples(self, lines, set_type):
         """Creates examples for the training, dev and test sets."""
         examples = []
-        print(f"lines are {lines}")
+        #print(f"lines are {lines}")
         for (i, line) in enumerate(lines):
-            print(f"line is {line}")
+            #print(f"line is {line}")
             if i == 0:
                 continue
             guid = "%s-%s" % (set_type, line[0])
