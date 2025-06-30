@@ -112,7 +112,9 @@ def main():
                 train_header, train_lines = split_header(task, dataset["train"])
                 np.random.shuffle(train_lines)
             else:
-                # Other datasets 
+                # Other datasets
+                if task == "farstail":
+                    train_header = ["premise", "hypothesis", "label"]
                 train_lines = dataset['train'].values.tolist()
                 np.random.shuffle(train_lines)
 
@@ -135,7 +137,7 @@ def main():
             else:
                 # Other datasets
                 # Use the original test sets
-                dataset['test'].to_csv(os.path.join(setting_dir, 'test.csv'), header=False, index=False)  
+                dataset['test'].to_csv(os.path.join(setting_dir, 'test.csv'), header=train_header, index=False)
             
             # Get label list for balanced sampling
             label_list = {}
@@ -169,7 +171,7 @@ def main():
                     for line in label_list[label][:k]:
                         new_train.append(line)
                 new_train = DataFrame(new_train)
-                new_train.to_csv(os.path.join(setting_dir, 'train.csv'), header=True, index=False)
+                new_train.to_csv(os.path.join(setting_dir, 'train.csv'), header=train_header, index=False)
             
                 new_dev = []
                 for label in label_list:
@@ -177,7 +179,7 @@ def main():
                     for line in label_list[label][k:k*dev_rate]:
                         new_dev.append(line)
                 new_dev = DataFrame(new_dev)
-                new_dev.to_csv(os.path.join(setting_dir, 'dev.csv'), header=True, index=False)
+                new_dev.to_csv(os.path.join(setting_dir, 'dev.csv'), header=train_header, index=False)
 
 
 if __name__ == "__main__":
