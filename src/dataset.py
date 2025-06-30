@@ -492,6 +492,7 @@ class FewShotDataset(torch.utils.data.Dataset):
             for i in order:
                 label = context_examples[i].label
                 print(label)
+                print(context_examples[i].text_a)
                 if len(self.label_list) == 1:
                     # Regression
                     label = '0' if float(label) <= median_mapping[self.args.task_name] else '1'
