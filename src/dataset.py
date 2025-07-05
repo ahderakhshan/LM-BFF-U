@@ -239,11 +239,11 @@ def tokenize_multipart_input(
             token_type_ids = token_type_ids[:max_length]
 
     # Find mask token
-    print(input_ids)
-    print("*"*20)
+    # print(input_ids)
+    # print("*"*20)
     if prompt:
         mask_pos = [input_ids.index(tokenizer.mask_token_id)]
-        print("line 243 passed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        # print("line 243 passed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         # Make sure that the masked position is inside the max_length
         assert mask_pos[0] < max_length
 
