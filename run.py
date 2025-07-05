@@ -468,14 +468,14 @@ def main():
     )
 
     set_seed(training_args.seed)
-
+    print("start loading model")
     model = model_fn.from_pretrained(
         model_args.model_name_or_path,
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
         config=config,
-        #cache_dir=model_args.cache_dir,
+        cache_dir=model_args.cache_dir,
     )
-
+    print("model loaded")
     # For BERT, increase the size of the segment (token type) embeddings
     if config.model_type == 'bert':
         model.resize_token_embeddings(len(tokenizer))
