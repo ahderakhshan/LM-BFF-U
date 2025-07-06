@@ -33,8 +33,11 @@ class BertForPromptFinetuning(BertPreTrainedModel):
 
     def __init__(self, config):
         super().__init__(config)
+        print("in init")
         self.num_labels = config.num_labels
+        print("num labels pass")
         self.bert = BertModel(config)
+        print("bert passed")
         self.cls = BertOnlyMLMHead(config)
         self.init_weights()
 
