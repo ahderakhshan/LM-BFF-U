@@ -470,7 +470,7 @@ def main():
     set_seed(training_args.seed)
     print("start loading model")
     model = model_fn.from_pretrained(
-        model_args.model_name_or_path,
+        "fnlp/roberta-base/roberta-base",
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
         config=config,
         cache_dir=model_args.cache_dir,
