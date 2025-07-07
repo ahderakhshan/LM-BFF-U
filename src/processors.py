@@ -550,6 +550,8 @@ class TextClassificationProcessor(DataProcessor):
             return list(range(2))
         elif self.task_name == "mpqa":
             return list(range(2))
+        elif self.task_name == "miras":
+            return list(range(3))
         else:
             raise Exception("task_name not supported.")
         
@@ -571,6 +573,8 @@ class TextClassificationProcessor(DataProcessor):
                 examples.append(InputExample(guid=guid, text_a=text, short_text=line[1], label=line[0])) 
             elif self.task_name in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa']:
                 examples.append(InputExample(guid=guid, text_a=line[1], label=line[0]))
+            elif self.task_name == "miras":
+                examples.append(InputExample(guid=guid, text_a=line[0], label=line[1]))
             else:
                 raise Exception("Task_name not supported.")
 
@@ -599,7 +603,8 @@ processors_mapping = {
     "trec": TextClassificationProcessor("trec"),
     "cr": TextClassificationProcessor("cr"),
     "mpqa": TextClassificationProcessor("mpqa"),
-    "farstail": FarstailProcessor()
+    "farstail": FarstailProcessor(),
+    "miras": TextClassificationProcessor("miras")
 }
 
 num_labels_mapping = {
@@ -619,7 +624,8 @@ num_labels_mapping = {
     "trec": 6,
     "cr": 2,
     "mpqa": 2,
-    "farstail": 3
+    "farstail": 3,
+    "miras": 3
 }
 
 output_modes_mapping = {
@@ -640,7 +646,8 @@ output_modes_mapping = {
     "trec": "classification",
     "cr": "classification",
     "mpqa": "classification",
-    "farstail": "classification"
+    "farstail": "classification",
+    "miras": "classification"
 }
 
 # Return a function that takes (task_name, preds, labels) as inputs
@@ -663,6 +670,7 @@ compute_metrics_mapping = {
     "cr": text_classification_metrics,
     "mpqa": text_classification_metrics,
     "farstail": text_classification_metrics,
+    "miras": text_classification_metrics
 }
 
 # For regression task only: median

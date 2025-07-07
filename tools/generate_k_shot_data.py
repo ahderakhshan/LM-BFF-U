@@ -36,7 +36,7 @@ def get_label(task, line):
         if task == "farstail":
             return line[2]
         else:
-            return line[0]
+            return line[1]
 
 def load_datasets(data_dir, tasks):
     datasets = {}
