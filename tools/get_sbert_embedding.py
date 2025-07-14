@@ -14,7 +14,10 @@ def get_sentence(task, line):
             return line[1]
     else:
         # GLUE tasks
-        line = line.strip().split('\t')
+        if task in ["farstail", "miras"]:
+            line = line.strip().split(",")
+        else:
+            line = line.strip().split('\t')
         if task == 'CoLA':
             return line[-1]
         elif task == 'MNLI':
