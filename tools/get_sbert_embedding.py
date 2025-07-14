@@ -40,7 +40,7 @@ def get_sentence(task, line):
 
 def split_header(task, lines):
     """Returns if the task file has a header or not."""
-    if task in ["CoLA"]:
+    if task in ["CoLA", "farstail", "miras"]:
         return [], lines
     elif task in ["MNLI", "MRPC", "QNLI", "QQP", "RTE", "SNLI", "SST-2", "STS-B", "WNLI"]:
         return lines[0:1], lines[1:]
@@ -81,7 +81,8 @@ def main():
 
     args = parser.parse_args()
 
-    model = SentenceTransformer('{}-nli-stsb-mean-tokens'.format(args.sbert_model))
+    # model = SentenceTransformer('{}-nli-stsb-mean-tokens'.format(args.sbert_model))
+    model = SentenceTransformer(args.sbert_model)
     model = model.cuda()
 
     for task in args.task:
