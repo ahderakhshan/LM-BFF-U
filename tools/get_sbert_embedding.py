@@ -105,7 +105,8 @@ def main():
                     emb = model.encode(sent)
                     embeddings.append(emb)
                 embeddings = np.stack(embeddings)
-                np.save(os.path.join(folder, "{}_sbert-{}.npy".format(split, args.sbert_model)), embeddings)
+                #np.save(os.path.join(folder, "{}_sbert-{}.npy".format(split, args.sbert_model)), embeddings)
+                np.save(os.path.join(folder, "{}.npy".format(split)), embeddings)
 
 if __name__ == '__main__':
     main()
