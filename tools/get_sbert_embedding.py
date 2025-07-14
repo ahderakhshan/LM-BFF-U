@@ -35,6 +35,10 @@ def get_sentence(task, line):
             return line[-3] + ' ' + line[-2]
         elif task == 'WNLI':
             return line[1] + ' ' + line[2]
+        elif task == "farstail":
+            return line[0] + ' ' + line[1]
+        elif task == "miras":
+            return line[0]
         else:
             raise NotImplementedError
 
@@ -58,7 +62,7 @@ def load_datasets(data_dir, task, do_test=False):
         if do_test:
             splits.append('test')
     for split in splits:
-        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa']:
+        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras"]:
             filename = os.path.join(data_dir, f"{split}.csv")
             dataset[split] = pd.read_csv(filename, header=None).values.tolist()
         else:
