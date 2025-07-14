@@ -383,9 +383,9 @@ class FewShotDataset(torch.utils.data.Dataset):
             else:
                 raise NotImplementedError
 
-            self.support_emb = np.load(os.path.join(args.data_dir, "train_{}.npy".format(args.demo_filter_model)))
+            self.support_emb = np.load(os.path.join(args.data_dir, "train.npy"))
             self.query_emb = np.load(os.path.join(args.data_dir, "{}_{}.npy".format(split_name, args.demo_filter_model)))
-            logger.info("Load embeddings (for demonstration filtering) from {}".format(os.path.join(args.data_dir, "{}_{}.npy".format(split_name, args.demo_filter_model))))
+            logger.info("Load embeddings (for demonstration filtering) from {}".format(os.path.join(args.data_dir, "{}.npy".format(split_name)))
 
             assert len(self.support_emb) == len(self.support_examples)
             assert len(self.query_emb) == len(self.query_examples)
