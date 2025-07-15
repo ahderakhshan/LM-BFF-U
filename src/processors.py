@@ -199,8 +199,6 @@ class FarstailProcessor(DataProcessor):
         #print(f"lines are {lines}")
         for (i, line) in enumerate(lines):
             #print(f"line is {line}")
-            if i == 0:
-                continue
             guid = "%s-%s" % (set_type, line[0])
             text_a = line[0]
             text_b = line[1]
