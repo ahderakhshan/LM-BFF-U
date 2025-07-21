@@ -6,7 +6,7 @@ do
     do
         for lr in 1e-5 2e-5 5e-5
         do
-            TAG=exp \
+            TAG=farstail_demo_no_filter \
             TYPE=prompt-demo \
             TASK=farstail \
             BS=$bs \
