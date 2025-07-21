@@ -574,6 +574,7 @@ class TextClassificationProcessor(DataProcessor):
             elif self.task_name == "miras":
                 if line[1] in [0,1,2]:
                     examples.append(InputExample(guid=guid, text_a=line[0], label=line[1]))
+                    print(f"example with label {line[1]} added")
                 else:
                     print("not added")
             else:
