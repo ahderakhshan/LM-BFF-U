@@ -1,8 +1,8 @@
 
 
-for seed in 13 21 87 100
+for seed in 13 21 42 87 100
 do
-    for bs in 2 4 8
+    for bs in 8
     do
         for lr in 1e-5 2e-5 5e-5
         do
