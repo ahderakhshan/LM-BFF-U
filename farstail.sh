@@ -1,6 +1,6 @@
 
 
-for seed in 13 21 87 100
+for seed in 13 21 42 87 100
 do
     for bs in 2 4 8
     do
