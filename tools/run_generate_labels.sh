@@ -29,7 +29,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="miras"
+TASKS="farstail"
 
 SEEDS="100 13 21 42 87"
 
