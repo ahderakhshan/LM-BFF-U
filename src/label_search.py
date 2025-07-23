@@ -16,6 +16,8 @@ logger = logging.getLogger(__name__)
 def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, is_regression=False):
     """Pre-select likely words based on conditional likelihood."""
     indices = []
+    roberta_token = "Ġ"
+    bert_token = "##"
     if is_regression:
         median = np.median(train_labels)
         train_labels = (train_labels > median).astype(np.int)
@@ -27,7 +29,7 @@ def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, i
         kept = []
         for i in np.argsort(-scores):
             text = vocab[i]
-            if not text.startswith("Ġ"):
+            if not text.startswith(bert_token):
                 continue
             kept.append(i)
         indices.append(kept[:k_likely])
