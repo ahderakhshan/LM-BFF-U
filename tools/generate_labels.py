@@ -280,7 +280,7 @@ def main():
             mapping = {labels[i]: words[i] for i in range(len(labels))}
             if data_args.write_template:
                 f.write(data_args.template + "\t")
-            f.write(json.dumps(mapping) + "\n")
+            f.write(json.dumps(mapping, ensure_ascii=False) + "\n")
 
 
 if __name__ == "__main__":
