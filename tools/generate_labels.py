@@ -207,11 +207,12 @@ def main():
         config=config,
         cache_dir=model_args.cache_dir,
     )
-
+    special_token = "Ġ"
     # For BERT, increase the size of the segment (token type) embeddings
     if config.model_type == 'bert':
         model.resize_token_embeddings(len(tokenizer))
         resize_token_type_embeddings(model, new_num_types=10, random_segment=True) # this line change
+        special_token = "##"
 
     # Pass dataset and argument information to the model
     model.model_args = model_args
@@ -239,7 +240,7 @@ def main():
     # Assign words to labels.
     if data_args.use_seed_labels:
         if data_args.use_space_word:
-            seed_labels = {k: "Ġ" + v for k, v in eval(data_args.mapping).items()}
+            seed_labels = {k: special_token + v for k, v in eval(data_args.mapping).items()}
         else:
             seed_labels = eval(data_args.word_mapping)
         seed_labels = [seed_labels[label] for label in dataset.get_labels()]
@@ -274,7 +275,7 @@ def main():
     print(f"label pairing is {label_pairings}")
     with open(data_args.output_file, mode) as f:
         for pairing in label_pairings:
-            words = [vocab[i][len("Ġ"):] for i in pairing]
+            words = [vocab[i][len(special_token):] for i in pairing]
             print(f"words is {words}")
             mapping = {labels[i]: words[i] for i in range(len(labels))}
             if data_args.write_template:

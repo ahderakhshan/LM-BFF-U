@@ -27,7 +27,7 @@ def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, i
         kept = []
         for i in np.argsort(-scores):
             text = vocab[i]
-            if not text.startswith("Ġ"):
+            if not text.startswith("##"):
                 continue
             kept.append(i)
         indices.append(kept[:k_likely])
