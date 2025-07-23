@@ -10,7 +10,7 @@ DATA_DIR="data/k-shot"
 OUTPUT_DIR="my_auto_label_mapping"
 
 # Pre-trained model name (roberta-*, bert-*), see Transformers.
-MODEL_NAME="roberta-large"
+MODEL_NAME="/kaggle/working/all_minilm/bert-base-parsbert-uncased"
 
 # For auto T + L, we first generate automatic templates. Then, for each template, we
 # generate automatic labels. Finally we will train all auto template X auto labels and
@@ -107,6 +107,10 @@ for TASK in $TASKS; do
                 MAPPING="{0:'terrible',1:'great'}"
                 TASK_EXTRA="--first_sent_limit 110"
                 ;;
+            farstail)
+                TEMPLATE=*cls**sent_0*؟_*mask*،_*sent_1**sep+*
+                MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
+                ;;
         esac
 
         if [[ $LOAD_TEMPLATES = "true" ]]; then
@@ -143,7 +147,7 @@ for TASK in $TASKS; do
                    --k_likely $K_LIKELY \
                    --k_neighbors $K_NEIGHBORS \
                    --n_pairs $N_PAIRS \
-                   --max_seq_len 256 \
+                   --max_seq_len 512 \
                    --per_device_eval_batch_size 16 \
                    $TASK_EXTRA
         fi
