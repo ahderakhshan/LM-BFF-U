@@ -23,6 +23,7 @@ def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, i
     for idx in range(num_labels):
         label_logits = train_logits[train_labels == idx]
         scores = label_logits.mean(axis=0)
+        print(f"scores is {scores}")
         kept = []
         for i in np.argsort(-scores):
             text = vocab[i]
