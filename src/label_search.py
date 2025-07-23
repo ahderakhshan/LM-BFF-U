@@ -30,6 +30,8 @@ def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, i
                 continue
             kept.append(i)
         indices.append(kept[:k_likely])
+        print(f"kept is {kept}")
+    print(f"indices is {indices}")
     return indices
 
 
