@@ -13,11 +13,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, is_regression=False):
+def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, is_regression=False, special_token="Ġ"):
     """Pre-select likely words based on conditional likelihood."""
     indices = []
-    roberta_token = "Ġ"
-    bert_token = "##"
     if is_regression:
         median = np.median(train_labels)
         train_labels = (train_labels > median).astype(np.int)
@@ -29,7 +27,7 @@ def select_likely_words(train_logits, train_labels, k_likely=1000, vocab=None, i
         kept = []
         for i in np.argsort(-scores):
             text = vocab[i]
-            if not text.startswith(bert_token):
+            if not text.startswith(special_token):
                 continue
             kept.append(i)
         indices.append(kept[:k_likely])
@@ -85,6 +83,7 @@ def find_labels(
     top_n=-1,
     vocab=None,
     is_regression=False,
+    special_token="Ġ"
 ):
     # Get top indices based on conditional likelihood using the LM.
     likely_indices = select_likely_words(
@@ -92,7 +91,8 @@ def find_labels(
         train_labels=train_labels,
         k_likely=k_likely,
         vocab=vocab,
-        is_regression=is_regression)
+        is_regression=is_regression,
+        special_token=special_token)
 
     logger.info("Top labels (conditional) per class:")
     for i, inds in enumerate(likely_indices):

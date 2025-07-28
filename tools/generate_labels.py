@@ -259,7 +259,8 @@ def main():
         k_neighbors=data_args.k_neighbors,
         top_n=data_args.n_pairs,
         vocab=vocab,
-        is_regression=config.num_labels == 1)
+        is_regression=config.num_labels == 1,
+        special_token=special_token)
 
     labels = dataset.get_labels()
     if config.num_labels == 1:
