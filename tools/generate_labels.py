@@ -263,7 +263,7 @@ def main():
         seed_labels = None
 
     vocab = tokenizer.get_vocab() # change from list()
-    vocab_dict = {v:k for k,v in vocab.items()}
+    vocab = {v:k for k,v in vocab.items()}
 
     # Find best labels.
     label_pairings = find_labels(
@@ -292,7 +292,7 @@ def main():
     print(f"label pairing is {label_pairings}")
     with open(data_args.output_file, mode, encoding="utf-8") as f:
         for pairing in label_pairings:
-            words = [tokenizer.convert_tokens_to_string(vocab_dict[i][len(special_token):]) for i in pairing]
+            words = [tokenizer.convert_tokens_to_string(vocab[i][len(special_token):]) for i in pairing]
             print(f"words is {words}")
             mapping = {labels[i]: words[i] for i in range(len(labels))}
             if data_args.write_template:
