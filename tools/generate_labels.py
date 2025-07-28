@@ -291,7 +291,7 @@ def main():
     print(f"label pairing is {label_pairings}")
     with open(data_args.output_file, mode, encoding="utf-8") as f:
         for pairing in label_pairings:
-            words = [fix_encoding(vocab[i][len(special_token):]) for i in pairing]
+            words = [vocab[i][len(special_token):] for i in pairing]
             print(f"words is {words}")
             mapping = {labels[i]: words[i] for i in range(len(labels))}
             if data_args.write_template:
