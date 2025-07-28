@@ -123,6 +123,18 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
     )
 
 
+def fix_encoding(garbled_text):
+    # Convert the garbled string to bytes assuming it was interpreted as Latin-1
+    byte_data = garbled_text.encode('latin1')
+
+    # Decode the bytes properly as UTF-8 (Persian uses Unicode)
+    try:
+        corrected_text = byte_data.decode('utf-8')
+    except UnicodeDecodeError as e:
+        corrected_text = f"Error decoding: {e}"
+
+    return corrected_text
+
 def main():
     parser = HfArgumentParser((ModelArguments, DynamicDataTrainingArguments, TrainingArguments))
 
@@ -276,7 +288,7 @@ def main():
     print(f"label pairing is {label_pairings}")
     with open(data_args.output_file, mode, encoding="utf-8") as f:
         for pairing in label_pairings:
-            words = [vocab[i][len(special_token):] for i in pairing]
+            words = [fix_encoding(vocab[i][len(special_token):]) for i in pairing]
             print(f"words is {words}")
             mapping = {labels[i]: words[i] for i in range(len(labels))}
             if data_args.write_template:
