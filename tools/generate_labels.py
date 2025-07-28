@@ -125,7 +125,10 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
 
 def fix_encoding(garbled_text):
     # Convert the garbled string to bytes assuming it was interpreted as Latin-1
-    byte_data = garbled_text.encode('latin1')
+    try:
+        byte_data = garbled_text.encode('latin1')
+    except:
+        return garbled_text
 
     # Decode the bytes properly as UTF-8 (Persian uses Unicode)
     try:
