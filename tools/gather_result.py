@@ -161,6 +161,7 @@ def main():
     if len(args.test_key2) > 0:
         s += "second metric: %.1f (%.1f) (median %.1f)" % (final_result_test2.mean() * 100, final_result_test2.std() * 100, np.median(final_result_test2) * 100)
     print(s)
+    print(len(final_result_test))
 
 if __name__ == '__main__':
     main()
