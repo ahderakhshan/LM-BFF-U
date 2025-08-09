@@ -94,9 +94,9 @@ case $TASK in
         TASK_EXTRA="--first_sent_limit 110  --double_demo"
         ;;
     farstail)
-      TEMPLATE=*cls**sent_0*_نتیجه_میدهد*sent_1*_؟*mask**sep+**
+      TEMPLATE=*cls**sent_0*_؟*mask*،_*sent_1**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/bert-base-parsbert-uncased --demo_filter"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
@@ -127,7 +127,6 @@ python run.py \
   --model_name_or_path $MODEL \
   --few_shot_type $TYPE \
   --num_k $K \
-  --max_seq_length 128 \
   --per_device_train_batch_size $REAL_BS \
   --per_device_eval_batch_size 16 \
   --gradient_accumulation_steps $GS \

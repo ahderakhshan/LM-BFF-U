@@ -448,7 +448,7 @@ class FewShotDataset(torch.utils.data.Dataset):
                 self.example_idx.append((query_idx, context_indices, sample_idx))
 
         # If it is not training, we pre-process the data; otherwise, we process the data online.
-        use_query = True
+        use_query = False
         if mode != "train":
             self.features = []
             _ = 0
