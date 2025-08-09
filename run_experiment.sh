@@ -96,12 +96,12 @@ case $TASK in
     farstail)
       TEMPLATE=*cls**sent_0*_؟*mask*،_*sent_1**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
       MAPPING="{0:'بد',2:'متوسط',1:'خوب'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 1 --demo_filter_model /kaggle/working/all_minilm/bert-base-parsbert-uncased --demo_filter"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 1 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
 esac
 
