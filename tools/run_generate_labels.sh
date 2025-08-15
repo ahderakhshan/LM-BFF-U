@@ -108,7 +108,7 @@ for TASK in $TASKS; do
                 TASK_EXTRA="--first_sent_limit 110"
                 ;;
             farstail)
-                TEMPLATE=*cls**sent_0*_؟*mask*،_*sent_1**sep+*
+                TEMPLATE=*cls*_رابطه_*sent_0*_و_*sent_1*_برابر_*mask*_است._*sep+*
                 MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
                 ;;
             miras)
