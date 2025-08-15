@@ -112,7 +112,7 @@ for TASK in $TASKS; do
                 MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
                 ;;
             miras)
-                TEMPLATE=*cls*mask*_بود*sent_0*sep+*
+                TEMPLATE=*cls*احساس_جمله_*sent_0*_برابر_*mask*_است._sep+*
                 MAPPING="{0:'بد',2:'متوسط',1:'خوب'}"
                 ;;
         esac
