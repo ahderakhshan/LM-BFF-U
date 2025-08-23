@@ -35,6 +35,8 @@ def get_label(task, line):
     else:
         if task == "farstail":
             return line[2]
+        elif task == "miras-sparrow":
+            return line[0]
         else:
             return line[1]
 
@@ -115,7 +117,12 @@ def main():
                 # Other datasets
                 if task == "farstail":
                     train_header = ["premise", "hypothesis", "label"]
-                train_lines = dataset['train'].values.tolist()
+                    train_lines = dataset['train'].values.tolist()
+                if task == "miras-sparrow":
+                    train_header = ["label", "content"]
+                    print(dataset["train"].values[:1].tolist())
+                    train_lines = dataset["train"].values[1:].tolist()
+
                 np.random.shuffle(train_lines)
 
             # Set up dir

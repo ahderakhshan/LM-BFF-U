@@ -550,6 +550,8 @@ class TextClassificationProcessor(DataProcessor):
             return list(range(2))
         elif self.task_name == "miras":
             return list(range(3))
+        elif self.task_name == "miras-sparrow":
+            return list(range(3))
         else:
             raise Exception("task_name not supported.")
         
@@ -577,6 +579,8 @@ class TextClassificationProcessor(DataProcessor):
                     print(f"example with label {line[1]} added")
                 else:
                     print("not added")
+            elif self.task_name == "miras-sparrow":
+                examples.append(InputExample(guid=guid, text_a=line[1], label=line[0]))
             else:
                 raise Exception("Task_name not supported.")
 
@@ -606,7 +610,8 @@ processors_mapping = {
     "cr": TextClassificationProcessor("cr"),
     "mpqa": TextClassificationProcessor("mpqa"),
     "farstail": FarstailProcessor(),
-    "miras": TextClassificationProcessor("miras")
+    "miras": TextClassificationProcessor("miras"),
+    "miras-sparrow": TextClassificationProcessor("miras-sparrow")
 }
 
 num_labels_mapping = {
@@ -627,7 +632,8 @@ num_labels_mapping = {
     "cr": 2,
     "mpqa": 2,
     "farstail": 3,
-    "miras": 3
+    "miras": 3,
+    "miras-sparrow": 3
 }
 
 output_modes_mapping = {
@@ -649,7 +655,8 @@ output_modes_mapping = {
     "cr": "classification",
     "mpqa": "classification",
     "farstail": "classification",
-    "miras": "classification"
+    "miras": "classification",
+    "miras-sparrow": "classification"
 }
 
 # Return a function that takes (task_name, preds, labels) as inputs
@@ -672,7 +679,8 @@ compute_metrics_mapping = {
     "cr": text_classification_metrics,
     "mpqa": text_classification_metrics,
     "farstail": text_classification_metrics,
-    "miras": text_classification_metrics
+    "miras": text_classification_metrics,
+    "miras-sparrow": text_classification_metrics,
 }
 
 # For regression task only: median
