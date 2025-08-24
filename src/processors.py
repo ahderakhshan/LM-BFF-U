@@ -551,7 +551,7 @@ class TextClassificationProcessor(DataProcessor):
         elif self.task_name == "miras":
             return list(range(3))
         elif self.task_name == "miras-sparrow":
-            return list(range(3))
+            return ["Positive", "Negative", "Neutral"]
         else:
             raise Exception("task_name not supported.")
         
