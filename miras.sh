@@ -12,7 +12,7 @@ do
             BS=$bs \
             LR=$lr \
             SEED=$seed \
-            MODEL=/kaggle/working/all_minilm/roberta-fa-zwnj-base \
+            MODEL=/kaggle/working/all_minilm/bert-base-parsbert-uncased \
             bash run_experiment.sh
         done
     done
