@@ -113,7 +113,7 @@ for TASK in $TASKS; do
                 ;;
             miras-sparrow)
                 TEMPLATE=*cls*mask*_بود*sent_0*sep+*
-                MAPPING="{0:'بد',2:'متوسط',1:'خوب'}"
+                MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'منفی'}"
                 ;;
         esac
 
