@@ -27,7 +27,7 @@ K_LIKELY=100
 K_NEIGHBORS=30
 
 # How many label mappings per template to keep at the end.
-N_PAIRS=100
+N_PAIRS=10
 
 TASKS="miras-sparrow"
 
