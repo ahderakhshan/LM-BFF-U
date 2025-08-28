@@ -10,7 +10,7 @@ DATA_DIR="data/k-shot"
 OUTPUT_DIR="my_auto_label_mapping"
 
 # Pre-trained model name (roberta-*, bert-*), see Transformers.
-MODEL_NAME="/kaggle/working/all_minilm/bert-base-parsbert-uncased"
+MODEL_NAME="/kaggle/working/all_minilm/roberta-fa-zwnj-base"
 
 # For auto T + L, we first generate automatic templates. Then, for each template, we
 # generate automatic labels. Finally we will train all auto template X auto labels and
@@ -29,7 +29,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="miras"
+TASKS="miras-sparrow"
 
 SEEDS="100 13 21 42 87"
 
@@ -111,8 +111,8 @@ for TASK in $TASKS; do
                 TEMPLATE=*cls*_رابطه_*sent_0*_و_*sent_1*_برابر_*mask*_است._*sep+*
                 MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
                 ;;
-            miras)
-                TEMPLATE=*cls*احساس_جمله_*sent_0*_برابر_*mask*_است._sep+*
+            miras-sparrow)
+                TEMPLATE=*cls*mask*_بود*sent_0*sep+*
                 MAPPING="{0:'بد',2:'متوسط',1:'خوب'}"
                 ;;
         esac
