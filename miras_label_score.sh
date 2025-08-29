@@ -1,4 +1,4 @@
-for mapping_id in {0..99}
+for mapping_id in {0..10}
 do
     for seed in 13 21 42 87 100
     do
@@ -14,6 +14,6 @@ do
         LR=$lr \
         SEED=$seed \
         MODEL=/kaggle/working/all_minilm/roberta-fa-zwnj-base \
-        bash run_experiment.sh "--mapping_path my_auto_label_mapping/manual_templates/miras-sparrow/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiment.sh "--mapping_path my_auto_label_mapping/manual_template/miras-sparrow/16-$seed.txt --mapping_id $mapping_id --no_predict"
     done
 done
