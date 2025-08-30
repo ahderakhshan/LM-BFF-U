@@ -1,0 +1,10 @@
+﻿{"Positive": "عالی", "Negative": "سالش", "Neutral": "نظرتون"}
+{"Positive": "کنارش", "Negative": "همینطوری", "Neutral": "کامنت"}
+{"Positive": "راضی", "Negative": "سالش", "Neutral": "نظرتون"}
+{"Positive": "مدنظرتان", "Negative": "اونجایی", "Neutral": "نظرتون"}
+{"Positive": "کنارش", "Negative": "وقتایی", "Neutral": "نظرتون"}
+{"Positive": "مدنظرتان", "Negative": "قاجاریه", "Neutral": "نظرتون"}
+{"Positive": "مدنظرتان", "Negative": "وقتایی", "Neutral": "نظرتون"}
+{"Positive": "عالی", "Negative": "وقتایی", "Neutral": "نظرتون"}
+{"Positive": "کنارم", "Negative": "وقتایی", "Neutral": "نظرتون"}
+{"Positive": "جذاب", "Negative": "اینا", "Neutral": "نظرتون"}

@@ -1,0 +1,10 @@
+﻿{"Positive": "جذاب", "Negative": "مسخره", "Neutral": "نوشته"}
+{"Positive": "رایگان", "Negative": "همانی", "Neutral": "اگه"}
+{"Positive": "جذابی", "Negative": "عجیب", "Neutral": "خریده"}
+{"Positive": "دیدنی", "Negative": "ندیده", "Neutral": "قرار"}
+{"Positive": "امده", "Negative": "عجیب", "Neutral": "اگه"}
+{"Positive": "شایسته", "Negative": "ندیده", "Neutral": "قرار"}
+{"Positive": "شایسته", "Negative": "امده", "Neutral": "قرار"}
+{"Positive": "امده", "Negative": "عجیب", "Neutral": "امیدوار"}
+{"Positive": "سالم", "Negative": "همانی", "Neutral": "امیدوار"}
+{"Positive": "سالم", "Negative": "خونده", "Neutral": "امیدوار"}

@@ -1,0 +1,10 @@
+﻿0.54167 {"Positive": "گرون", "Negative": "غافلگیرکننده", "Neutral": "گزیده"}
+0.52083 {"Positive": "راضی", "Negative": "غافلگیرکننده", "Neutral": "گزیده"}
+0.52083 {"Positive": "مدنظرتان", "Negative": "فهمیده", "Neutral": "شایسته"}
+0.50000 {"Positive": "اورجینال", "Negative": "غافلگیرکننده", "Neutral": "گزیده"}
+0.47917 {"Positive": "مدنظرتان", "Negative": "محتمل", "Neutral": "شایسته"}
+0.47917 {"Positive": "چطوره", "Negative": "وقتا", "Neutral": "همراهتان"}
+0.47917 {"Positive": "مطمئن", "Negative": "خاطرم", "Neutral": "شایسته"}
+0.45833 {"Positive": "راضی", "Negative": "وقتایی", "Neutral": "پرسیده"}
+0.45833 {"Positive": "راضی", "Negative": "وقتایی", "Neutral": "ویرگول"}
+0.45833 {"Positive": "چطوره", "Negative": "وقتا", "Neutral": "پرسیده"}

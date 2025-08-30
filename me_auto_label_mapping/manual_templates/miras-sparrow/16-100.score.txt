@@ -1,0 +1,10 @@
+﻿0.66667 {"Positive": "عالی", "Negative": "سالش", "Neutral": "نظرتون"}
+0.66667 {"Positive": "کنارش", "Negative": "همینطوری", "Neutral": "کامنت"}
+0.66667 {"Positive": "راضی", "Negative": "سالش", "Neutral": "نظرتون"}
+0.64583 {"Positive": "مدنظرتان", "Negative": "اونجایی", "Neutral": "نظرتون"}
+0.62500 {"Positive": "کنارش", "Negative": "وقتایی", "Neutral": "نظرتون"}
+0.60417 {"Positive": "مدنظرتان", "Negative": "قاجاریه", "Neutral": "نظرتون"}
+0.60417 {"Positive": "مدنظرتان", "Negative": "وقتایی", "Neutral": "نظرتون"}
+0.60417 {"Positive": "عالی", "Negative": "وقتایی", "Neutral": "نظرتون"}
+0.58333 {"Positive": "کنارم", "Negative": "وقتایی", "Neutral": "نظرتون"}
+0.56250 {"Positive": "جذاب", "Negative": "اینا", "Neutral": "نظرتون"}

@@ -1,0 +1,10 @@
+﻿{"Positive": "گرون", "Negative": "غافلگیرکننده", "Neutral": "گزیده"}
+{"Positive": "راضی", "Negative": "غافلگیرکننده", "Neutral": "گزیده"}
+{"Positive": "مدنظرتان", "Negative": "فهمیده", "Neutral": "شایسته"}
+{"Positive": "اورجینال", "Negative": "غافلگیرکننده", "Neutral": "گزیده"}
+{"Positive": "مدنظرتان", "Negative": "محتمل", "Neutral": "شایسته"}
+{"Positive": "چطوره", "Negative": "وقتا", "Neutral": "همراهتان"}
+{"Positive": "مطمئن", "Negative": "خاطرم", "Neutral": "شایسته"}
+{"Positive": "راضی", "Negative": "وقتایی", "Neutral": "پرسیده"}
+{"Positive": "راضی", "Negative": "وقتایی", "Neutral": "ویرگول"}
+{"Positive": "چطوره", "Negative": "وقتا", "Neutral": "پرسیده"}

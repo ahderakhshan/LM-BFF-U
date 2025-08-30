@@ -105,7 +105,7 @@ case $TASK in
       ;;
     miras-sparrow)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
-      MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
+      MAPPING="{'Positive':'هرچی','Negative':'نشده','Neutral':'نظرتون'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/bert-base-parsbert-uncased --demo_filter"
       ;;
 esac

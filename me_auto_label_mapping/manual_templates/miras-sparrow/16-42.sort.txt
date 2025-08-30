@@ -1,0 +1,10 @@
+﻿{"Positive": "هرچی", "Negative": "نشده", "Neutral": "نظرتون"}
+{"Positive": "اونجایی", "Negative": "چندسالی", "Neutral": "سوالی"}
+{"Positive": "خوش", "Negative": "پابرجا", "Neutral": "سوالی"}
+{"Positive": "معروف", "Negative": "مدتها", "Neutral": "خلاصه"}
+{"Positive": "راضی", "Negative": "احمقانه", "Neutral": "امیدوار"}
+{"Positive": "راضی", "Negative": "احمقانه", "Neutral": "مثبت"}
+{"Positive": "چطوره", "Negative": "اونجایی", "Neutral": "….."}
+{"Positive": "حواسم", "Negative": "چندسالی", "Neutral": "سوالی"}
+{"Positive": "هرچی", "Negative": "گفته", "Neutral": "اگه"}
+{"Positive": "هرچی", "Negative": "گفته", "Neutral": "نظرتون"}

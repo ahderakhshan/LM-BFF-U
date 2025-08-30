@@ -123,10 +123,13 @@ def main():
             args.key = 'mpqa_dev_eval_acc'
             args.test_key = 'mpqa_test_eval_acc'
             print_name = condition['task_name']
+        elif condition['task_name'] == 'miras-sparrow':
+            args.key = 'miras-sparrow_dev_eval_acc'
+            print_name = condition['task_name']
         else:
             raise NotImplementedError
 
-    with open(args.log) as f:
+    with open(args.log, encoding="utf-8-sig") as f:
         result_list = []
         for line in f:
             result_list.append(eval(line))
@@ -155,14 +158,14 @@ def main():
         print("Seed %d has %d results" % (seed, len(seed_result[seed])))
 
         # Load all mappings
-        with open(os.path.join(args.mapping_dir, print_name, "{}-{}.txt".format(args.k, seed))) as f:
+        with open(os.path.join(args.mapping_dir, print_name, "{}-{}.txt".format(args.k, seed)), encoding="utf-8-sig") as f:
             mappings = []
             for line in f:
                 mappings.append(line.strip())
 
         # Write sorted mappings
-        fsort = open(os.path.join(args.mapping_dir, print_name, "{}-{}.sort.txt".format(args.k, seed)), 'w')
-        fscore = open(os.path.join(args.mapping_dir, print_name, "{}-{}.score.txt".format(args.k, seed)), 'w')
+        fsort = open(os.path.join(args.mapping_dir, print_name, "{}-{}.sort.txt".format(args.k, seed)), 'w', encoding="utf-8-sig")
+        fscore = open(os.path.join(args.mapping_dir, print_name, "{}-{}.score.txt".format(args.k, seed)), 'w', encoding="utf-8-sig")
 
         seed_result[seed].sort(key=lambda x: x[args.key], reverse=True)
         for item in seed_result[seed]:

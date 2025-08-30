@@ -1,0 +1,10 @@
+﻿0.68750 {"Positive": "جذاب", "Negative": "مسخره", "Neutral": "نوشته"}
+0.66667 {"Positive": "رایگان", "Negative": "همانی", "Neutral": "اگه"}
+0.60417 {"Positive": "جذابی", "Negative": "عجیب", "Neutral": "خریده"}
+0.58333 {"Positive": "دیدنی", "Negative": "ندیده", "Neutral": "قرار"}
+0.58333 {"Positive": "امده", "Negative": "عجیب", "Neutral": "اگه"}
+0.56250 {"Positive": "شایسته", "Negative": "ندیده", "Neutral": "قرار"}
+0.56250 {"Positive": "شایسته", "Negative": "امده", "Neutral": "قرار"}
+0.56250 {"Positive": "امده", "Negative": "عجیب", "Neutral": "امیدوار"}
+0.52083 {"Positive": "سالم", "Negative": "همانی", "Neutral": "امیدوار"}
+0.43750 {"Positive": "سالم", "Negative": "خونده", "Neutral": "امیدوار"}

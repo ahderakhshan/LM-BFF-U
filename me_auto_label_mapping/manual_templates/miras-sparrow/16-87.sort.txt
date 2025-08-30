@@ -1,8 +1,8 @@
+﻿{"Positive": "باحالی", "Negative": "نگذشته", "Neutral": "سوالی"}
 {"Positive": "اینا", "Negative": "نگذشته", "Neutral": "نظرتون"}
-{"Positive": "قشنگی", "Negative": "درحالی", "Neutral": "متاسف"}
-{"Positive": "باحالی", "Negative": "نگذشته", "Neutral": "سوالی"}
-{"Positive": "قشنگی", "Negative": "ترسیده", "Neutral": "متاسف"}
 {"Positive": "کوچیک", "Negative": "نگذشته", "Neutral": "سوالی"}
+{"Positive": "قشنگی", "Negative": "درحالی", "Neutral": "متاسف"}
+{"Positive": "قشنگی", "Negative": "ترسیده", "Neutral": "متاسف"}
 {"Positive": "عالی", "Negative": "نگذشته", "Neutral": "سوالی"}
 {"Positive": "قشنگی", "Negative": "فهمیده", "Neutral": "متاسف"}
 {"Positive": "مادرم", "Negative": "نگذشته", "Neutral": "سوالی"}
