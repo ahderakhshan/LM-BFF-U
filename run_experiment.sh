@@ -105,8 +105,8 @@ case $TASK in
       ;;
     miras-sparrow)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
-      MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      MAPPING="{'Positive':'جذاب','Negative':'مسخره','Neutral':'نوشته'}"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16  --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
 esac
 
@@ -125,7 +125,7 @@ python run.py \
   --task_name $TASK \
   --data_dir $DATA_DIR \
   --overwrite_output_dir \
-  --no_train \
+  --do_train \
   --do_eval \
   --do_predict \
   --evaluate_during_training \
