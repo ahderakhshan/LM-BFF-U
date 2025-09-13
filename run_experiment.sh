@@ -96,7 +96,7 @@ case $TASK in
     farstail)
       TEMPLATE=*cls**sent_0*_؟*mask*،_*sent_1**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
@@ -145,6 +145,7 @@ python run.py \
   --tag $TAG \
   --template $TEMPLATE \
   --mapping $MAPPING \
+  --save_logit \
   $TASK_EXTRA \
   $1 
 

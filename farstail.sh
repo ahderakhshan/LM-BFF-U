@@ -4,7 +4,7 @@ for seed in 13
 do
     for bs in 8
     do
-        for lr in 1e-5 2e-5 5e-5
+        for lr in 1e-5
         do
             TAG=farstail_roberta_demo_no_filter \
             TYPE=prompt-demo \
