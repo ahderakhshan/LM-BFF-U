@@ -20,6 +20,7 @@ from typing import List, Optional, Union
 from sentence_transformers import SentenceTransformer, util
 from copy import deepcopy
 import pandas as pd
+import csv
 
 logger = logging.getLogger(__name__)
 
@@ -449,6 +450,7 @@ class FewShotDataset(torch.utils.data.Dataset):
 
         # If it is not training, we pre-process the data; otherwise, we process the data online.
         use_query = False
+        write_demo = True
         if mode != "train":
             self.features = []
             _ = 0
@@ -457,6 +459,10 @@ class FewShotDataset(torch.utils.data.Dataset):
                 example = self.query_examples[query_idx]
                 # The demonstrations
                 supports = self.select_context([self.support_examples[i] for i in context_indices])
+                if write_demo:
+                    with open("./demos.csv", "a", encoding="utf-8-sig") as f:
+                        file_writer = csv.writer(f)
+                        file_writer.writerow([example] + supports)
                 if use_query:
                     counter = 0
                     for s in supports:
