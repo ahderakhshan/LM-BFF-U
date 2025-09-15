@@ -460,7 +460,7 @@ class FewShotDataset(torch.utils.data.Dataset):
                 # The demonstrations
                 supports = self.select_context([self.support_examples[i] for i in context_indices])
                 if write_demo:
-                    with open("./demos.csv", "a", encoding="utf-8-sig") as f:
+                    with open(f"./demos_{args.seed}_{args.task_name}.csv", "a", encoding="utf-8-sig") as f:
                         file_writer = csv.writer(f)
                         file_writer.writerow([example] + supports)
                 if use_query:

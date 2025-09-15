@@ -453,6 +453,7 @@ def main():
     )
 
     # Get our special datasets.
+    data_args.seed = training_args.seed
     train_dataset = (
         FewShotDataset(data_args, tokenizer=tokenizer, mode="train", use_demo=("demo" in model_args.few_shot_type))
     )
