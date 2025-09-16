@@ -146,7 +146,7 @@ python run.py \
   --template $TEMPLATE \
   --mapping $MAPPING \
   --save_logit \
-  --save_logit_dir logit/$TASK-$TYPE-$K-$SEED-$MODEL-$TRIAL_IDTF \
+  --save_logit_dir ./logit \
   $TASK_EXTRA \
   $1 
 
