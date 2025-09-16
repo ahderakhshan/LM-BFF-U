@@ -146,7 +146,7 @@ python run.py \
   --template $TEMPLATE \
   --mapping $MAPPING \
   --save_logit \
-  --save_logit-dir result
+  --save_logit-dir result \
   $TASK_EXTRA \
   $1 
 
