@@ -514,6 +514,9 @@ def main():
             label_ids_avg = label_ids_avg.astype(p.label_ids.dtype)
             assert (label_ids_avg - label_ids[0]).mean() < 1e-2
             label_ids = label_ids[0]
+            np.save(os.path.join(training_args.save_logit_dir,
+                                 "label_id_{}-{}-{}-{}.npy".format(test_dataset.task_name, training_args.model_id,
+                                                          training_args.array_id, seed)), logits)
 
             return compute_metrics_mapping[task_name](task_name, preds, label_ids)
 
