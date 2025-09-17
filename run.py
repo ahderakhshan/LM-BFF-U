@@ -614,6 +614,7 @@ def main():
                     num_logits = predictions.shape[-1]
                     logits = predictions.reshape([test_dataset.num_sample, -1, num_logits]).mean(axis=0)
                     preds = np.argmax(logits, axis=1)
+                    seed = data_args.data_dir.split("/")[-1]
                     np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}.npy".format(test_dataset.task_name, training_args.model_id, training_args.array_id, data_args.data_dir)), logits)
 
             test_results.update(test_result)
