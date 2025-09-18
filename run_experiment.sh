@@ -125,7 +125,7 @@ python run.py \
   --task_name $TASK \
   --data_dir $DATA_DIR \
   --overwrite_output_dir \
-  --no_train \
+  --do_train \
   --do_eval \
   --do_predict \
   --evaluate_during_training \
