@@ -208,7 +208,7 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
         default=False,
         metadata={"help": "Whether to use prompt-based fine-tuning"}
     )
-    template_list: list = field(
+    template_list: Optional[List[str]] = field(
         default=None,
         metadata={"help": "(DO NOT List of templates (only initialized after the program starts."}
     )
