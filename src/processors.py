@@ -728,7 +728,7 @@ processors_mapping = {
     # "cr": TextClassificationProcessor("cr"),
     # "mpqa": TextClassificationProcessor("mpqa"),
     "farstail": NewFarstailProcessor(),
-    "miras": TextClassificationProcessor("miras"),
+    "miras": NewTextClassificationProcessor("miras"),
     "miras-sparrow": NewTextClassificationProcessor("miras-sparrow")
 }
 
