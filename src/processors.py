@@ -216,8 +216,6 @@ class CustomExample:
         self.label = label
 
 class NewFarstailProcessor:
-    def __init__(self, data_dir):
-        self.data_dir = data_dir
 
     def get_example_from_tensor_dict(self, tensor_dict):
         """See base class."""
