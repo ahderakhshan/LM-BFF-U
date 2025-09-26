@@ -38,8 +38,13 @@ from torch.utils.data.distributed import DistributedSampler
 from torch.utils.data.sampler import RandomSampler, SequentialSampler
 
 import transformers
-from transformers.data.data_collator import DataCollator, DataCollatorWithPadding, default_data_collator
-from transformers.file_utils import WEIGHTS_NAME, is_datasets_available, is_in_notebook, is_torch_tpu_available
+# from transformers.data.data_collator import DataCollator, DataCollatorWithPadding, default_data_collator
+from transformers import DataCollatorWithPadding, default_data_collator
+from transformers.data.data_collator import DataCollator
+
+#from transformers.file_utils import WEIGHTS_NAME, is_datasets_available, is_in_notebook, is_torch_tpu_available
+from transformers.utils import WEIGHTS_NAME, is_datasets_available, is_in_notebook, is_torch_tpu_available
+
 from transformers.integrations import (
     default_hp_search_backend,
     is_comet_available,
@@ -50,8 +55,10 @@ from transformers.integrations import (
     run_hp_search_optuna,
     run_hp_search_ray,
 )
-from transformers.modeling_auto import MODEL_FOR_QUESTION_ANSWERING_MAPPING
-from transformers.modeling_utils import PreTrainedModel
+#from transformers.modeling_auto import MODEL_FOR_QUESTION_ANSWERING_MAPPING
+from transformers.models.auto.modeling_auto import MODEL_FOR_QUESTION_ANSWERING_MAPPING
+
+#from transformers.modeling_utils import PreTrainedModel
 from transformers.optimization import AdamW, get_linear_schedule_with_warmup
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.trainer_callback import (

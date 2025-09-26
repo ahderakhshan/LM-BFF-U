@@ -13,7 +13,7 @@ import random
 import transformers
 from src.processors import processors_mapping, num_labels_mapping, output_modes_mapping, compute_metrics_mapping, median_mapping
 from transformers.data.processors.utils import InputFeatures
-from transformers import DataProcessor, InputExample
+#from transformers import DataProcessor, InputExample
 import dataclasses
 from dataclasses import dataclass
 from typing import List, Optional, Union
