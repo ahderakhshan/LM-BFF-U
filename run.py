@@ -7,7 +7,7 @@ import sys
 from dataclasses import dataclass, field
 from typing import Callable, Dict, Optional
 import torch
-
+from typing import List, Optional
 import numpy as np
 
 import transformers
