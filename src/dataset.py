@@ -291,7 +291,7 @@ class FewShotDataset(torch.utils.data.Dataset):
                     self.label_to_word[key] = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(' ' + self.label_to_word[key])[0])
                 else:
                     self.label_to_word[key] = tokenizer.convert_tokens_to_ids(self.label_to_word[key])
-                logger.info("Label {} to word {} ({})".format(key, tokenizer.convert_idd_to_tokend(self.label_to_word[key]), self.label_to_word[key]))
+                logger.info("Label {} to word {} ({})".format(key, tokenizer.convert_ids_to_tokens(self.label_to_word[key]), self.label_to_word[key]))
             
             if len(self.label_list) > 1:
                 self.label_word_list = [self.label_to_word[label] for label in self.label_list]
