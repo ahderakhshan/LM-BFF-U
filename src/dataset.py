@@ -450,7 +450,7 @@ class FewShotDataset(torch.utils.data.Dataset):
 
         # If it is not training, we pre-process the data; otherwise, we process the data online.
         use_query = False
-        write_demo = True
+        write_demo = False
         if mode != "train":
             self.features = []
             _ = 0
