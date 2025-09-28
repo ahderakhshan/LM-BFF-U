@@ -145,8 +145,6 @@ python run.py \
   --tag $TAG \
   --template $TEMPLATE \
   --mapping $MAPPING \
-  --save_logit \
-  --save_logit_dir ./logit \
   $TASK_EXTRA \
   $1 
 
