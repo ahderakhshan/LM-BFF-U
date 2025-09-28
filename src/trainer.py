@@ -280,6 +280,7 @@ class Trainer(transformers.Trainer):
 
         # Multi-gpu training (should be after apex fp16 initialization)
         if self.args.n_gpu > 1:
+            print(f"number of gpus:{self.args.n_gpu}")
             model = torch.nn.DataParallel(model)
 
         # Distributed training (should be after apex fp16 initialization)
