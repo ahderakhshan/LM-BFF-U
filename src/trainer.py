@@ -340,6 +340,7 @@ class Trainer(transformers.Trainer):
             epochs_trained, int(num_train_epochs), desc="Epoch", disable=not self.args.local_rank == -1
         )
         for epoch in train_iterator:
+            print(f"epoch {epoch}")
             if isinstance(train_dataloader, DataLoader) and isinstance(train_dataloader.sampler, DistributedSampler):
                 train_dataloader.sampler.set_epoch(epoch)
 
@@ -356,7 +357,7 @@ class Trainer(transformers.Trainer):
                 self._past = None
 
             for step, inputs in enumerate(epoch_iterator):
-                print(f"epoch iterator: {step}")
+                #print(f"epoch iterator: {step}")
                 # Skip past any already trained steps if resuming training
                 if steps_trained_in_current_epoch > 0:
                     steps_trained_in_current_epoch -= 1
