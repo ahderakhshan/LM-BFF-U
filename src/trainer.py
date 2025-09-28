@@ -474,7 +474,9 @@ class Trainer(transformers.Trainer):
         print(len(eval_dataloader))
         print(eval_dataset.query_examples[0].text_a)
         print(type(eval_dataset))
-
+        for batch in eval_dataloader:
+            print({k: (v.shape if hasattr(v, "shape") else type(v)) for k, v in batch.items()})
+            break
         output = self.prediction_loop(eval_dataloader, description="Evaluation")
 
         self.log(output.metrics)
