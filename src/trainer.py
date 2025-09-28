@@ -279,6 +279,7 @@ class Trainer(transformers.Trainer):
             model, optimizer = amp.initialize(model, optimizer, opt_level=self.args.fp16_opt_level)
 
         # Multi-gpu training (should be after apex fp16 initialization)
+        print(f"number of gpus:{self.args.n_gpu}")
         if self.args.n_gpu > 1:
             print(f"number of gpus:{self.args.n_gpu}")
             model = torch.nn.DataParallel(model)
