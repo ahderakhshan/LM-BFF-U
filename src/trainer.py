@@ -254,7 +254,7 @@ class Trainer(transformers.Trainer):
         else:
             t_total = int(len(train_dataloader) // self.args.gradient_accumulation_steps * self.args.num_train_epochs)
             num_train_epochs = self.args.num_train_epochs
-
+        print(f"num train epochs {num_train_epochs}")
         self.create_optimizer_and_scheduler(num_training_steps=t_total)
         optimizer = self.optimizer
         scheduler = self.lr_scheduler
