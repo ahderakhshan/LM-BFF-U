@@ -283,13 +283,13 @@ class Trainer(transformers.Trainer):
             model = torch.nn.DataParallel(model)
 
         # Distributed training (should be after apex fp16 initialization)
-        if self.args.local_rank != -1:
-            model = torch.nn.parallel.DistributedDataParallel(
-                model,
-                device_ids=[self.args.local_rank],
-                output_device=self.args.local_rank,
-                find_unused_parameters=True,
-            )
+        # if self.args.local_rank != -1:
+        #     model = torch.nn.parallel.DistributedDataParallel(
+        #         model,
+        #         device_ids=[self.args.local_rank],
+        #         output_device=self.args.local_rank,
+        #         find_unused_parameters=True,
+        #     )
 
         # Train
         if transformers.is_torch_tpu_available():
