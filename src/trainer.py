@@ -356,7 +356,7 @@ class Trainer(transformers.Trainer):
                 self._past = None
 
             for step, inputs in enumerate(epoch_iterator):
-
+                print(f"epoch iterator: {step}")
                 # Skip past any already trained steps if resuming training
                 if steps_trained_in_current_epoch > 0:
                     steps_trained_in_current_epoch -= 1
