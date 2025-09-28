@@ -337,7 +337,7 @@ class Trainer(transformers.Trainer):
         logging_loss_scalar = 0.0
         model.zero_grad()
         train_iterator = trange(
-            epochs_trained, int(num_train_epochs), desc="Epoch", disable=not is_main_process()
+            epochs_trained, int(num_train_epochs), desc="Epoch", disable=not trainer.args.local_rank == -1
         )
         for epoch in train_iterator:
             if isinstance(train_dataloader, DataLoader) and isinstance(train_dataloader.sampler, DistributedSampler):
@@ -347,7 +347,7 @@ class Trainer(transformers.Trainer):
                 parallel_loader = pl.ParallelLoader(train_dataloader, [self.args.device]).per_device_loader(
                     self.args.device
                 )
-                epoch_iterator = tqdm(parallel_loader, desc="Iteration", disable=not is_main_process())
+                epoch_iterator = tqdm(parallel_loader, desc="Iteration", disable=not trainer.args.local_rank == -1)
             else:
                 epoch_iterator = tqdm(train_dataloader, desc="Iteration", disable=True)
 
