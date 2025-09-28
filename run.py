@@ -284,8 +284,8 @@ def main():
         datefmt="%m/%d/%Y %H:%M:%S",
         level=logging.INFO if training_args.local_rank in [-1, 0] else logging.WARN,
     )
-    torch.distributed.init_process_group(backend="nccl")
-    torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+    # torch.distributed.init_process_group(backend="nccl")
+    # torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
     # Load prompt/template/mapping file
     if data_args.prompt:
         if data_args.prompt_path is not None:
