@@ -337,7 +337,7 @@ class Trainer(transformers.Trainer):
         logging_loss_scalar = 0.0
         model.zero_grad()
         train_iterator = trange(
-            epochs_trained, int(num_train_epochs), desc="Epoch", disable=not trainer.args.local_rank == -1
+            epochs_trained, int(num_train_epochs), desc="Epoch", disable=not self.args.local_rank == -1
         )
         for epoch in train_iterator:
             if isinstance(train_dataloader, DataLoader) and isinstance(train_dataloader.sampler, DistributedSampler):
