@@ -420,7 +420,7 @@ class Trainer(transformers.Trainer):
                         if objective > self.objective:
                             logger.info("Best dev result: {}".format(objective))
                             self.objective = objective
-                            self.save_model(self.args.output_dir) 
+                            self.save_model(self.args.output_dir, safe_serialization=False)
 
                     # ----------------------------------------------------------------------
                     # END CHANGES.
