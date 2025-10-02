@@ -542,11 +542,12 @@ def main():
         # Use the early stop, so do not save the model in the end (unless specify save_at_last)
         if training_args.save_at_last:
             trainer.save_model(training_args.output_dir)
- 
-        if trainer.is_world_master():
-            tokenizer.save_pretrained(training_args.output_dir)
-            torch.save(model_args, os.path.join(training_args.output_dir, "model_args.bin"))
-            torch.save(data_args, os.path.join(training_args.output_dir, "data_args.bin"))
+
+        # Warning
+        # if trainer.is_world_master(): # Warningg
+        #     tokenizer.save_pretrained(training_args.output_dir)
+        #     torch.save(model_args, os.path.join(training_args.output_dir, "model_args.bin"))
+        #     torch.save(data_args, os.path.join(training_args.output_dir, "data_args.bin"))
         
         # Reload the best checkpoint (for eval)
         model = model_fn.from_pretrained(training_args.output_dir)
