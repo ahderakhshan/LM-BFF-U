@@ -271,7 +271,7 @@ class Trainer(transformers.Trainer):
             )
             scheduler.load_state_dict(torch.load(os.path.join(model_path, "scheduler.pt")))
 
-        model = self.model
+        model = self.model.to("cuda")
 
         if self.args.fp16 and _use_apex:
             if not transformers.is_apex_available():
@@ -286,13 +286,13 @@ class Trainer(transformers.Trainer):
 
         # Distributed training (should be after apex fp16 initialization)
         # print(f"args local rank {self.args.local_rank}")
-        if self.args.local_rank != -1:
-            model = torch.nn.parallel.DistributedDataParallel(
-                model,
-                device_ids=[self.args.local_rank],
-                output_device=self.args.local_rank,
-                find_unused_parameters=True,
-            )
+        # if self.args.local_rank != -1:
+        #     model = torch.nn.parallel.DistributedDataParallel(
+        #         model,
+        #         device_ids=[self.args.local_rank],
+        #         output_device=self.args.local_rank,
+        #         find_unused_parameters=True,
+        #     )
 
         # Train
         if transformers.is_torch_tpu_available():
