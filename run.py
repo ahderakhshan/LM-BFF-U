@@ -609,6 +609,7 @@ def main():
                 training_args.output_dir, f"test_results_{test_dataset.args.task_name}.txt"
             )
             if is_main_process(trainer.args.local_rank):
+                print("in mani process!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 with open(output_test_file, "w") as writer:
                     logger.info("***** Test results {} *****".format(test_dataset.args.task_name))
                     for key, value in test_result.items():
