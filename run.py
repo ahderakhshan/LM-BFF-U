@@ -27,6 +27,7 @@ import pandas as pd
 from copy import deepcopy
 from tqdm import tqdm
 import json
+from transformers.trainer_utils import is_main_process
 
 logger = logging.getLogger(__name__)
 
@@ -579,7 +580,7 @@ def main():
             output_eval_file = os.path.join(
                 training_args.output_dir, f"eval_results_{eval_dataset.args.task_name}.txt"
             )
-            if trainer.is_world_master():
+            if is_main_process(trainer.args.local_rank):
                 with open(output_eval_file, "w") as writer:
                     logger.info("***** Eval results {} *****".format(eval_dataset.args.task_name))
                     for key, value in eval_result.items():
@@ -606,7 +607,7 @@ def main():
             output_test_file = os.path.join(
                 training_args.output_dir, f"test_results_{test_dataset.args.task_name}.txt"
             )
-            if trainer.is_world_master():
+            if is_main_process(trainer.args.local_rank):
                 with open(output_test_file, "w") as writer:
                     logger.info("***** Test results {} *****".format(test_dataset.args.task_name))
                     for key, value in test_result.items():
