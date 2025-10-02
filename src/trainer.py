@@ -443,7 +443,7 @@ class Trainer(transformers.Trainer):
             delattr(self, "_past")
 
         logger.info("\n\nTraining completed. Do not forget to share your model on huggingface.co/models =)\n\n")
-        return TrainOutput(self.global_step, tr_loss / self.global_step), self.objective
+        return TrainOutput(self.global_step, tr_loss / self.global_step, {}), self.objective
 
 
     """
