@@ -544,10 +544,10 @@ def main():
             trainer.save_model(training_args.output_dir)
 
         # Warning
-        # if trainer.is_world_master(): # Warningg
-        #     tokenizer.save_pretrained(training_args.output_dir)
-        #     torch.save(model_args, os.path.join(training_args.output_dir, "model_args.bin"))
-        #     torch.save(data_args, os.path.join(training_args.output_dir, "data_args.bin"))
+        if  is_main_process(trainer.args.local_rank): # Warningg
+            tokenizer.save_pretrained(training_args.output_dir)
+            torch.save(model_args, os.path.join(training_args.output_dir, "model_args.bin"))
+            torch.save(data_args, os.path.join(training_args.output_dir, "data_args.bin"))
         
         # Reload the best checkpoint (for eval)
         model = model_fn.from_pretrained(training_args.output_dir)
@@ -581,7 +581,7 @@ def main():
             output_eval_file = os.path.join(
                 training_args.output_dir, f"eval_results_{eval_dataset.args.task_name}.txt"
             )
-            if not is_main_process(trainer.args.local_rank):
+            if is_main_process(trainer.args.local_rank):
                 with open(output_eval_file, "w") as writer:
                     logger.info("***** Eval results {} *****".format(eval_dataset.args.task_name))
                     for key, value in eval_result.items():
@@ -608,7 +608,7 @@ def main():
             output_test_file = os.path.join(
                 training_args.output_dir, f"test_results_{test_dataset.args.task_name}.txt"
             )
-            if not is_main_process(trainer.args.local_rank):
+            if is_main_process(trainer.args.local_rank):
                 with open(output_test_file, "w") as writer:
                     logger.info("***** Test results {} *****".format(test_dataset.args.task_name))
                     for key, value in test_result.items():
