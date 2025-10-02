@@ -612,6 +612,7 @@ def main():
                 print("in mani process!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 with open(output_test_file, "w") as writer:
                     logger.info("***** Test results {} *****".format(test_dataset.args.task_name))
+                    print(test_result.items())
                     for key, value in test_result.items():
                         logger.info("  %s = %s", key, value)
                         writer.write("%s = %s\n" % (key, value))
