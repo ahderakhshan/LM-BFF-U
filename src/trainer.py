@@ -232,6 +232,11 @@ class Trainer(transformers.Trainer):
                 self.optimizer, num_warmup_steps=self.args.warmup_steps, num_training_steps=num_training_steps
             )
 
+    @property
+    def current_gradient_accumulation_steps(self):
+        # Returns the configured gradient accumulation steps
+        return self.args.gradient_accumulation_steps
+
     def train(self, model_path=None, dev_objective=None):
         """
         Main training entry point.
