@@ -58,7 +58,9 @@ from transformers.integrations import (
 from transformers.models.auto.modeling_auto import MODEL_FOR_QUESTION_ANSWERING_MAPPING
 
 #from transformers.modeling_utils import PreTrainedModel
-from transformers.optimization import AdamW, get_linear_schedule_with_warmup
+# from transformers.optimization import AdamW, get_linear_schedule_with_warmup
+from torch.optim import AdamW
+from transformers import get_linear_schedule_with_warmup
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.trainer_callback import (
     CallbackHandler,
