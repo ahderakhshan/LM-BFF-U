@@ -634,6 +634,8 @@ def main():
             final_result.update(vars(model_args))
             final_result.update(vars(training_args))
             final_result.update(vars(data_args))
+            if 'distributed_state' in final_result:
+                final_result.pop('distributed_state')
             if 'evaluation_strategy' in final_result:
                 final_result.pop('evaluation_strategy')
             f.write(str(final_result) + '\n')
