@@ -544,7 +544,8 @@ def main():
             trainer.save_model(training_args.output_dir)
 
         # Warning
-        if  is_main_process(trainer.args.local_rank): # Warningg
+        print(is_main_process(trainer.args.local_rank))
+        if is_main_process(trainer.args.local_rank): # Warningg
             tokenizer.save_pretrained(training_args.output_dir)
             torch.save(model_args, os.path.join(training_args.output_dir, "model_args.bin"))
             torch.save(data_args, os.path.join(training_args.output_dir, "data_args.bin"))
