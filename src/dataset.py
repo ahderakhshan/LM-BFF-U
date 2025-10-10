@@ -333,6 +333,7 @@ class FewShotDataset(torch.utils.data.Dataset):
         logger.info(f"Creating/loading examples from dataset file at {args.data_dir}")
 
         lock_path = cached_features_file + ".lock"
+        print(f"{cached_features_file} is cached_feature_file")
         with FileLock(lock_path):
 
             if os.path.exists(cached_features_file) and not args.overwrite_cache:
