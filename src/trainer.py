@@ -43,7 +43,7 @@ from transformers import DataCollatorWithPadding, default_data_collator
 from transformers.data.data_collator import DataCollator
 
 #from transformers.file_utils import WEIGHTS_NAME, is_datasets_available, is_in_notebook, is_torch_tpu_available
-from transformers.utils import WEIGHTS_NAME, is_datasets_available, is_in_notebook, is_torch_tpu_available
+from transformers.utils import WEIGHTS_NAME, is_datasets_available, is_in_notebook, is_torch_xla_available
 
 from transformers.integrations import (
     is_comet_available,
@@ -126,7 +126,7 @@ else:
 if is_datasets_available():
     import datasets
 
-if is_torch_tpu_available():
+if is_torch_xla_available():
     import torch_xla.core.xla_model as xm
     import torch_xla.debug.metrics as met
     import torch_xla.distributed.parallel_loader as pl
@@ -295,7 +295,7 @@ class Trainer(transformers.Trainer):
         #     )
 
         # Train
-        if transformers.is_torch_tpu_available():
+        if is_torch_xla_available():
             total_train_batch_size = self.args.train_batch_size * xm.xrt_world_size()
         else:
             total_train_batch_size = (
@@ -344,7 +344,7 @@ class Trainer(transformers.Trainer):
             if isinstance(train_dataloader, DataLoader) and isinstance(train_dataloader.sampler, DistributedSampler):
                 train_dataloader.sampler.set_epoch(epoch)
 
-            if transformers.is_torch_tpu_available():
+            if transformerse.is_torch_xla_available():
                 parallel_loader = pl.ParallelLoader(train_dataloader, [self.args.device]).per_device_loader(
                     self.args.device
                 )
@@ -378,7 +378,7 @@ class Trainer(transformers.Trainer):
                     else:
                         norm = torch.nn.utils.clip_grad_norm_(model.parameters(), self.args.max_grad_norm)
 
-                    if transformers.is_torch_tpu_available():
+                    if transformers.is_torch_xla_available():
                         xm.optimizer_step(optimizer)
                     elif self.args.fp16 and _use_native_amp:
                         self.scaler.step(optimizer)
