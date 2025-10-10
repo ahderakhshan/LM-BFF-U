@@ -630,9 +630,9 @@ def main():
 
     with FileLock('log.lock'):
         with open('log', 'a') as f:
-            # final_result.update(vars(model_args))
+            final_result.update(vars(model_args))
             # final_result.update(vars(training_args))
-            # final_result.update(vars(data_args))
+            final_result.update(vars(data_args))
             if 'evaluation_strategy' in final_result:
                 final_result.pop('evaluation_strategy')
             f.write(str(final_result) + '\n')
