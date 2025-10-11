@@ -128,7 +128,7 @@ python run.py \
   --do_train \
   --do_eval \
   --do_predict \
-  --evaluate_during_training \
+  --eval_strategy steps \
   --model_name_or_path $MODEL \
   --few_shot_type $TYPE \
   --num_k $K \
@@ -145,6 +145,7 @@ python run.py \
   --tag $TAG \
   --template $TEMPLATE \
   --mapping $MAPPING \
+  --save_safetensors False \
   $TASK_EXTRA \
   $1 
 
