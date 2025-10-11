@@ -146,6 +146,7 @@ python run.py \
   --template $TEMPLATE \
   --mapping $MAPPING \
   --save_safetensors False \
+  --report_to none \
   $TASK_EXTRA \
   $1 
 
