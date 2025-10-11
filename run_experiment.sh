@@ -147,6 +147,7 @@ python run.py \
   --mapping $MAPPING \
   --save_safetensors False \
   --report_to none \
+  --overwrite_cache \
   $TASK_EXTRA \
   $1 
 
