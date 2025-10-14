@@ -283,7 +283,7 @@ class Trainer(transformers.Trainer):
             )
             scheduler.load_state_dict(torch.load(os.path.join(model_path, "scheduler.pt")))
 
-        model = self.model.to("cuda")
+        model = self.model
 
         if self.args.fp16 and _use_apex:
             if not transformers.is_apex_available():
