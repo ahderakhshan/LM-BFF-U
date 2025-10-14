@@ -293,13 +293,13 @@ class Trainer(transformers.Trainer):
 
         # Distributed training (should be after apex fp16 initialization)
         # print(f"args local rank {self.args.local_rank}")
-        # if self.args.local_rank != -1:
-        #     model = torch.nn.parallel.DistributedDataParallel(
-        #         model,
-        #         device_ids=[self.args.local_rank],
-        #         output_device=self.args.local_rank,
-        #         find_unused_parameters=True,
-        #     )
+        if self.args.local_rank != -1:
+            model = torch.nn.parallel.DistributedDataParallel(
+                model,
+                device_ids=[self.args.local_rank],
+                output_device=self.args.local_rank,
+                find_unused_parameters=True,
+            )
 
         # Train
         if is_torch_xla_available():
@@ -308,7 +308,7 @@ class Trainer(transformers.Trainer):
             total_train_batch_size = (
                 self.args.train_batch_size
                 * self.args.gradient_accumulation_steps
-               # * (torch.distributed.get_world_size() if self.args.local_rank != -1 else 1)
+                (torch.distributed.get_world_size() if self.args.local_rank != -1 else 1)
             )
         logger.info("***** Running training *****")
         logger.info("  Num examples = %d", self.num_examples(train_dataloader))
