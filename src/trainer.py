@@ -95,6 +95,7 @@ from transformers.trainer_utils import (
 )
 from transformers.training_args import TrainingArguments
 from transformers.utils import logging
+import torch.distributed as dist
 
 from tqdm import tqdm, trange
 
@@ -244,6 +245,8 @@ class Trainer(transformers.Trainer):
         The training logic is directly borrowed from transformers.Trainer (version 3.0.2).
         Add early stopping.
         """
+        dist.init_process_group("gloo", rank=self.args.local_rank, world_size=1)
+
         self.best_dir = None
         self.objective = -float("inf")
         self.dev_objective = dev_objective if dev_objective is not None else default_dev_objective
