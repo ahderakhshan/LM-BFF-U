@@ -245,9 +245,9 @@ class Trainer(transformers.Trainer):
         The training logic is directly borrowed from transformers.Trainer (version 3.0.2).
         Add early stopping.
         """
-        os.environ["MASTER_ADDR"] = "localhost"
-        os.environ["MASTER_PORT"] = "29500"
-        dist.init_process_group("gloo", rank=self.args.local_rank, world_size=1)
+        # os.environ["MASTER_ADDR"] = "localhost"
+        # os.environ["MASTER_PORT"] = "29500"
+        # dist.init_process_group("gloo", rank=self.args.local_rank, world_size=1)
 
         self.best_dir = None
         self.objective = -float("inf")
