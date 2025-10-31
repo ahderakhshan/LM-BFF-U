@@ -12,6 +12,7 @@ from transformers.models.bert.modeling_bert import (
 )
 # from transformers.modeling_roberta import RobertaForSequenceClassification, RobertaModel, RobertaLMHead, RobertaClassificationHead
 from transformers.models.roberta.modeling_roberta import (
+    RobertaPreTrainedModel,
     RobertaForSequenceClassification,
     RobertaModel,
     RobertaLMHead,
@@ -128,7 +129,7 @@ class BertForPromptFinetuning(BertPreTrainedModel):
 
 
 
-class RobertaForPromptFinetuning(BertPreTrainedModel):
+class RobertaForPromptFinetuning(RobertaPreTrainedModel):
 
     def __init__(self, config):
         super().__init__(config)
