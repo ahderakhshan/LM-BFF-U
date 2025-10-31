@@ -164,17 +164,20 @@ def default_dev_objective(metrics):
     """
     Objective used for picking the best model on development sets
     """
+    print(metrics)
     if "eval_mnli/acc" in metrics:
         return metrics["eval_mnli/acc"]
     elif "eval_mnli-mm/acc" in metrics:
         return metrics["eval_mnli-mm/acc"]
     elif "eval_f1" in metrics:
+        print("returned f1")
         return metrics["eval_f1"]
     elif "eval_mcc" in metrics:
         return metrics["eval_mcc"]
     elif "eval_pearson" in metrics:
         return metrics["eval_pearson"]
     elif "eval_acc" in metrics:
+        print("returned acc")
         return metrics["eval_acc"]
  
     raise Exception("No metric founded for {}".format(metrics))
