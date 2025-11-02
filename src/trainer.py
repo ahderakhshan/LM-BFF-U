@@ -434,6 +434,8 @@ class Trainer(transformers.Trainer):
                         print("in evaluating!!!!!!!!!!!!")
                         output = self.evaluate()
                         metrics = output.metrics
+                        print("metrics")
+                        print(metrics)
                         objective = self.dev_objective(metrics)
                         if objective > self.objective:
                             logger.info("Best dev result: {}".format(objective))

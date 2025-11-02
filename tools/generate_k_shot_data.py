@@ -35,7 +35,7 @@ def get_label(task, line):
     else:
         if task == "farstail":
             return line[2]
-        elif task == "miras-sparrow":
+        elif task == "miras-sparrow" or "miras-sparrow-pretrain":
             return line[0]
         else:
             return line[1]
@@ -118,7 +118,7 @@ def main():
                 if task == "farstail":
                     train_header = ["premise", "hypothesis", "label"]
                     train_lines = dataset['train'].values.tolist()
-                if task == "miras-sparrow":
+                if task in ["miras-sparrow", "miras-sparrow-pretrain"]:
                     train_header = ["label", "content"]
                     print(dataset["train"].values[:1].tolist())
                     train_lines = dataset["train"].values[1:].tolist()
