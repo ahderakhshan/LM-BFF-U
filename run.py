@@ -115,11 +115,6 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
         metadata={"help": "Path to a txt file that stores all the prompts (templates and mappings), one per line"}
     )
 
-    pretrained_dir: str = field(
-        default=None,
-        metadata={"help": "path to save roberta pretrained model"}
-    )
- 
     template_id: int = field(
         default=None,
         metadata={"help": "Template id if using template_path"}
@@ -249,6 +244,10 @@ class DynamicTrainingArguments(TrainingArguments):
         metadata={"help": "Fix bottom-n layers when optimizing"}
     )
 
+    pretrained_dir: str = field(
+        default=None,
+        metadata={"help": "path to save roberta pretrained model"}
+    )
     # Training
     save_at_last: bool = field(
         default=False,
