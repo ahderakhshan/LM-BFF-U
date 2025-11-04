@@ -478,7 +478,7 @@ def main():
 
     set_seed(training_args.seed)
     print("start loading model")
-    continue_pretrain = True
+    continue_pretrain = False
     if not continue_pretrain:
         model = model_fn.from_pretrained(
             model_args.model_name_or_path,
