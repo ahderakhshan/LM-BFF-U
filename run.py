@@ -114,6 +114,11 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
         default=None,
         metadata={"help": "Path to a txt file that stores all the prompts (templates and mappings), one per line"}
     )
+
+    pretrained_dir: str = field(
+        default=None,
+        metadata={"help": "path to save roberta pretrained model"}
+    )
  
     template_id: int = field(
         default=None,
