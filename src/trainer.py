@@ -442,9 +442,6 @@ class Trainer(transformers.Trainer):
                             logger.info("Best dev result: {}".format(objective))
                             self.objective = objective
                             self.save_model(self.args.output_dir)
-                            self.model.roberta.save_pretrained(self.args.pretrained_dir)
-                            self.model.classifier.save_pretrained(self.args.pretrained_dir)
-                            self.model.lm_head.save_pretrained(self.args.pretrained_dir)
 
 
                     # ----------------------------------------------------------------------
