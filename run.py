@@ -512,6 +512,7 @@ def main():
             # Note: the eval dataloader is sequential, so the examples are in order.
             # We average the logits over each sample for using demonstrations.
             predictions = p.predictions
+            print(f"len(predictions) = {len(predictions)}")
             num_logits = predictions.shape[-1]
             logits = predictions.reshape([eval_dataset.num_sample, -1, num_logits])
             logits = logits.mean(axis=0)
