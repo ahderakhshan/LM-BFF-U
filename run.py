@@ -438,6 +438,7 @@ def main():
         finetuning_task=data_args.task_name,
         cache_dir=model_args.cache_dir,
     )
+    training_args.do_eval = False
     print(f"model type is {config.model_type}")
     if 'prompt' in model_args.few_shot_type:
         if config.model_type == 'roberta':
