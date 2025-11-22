@@ -323,7 +323,7 @@ class NewTextClassificationProcessor:
                 examples.append(CustomExample(guid=guid, text_a=line[1], label=line[0]))
             else:
                 raise Exception("Task_name not supported.")
-        print(examples)
+        print(f"len examples is {len(examples)}")
         return examples
 
 
