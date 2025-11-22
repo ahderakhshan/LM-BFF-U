@@ -33,11 +33,21 @@ def get_label(task, line):
         else:
             raise NotImplementedError
     else:
+        if task == "parsinlu-nli":
+            return line[2]
         if task == "farstail":
             return line[2]
         elif task == "miras-sparrow" or "miras-sparrow-pretrain":
             return line[0]
+        elif task in ["parsinlu-food-sentiment", "parsinlu-movie-sentiment"]:
+            print("task in 41")
+            return line[0]
+        elif task == "parsinlu-nli":
+            print(line)
+            input("")
+            return line[2]
         else:
+            print("notask")
             return line[1]
 
 def load_datasets(data_dir, tasks):
@@ -122,6 +132,12 @@ def main():
                     train_header = ["label", "content"]
                     print(dataset["train"].values[:1].tolist())
                     train_lines = dataset["train"].values[1:].tolist()
+                if task in ["parsinlu-food-sentiment", "parsinlu-movie-sentiment"]:
+                    train_header = ["label", "review"]
+                    train_lines = dataset["train"].values.tolist()
+                if task in ["parsinlu-nli"]:
+                    train_header = ["sent1", "sent2", "label"]
+                    train_lines = dataset["train"].values[1:].tolist()
 
                 np.random.shuffle(train_lines)
 
@@ -150,6 +166,7 @@ def main():
             label_list = {}
             for line in train_lines:
                 label = get_label(task, line)
+                print(label)
                 if label not in label_list:
                     label_list[label] = [line]
                 else:
