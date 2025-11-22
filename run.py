@@ -615,7 +615,7 @@ def main():
             trainer.compute_metrics = build_compute_metrics_fn(test_dataset.args.task_name)
             output = trainer.evaluate(eval_dataset=test_dataset)
             test_result = output.metrics
-            print(f"len test result is {len(test_result)}")
+            print(f"len output is {len(output)}")
 
             output_test_file = os.path.join(
                 training_args.output_dir, f"test_results_{test_dataset.args.task_name}.txt"
