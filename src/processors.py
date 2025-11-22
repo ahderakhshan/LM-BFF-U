@@ -301,6 +301,8 @@ class NewTextClassificationProcessor:
             return list(range(3))
         elif self.task_name == "miras-sparrow":
             return ["Positive", "Negative", "Neutral"]
+        elif self.task_name == "parsinlu-food-sentiment":
+            return ["Positive", "Negative", "Neutral"]
         else:
             raise Exception("task_name not supported.")
 
@@ -316,6 +318,8 @@ class NewTextClassificationProcessor:
                 else:
                     print("not added")
             elif self.task_name == "miras-sparrow":
+                examples.append(CustomExample(guid=guid, text_a=line[1], label=line[0]))
+            elif self.task_name == "parsinlu-food-sentiment":
                 examples.append(CustomExample(guid=guid, text_a=line[1], label=line[0]))
             else:
                 raise Exception("Task_name not supported.")
@@ -729,7 +733,8 @@ processors_mapping = {
     # "mpqa": TextClassificationProcessor("mpqa"),
     "farstail": NewFarstailProcessor(),
     "miras": NewTextClassificationProcessor("miras"),
-    "miras-sparrow": NewTextClassificationProcessor("miras-sparrow")
+    "miras-sparrow": NewTextClassificationProcessor("miras-sparrow"),
+    "parsinlu-food-sentiment": NewTextClassificationProcessor("parsinlu-food-sentiment"),
 }
 
 num_labels_mapping = {
@@ -751,7 +756,8 @@ num_labels_mapping = {
     "mpqa": 2,
     "farstail": 3,
     "miras": 3,
-    "miras-sparrow": 3
+    "miras-sparrow": 3,
+    "parsinlu-food-sentiment": 3,
 }
 
 output_modes_mapping = {
@@ -774,7 +780,8 @@ output_modes_mapping = {
     "mpqa": "classification",
     "farstail": "classification",
     "miras": "classification",
-    "miras-sparrow": "classification"
+    "miras-sparrow": "classification",
+    "parsinlu-food-sentiment": "classification",
 }
 
 # Return a function that takes (task_name, preds, labels) as inputs
@@ -799,6 +806,7 @@ compute_metrics_mapping = {
     "farstail": text_classification_metrics,
     "miras": text_classification_metrics,
     "miras-sparrow": text_classification_metrics,
+    "parsinlu-food-sentiment": text_classification_metrics,
 }
 
 # For regression task only: median
