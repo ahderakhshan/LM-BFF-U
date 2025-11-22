@@ -348,7 +348,7 @@ class FewShotDataset(torch.utils.data.Dataset):
                 # The support examples are sourced from the training set.
                 self.support_examples = self.processor.get_train_examples(args.data_dir)
                 print(f"support_examples: {self.support_examples}")
-
+                print(f"mode: {mode}")
                 if mode == "dev":
                     self.query_examples = self.processor.get_dev_examples(args.data_dir)
                 elif mode == "test":
