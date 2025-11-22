@@ -579,6 +579,8 @@ def main():
     }
 
     eval_results = {}
+    print("training args do eval:")
+    print(training_args.do_eval)
     if training_args.do_eval:
         logger.info("*** Validate ***")
 
