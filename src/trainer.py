@@ -504,6 +504,7 @@ class Trainer(transformers.Trainer):
 
         print(output.metrics)
         self.log(output.metrics)
+        print("output metric")
 
         if self.args.tpu_metrics_debug or self.args.debug:
             # tpu-comment: Logging debug metrics for PyTorch/XLA (compile, execute times, ops, etc.)
