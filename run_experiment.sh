@@ -130,6 +130,8 @@ python run.py \
   --data_dir $DATA_DIR \
   --overwrite_output_dir \
   --no_train \
+  --do_eval \
+  --eval_strategy steps \
   --do_predict \
   --model_name_or_path $MODEL \
   --few_shot_type $TYPE \
