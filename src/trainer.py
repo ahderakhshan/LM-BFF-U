@@ -493,6 +493,8 @@ class Trainer(transformers.Trainer):
 
         eval_dataloader = self.get_eval_dataloader(eval_dataset)
         print("eval dataloader info")
+        print(eval_dataloader)
+        print(eval_dataloader is None)
         print(len(eval_dataset.query_examples))
         print(eval_dataset.query_examples[0].text_a)
         print(type(eval_dataset))
