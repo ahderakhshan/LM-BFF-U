@@ -502,6 +502,7 @@ class Trainer(transformers.Trainer):
         output = self.prediction_loop(eval_dataloader, description="Evaluation")
         #output = self.evaluation_loop(eval_dataloader, description="Evaluation")
 
+        print(output.metrics)
         self.log(output.metrics)
 
         if self.args.tpu_metrics_debug or self.args.debug:
