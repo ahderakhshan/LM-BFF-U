@@ -230,7 +230,7 @@ class XLMRobertaForPromptFinetuning(RobertaPreTrainedModel):
         with torch.no_grad():
             self.roberta.pooler.dense.weight.fill_(0)
             self.roberta.pooler.dense.bias.fill_(0)
-            self.lm_head.decoder.weight.fill_(0)
+            self.lm_head.decoder.weight.data.zero_()
 
         # These attributes should be assigned once the model is initialized
         self.model_args = None
