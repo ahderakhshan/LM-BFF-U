@@ -607,6 +607,7 @@ def main():
 
     test_results = {}
     if training_args.do_predict:
+        model.eval()
         logging.info("*** Test ***")
         test_datasets = [test_dataset]
         if data_args.task_name == "mnli":
