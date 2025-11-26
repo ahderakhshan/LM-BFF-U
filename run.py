@@ -607,7 +607,6 @@ def main():
 
     test_results = {}
     if training_args.do_predict:
-        model.eval()
         logging.info("*** Test ***")
         test_datasets = [test_dataset]
         if data_args.task_name == "mnli":
@@ -618,7 +617,8 @@ def main():
 
         for test_dataset in test_datasets:
             trainer.compute_metrics = build_compute_metrics_fn(test_dataset.args.task_name)
-            output = trainer.evaluate(eval_dataset=test_dataset)
+            with torch.no_grad():
+                output = trainer.evaluate(eval_dataset=test_dataset)
             test_result = output.metrics
             print(f"len output is {len(output.predictions)}")
 
