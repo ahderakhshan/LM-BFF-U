@@ -224,7 +224,7 @@ class XLMRobertaForPromptFinetuning(RobertaPreTrainedModel):
         super().__init__(config)
         self.num_labels = config.num_labels
         self.roberta = XLMRobertaModel(config)
-        #self.classifier = XLMRobertaClassificationHead(config)
+        self.classifier = XLMRobertaClassificationHead(config)
         self.lm_head = XLMRobertaLMHead(config)
         self.init_weights()
 
