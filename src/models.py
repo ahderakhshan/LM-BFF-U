@@ -224,9 +224,12 @@ class XLMRobertaForPromptFinetuning(RobertaPreTrainedModel):
         super().__init__(config)
         self.num_labels = config.num_labels
         self.roberta = XLMRobertaModel(config)
-        self.classifier = XLMRobertaClassificationHead(config)
+        #self.classifier = XLMRobertaClassificationHead(config)
         self.lm_head = XLMRobertaLMHead(config)
         self.init_weights()
+        with torch.no_grad():
+            self.roberta.pooler.dense.weight.fill_(0)
+            self.roberta.pooler.dense.bias.fill_(0)
 
         # These attributes should be assigned once the model is initialized
         self.model_args = None
