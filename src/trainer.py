@@ -71,31 +71,31 @@ from transformers.trainer_callback import (
     TrainerControl,
     TrainerState,
 )
-from transformers.trainer_pt_utils import (
-    DistributedTensorGatherer,
-    SequentialDistributedSampler,
-    distributed_broadcast_scalars,
-    distributed_concat,
-    get_tpu_sampler,
-    nested_concat,
-    nested_detach,
-    nested_numpify,
-    nested_xla_mesh_reduce,
-    reissue_pt_warnings,
-)
+# from transformers.trainer_pt_utils import (
+#     DistributedTensorGatherer,
+#     SequentialDistributedSampler,
+#     distributed_broadcast_scalars,
+#     distributed_concat,
+#     get_tpu_sampler,
+#     nested_concat,
+#     nested_detach,
+#     nested_numpify,
+#     nested_xla_mesh_reduce,
+#     reissue_pt_warnings,
+# )
 from transformers.trainer_utils import (
-    PREFIX_CHECKPOINT_DIR,
-    BestRun,
-    EvalPrediction,
-    HPSearchBackend,
-    PredictionOutput,
+    # PREFIX_CHECKPOINT_DIR,
+    # BestRun,
+    # EvalPrediction,
+    # HPSearchBackend,
+    # PredictionOutput,
     TrainOutput,
-    default_compute_objective,
-    set_seed,
+    # default_compute_objective,
+    # set_seed,
 )
-from transformers.training_args import TrainingArguments
+#from transformers.training_args import TrainingArguments
 from transformers.utils import logging
-import torch.distributed as dist
+#import torch.distributed as dist
 
 from tqdm import tqdm, trange
 
