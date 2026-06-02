@@ -128,7 +128,6 @@ DATA_DIR=data/k-shot/$TASK/$K-$SEED
 python run.py \
   --task_name $TASK \
   --data_dir $DATA_DIR \
-  --overwrite_output_dir \
   --no_train \
   --do_eval \
   --eval_strategy steps \
