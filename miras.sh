@@ -12,7 +12,7 @@ do
             BS=$bs \
             LR=$lr \
             SEED=$seed \
-            MODEL=FacebookAI/xlm-roberta-large \
+            MODEL=xlm-roberta-large \
             bash run_experiment.sh
         done
     done
