@@ -148,7 +148,6 @@ python run.py \
   --tag $TAG \
   --template $TEMPLATE \
   --mapping $MAPPING \
-  --save_safetensors False \
   --report_to none \
   --overwrite_cache \
   $TASK_EXTRA \
