@@ -22,8 +22,7 @@ from transformers.models.xlm_roberta.modeling_xlm_roberta import (
     XLMRobertaPreTrainedModel,
     XLMRobertaModel,
     XLMRobertaLMHead,
-    XLMRobertaClassificationHead,
-    XLMRobertaForMaskedLM
+    XLMRobertaClassificationHead
 )
 from transformers import XLMRobertaPreTrainedModel
 from transformers.modeling_outputs import SequenceClassifierOutput
@@ -225,7 +224,7 @@ class XLMRobertaForPromptFinetuning(XLMRobertaPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
         self.num_labels = config.num_labels
-        self.roberta = XLMRobertaForMaskedLM(config)
+        self.roberta = XLMRobertaModel(config)
         self.classifier = XLMRobertaClassificationHead(config)
         self.lm_head = XLMRobertaLMHead(config)
         self.post_init()
@@ -241,6 +240,12 @@ class XLMRobertaForPromptFinetuning(XLMRobertaPreTrainedModel):
 
         # For auto label search.
         self.return_full_softmax = None
+
+    def get_output_embeddings(self):
+        return self.lm_head.decoder
+
+    def set_output_embeddings(self, new_embeddings):
+        self.lm_head.decoder = new_embeddings
 
     def forward(
             self,
