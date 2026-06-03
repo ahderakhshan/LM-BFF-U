@@ -136,7 +136,7 @@ class BertForPromptFinetuning(BertPreTrainedModel):
 
 
 
-class RobertaForPromptFinetuning(BertPreTrainedModel):
+class RobertaForPromptFinetuning(RobertaPreTrainedModel):
 
     def __init__(self, config):
         super().__init__(config)
