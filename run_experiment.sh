@@ -129,7 +129,6 @@ python run.py \
   --task_name $TASK \
   --data_dir $DATA_DIR \
   --no_train \
-  --do_eval \
   --eval_strategy steps \
   --do_predict \
   --model_name_or_path $MODEL \
