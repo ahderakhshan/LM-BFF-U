@@ -441,7 +441,7 @@ def main():
     # training_args.do_eval = False
     print(f"model type is {config.model_type}")
     if 'prompt' in model_args.few_shot_type:
-        if config.model_type in ['roberta', 'xlm-roberta']:
+        if config.model_type == 'roberta':
             model_fn = RobertaForPromptFinetuning
         elif config.model_type == 'bert':
             model_fn = BertForPromptFinetuning
