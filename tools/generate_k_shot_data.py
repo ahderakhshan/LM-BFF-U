@@ -2,6 +2,8 @@
 
 import argparse
 import os
+import time
+
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
@@ -37,18 +39,18 @@ def get_label(task, line):
             return line[2]
         if task == "farstail":
             return line[2]
-        elif task == "miras-sparrow" or "miras-sparrow-pretrain":
+        elif task in ["miras-sparrow", "miras-sparrow-pretrain"]:
             return line[0]
         elif task in ["parsinlu-food-sentiment", "parsinlu-movie-sentiment"]:
             print("task in 41")
             return line[0]
         elif task == "parsinlu-nli":
-            print(line)
-            input("")
+            return line[2]
+        elif task == "farexstance":
             return line[2]
         else:
-            print("notask")
-            return line[1]
+            raise NotImplementedError
+
 
 def load_datasets(data_dir, tasks):
     datasets = {}
@@ -78,6 +80,7 @@ def load_datasets(data_dir, tasks):
             datasets[task] = dataset
     return datasets
 
+
 def split_header(task, lines):
     """
     Returns if the task file has a header or not. Only for GLUE tasks.
@@ -88,6 +91,7 @@ def split_header(task, lines):
         return lines[0:1], lines[1:]
     else:
         raise ValueError("Unknown GLUE task.")
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -128,16 +132,19 @@ def main():
                 if task == "farstail":
                     train_header = ["premise", "hypothesis", "label"]
                     train_lines = dataset['train'].values.tolist()
-                if task in ["miras-sparrow", "miras-sparrow-pretrain"]:
+                elif task in ["miras-sparrow", "miras-sparrow-pretrain"]:
                     train_header = ["label", "content"]
                     print(dataset["train"].values[:1].tolist())
                     train_lines = dataset["train"].values[1:].tolist()
-                if task in ["parsinlu-food-sentiment", "parsinlu-movie-sentiment"]:
+                elif task in ["parsinlu-food-sentiment", "parsinlu-movie-sentiment"]:
                     train_header = ["label", "review"]
                     train_lines = dataset["train"].values.tolist()
-                if task in ["parsinlu-nli"]:
+                elif task in ["parsinlu-nli"]:
                     train_header = ["sent1", "sent2", "label"]
                     train_lines = dataset["train"].values[1:].tolist()
+                elif task == "farexstance":
+                    train_header = ["claim", "title", "label"]
+                    train_lines = dataset["train"].values.tolist()
 
                 np.random.shuffle(train_lines)
 
@@ -166,7 +173,6 @@ def main():
             label_list = {}
             for line in train_lines:
                 label = get_label(task, line)
-                print(label)
                 if label not in label_list:
                     label_list[label] = [line]
                 else:

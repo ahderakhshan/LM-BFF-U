@@ -1,6 +1,6 @@
 
 
-for seed in 13 21 42 87 100
+for seed in 13
 do
     for bs in 8
     do
@@ -8,7 +8,7 @@ do
         do
             TAG=miras_with_demo_no_filter \
             TYPE=prompt \
-            TASK=parsinlu-food-sentiment \
+            TASK=miras-sparrow \
             BS=$bs \
             LR=$lr \
             SEED=$seed \
