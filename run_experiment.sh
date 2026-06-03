@@ -109,7 +109,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 1"
       ;;
     parsinlu-food-sentiment)
-      TEMPLATE=*cls*sent_0*mask*_*sep+*
+      TEMPLATE=*cls*mask*بود_*sent_0*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 1"
 esac
