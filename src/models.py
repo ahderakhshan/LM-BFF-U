@@ -218,7 +218,7 @@ class RobertaForPromptFinetuning(BertPreTrainedModel):
 
 
 
-class XLMRobertaForPromptFinetuning(RobertaPreTrainedModel):
+class XLMRobertaForPromptFinetuning(XLMRobertaPreTrainedModel):
 
     def __init__(self, config):
         super().__init__(config)
