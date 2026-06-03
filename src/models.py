@@ -227,7 +227,7 @@ class XLMRobertaForPromptFinetuning(XLMRobertaPreTrainedModel):
         self.roberta = XLMRobertaModel(config)
         self.classifier = XLMRobertaClassificationHead(config)
         self.lm_head = XLMRobertaLMHead(config)
-        self.init_weights()
+        self.post_init()
 
         # These attributes should be assigned once the model is initialized
         self.model_args = None
