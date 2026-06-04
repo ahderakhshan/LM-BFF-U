@@ -8,7 +8,7 @@ do
         do
             TAG=miras_with_demo_no_filter \
             TYPE=prompt \
-            TASK=miras-sparrow \
+            TASK=farstail \
             BS=$bs \
             LR=$lr \
             SEED=$seed \
