@@ -42,12 +42,14 @@ def get_sentence(task, line):
             return line[0]
         elif task == "miras-sparrow":
             return line[1]
+        elif task == "farexstance":
+            return line[0] + ' ' + line[1]
         else:
             raise NotImplementedError
 
 def split_header(task, lines):
     """Returns if the task file has a header or not."""
-    if task in ["CoLA", "farstail", "miras", "miras-sparrow"]:
+    if task in ["CoLA", "farstail", "miras", "miras-sparrow", "farexstance"]:
         return [], lines
     elif task in ["MNLI", "MRPC", "QNLI", "QQP", "RTE", "SNLI", "SST-2", "STS-B", "WNLI"]:
         return lines[0:1], lines[1:]
