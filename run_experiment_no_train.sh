@@ -118,6 +118,7 @@ case $TASK in
       MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
+
 esac
 
 # Gradient accumulation steps
