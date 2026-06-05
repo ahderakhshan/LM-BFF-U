@@ -111,7 +111,13 @@ case $TASK in
     parsinlu-food-sentiment)
       TEMPLATE=*cls*mask*بود_*sent_0*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 1"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      ;;
+    farexstance)
+      TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
+      MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'بیربط','related':'مرتبط'}"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      ;;
 esac
 
 # Gradient accumulation steps
