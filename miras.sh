@@ -7,7 +7,7 @@ do
         for lr in 5e-5
         do
             TAG=miras_with_demo_no_filter \
-            TYPE=prompt \
+            TYPE=prompt-demo \
             TASK=farexstance \
             BS=$bs \
             LR=$lr \
