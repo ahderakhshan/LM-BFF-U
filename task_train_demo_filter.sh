@@ -1,6 +1,6 @@
 for task in miras-sparrow farstail farexstance
 do
-  for seed in 13
+  for seed in 13 21 42 87 100
   do
       for bs in 8
       do
