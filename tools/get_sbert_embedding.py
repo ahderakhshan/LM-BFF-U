@@ -67,7 +67,7 @@ def load_datasets(data_dir, task, do_test=False):
         if do_test:
             splits.append('test')
     for split in splits:
-        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras", "miras-sparrow"]:
+        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras", "miras-sparrow", "farexstance"]:
             filename = os.path.join(data_dir, f"{split}.csv")
             dataset[split] = pd.read_csv(filename, header=None).values.tolist()
         else:
