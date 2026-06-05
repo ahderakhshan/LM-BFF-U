@@ -8,7 +8,7 @@ do
           do
               TAG="${task}_no-train_demo-filter" \
               TYPE=prompt-demo \
-              TASK=task \
+              TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \

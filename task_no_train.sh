@@ -9,7 +9,7 @@ do
           do
               TAG="${task}_no-train_no-demo" \
               TYPE=prompt \
-              TASK=task \
+              TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
@@ -31,7 +31,7 @@ do
           do
               TAG="${task}_no-train_demo" \
               TYPE=prompt-demo \
-              TASK=task \
+              TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
