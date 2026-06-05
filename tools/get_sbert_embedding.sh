@@ -1,4 +1,4 @@
-MODEL=$1
+MODEL=PartAI/Tooka-SBERT-V2-Large
 K=16
 
 #python tools/get_sbert_embedding.py --sbert_model $MODEL --task SST-2 sst-5 mr cr mpqa subj trec CoLA MRPC QQP STS-B MNLI SNLI QNLI RTE
@@ -6,7 +6,7 @@ K=16
 
 for seed in 13 21 87 100
 do
-    for task in SST-2 sst-5 mr cr mpqa subj trec CoLA MRPC QQP STS-B MNLI SNLI QNLI RTE
+    for task in farstail miras-sparrow farexstance
     do
         cp data/k-shot/$task/$K-42/test_sbert-$MODEL.npy  data/k-shot/$task/$K-$seed/
     done
