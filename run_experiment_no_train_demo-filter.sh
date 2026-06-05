@@ -96,7 +96,7 @@ case $TASK in
     farstail)
       TEMPLATE=*cls***sent_0*؟*mask*،*sent_1**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16  --demo_filter --demo_filter_model PartAI/Tooka-SBERT"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16  --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
@@ -106,7 +106,7 @@ case $TASK in
     miras-sparrow)
       TEMPLATE=*cls**mask*بود*sent_0**sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
     parsinlu-food-sentiment)
       TEMPLATE=*cls*mask*بود_*sent_0*sep+*
@@ -116,7 +116,7 @@ case $TASK in
     farexstance)
       TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
       MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16  --demo_filter --demo_filter_model PartAI/Tooka-SBERT"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16  --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
 esac
 
