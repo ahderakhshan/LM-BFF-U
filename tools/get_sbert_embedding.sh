@@ -8,6 +8,6 @@ for seed in 13 21 87 100
 do
     for task in farstail miras-sparrow farexstance
     do
-        cp data/k-shot/$task/$K-42/test_sbert-$MODEL.npy  data/k-shot/$task/$K-$seed/
+        cp data/k-shot/$task/$K-42/test.npy  data/k-shot/$task/$K-$seed/
     done
 done
