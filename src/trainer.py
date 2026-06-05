@@ -433,7 +433,7 @@ class Trainer(transformers.Trainer):
                     #if self.args.evaluate_during_training and self.global_step % self.args.eval_steps == 0:
                     if self.args.eval_strategy == "steps" and self.global_step % self.args.eval_steps == 0:
                         print("in evaluating!!!!!!!!!!!!")
-                        output = self.evaluate()
+                        output = self.evaluate(self.eval_dataset)
                         metrics = output.metrics
                         print("metrics")
                         print(metrics)
