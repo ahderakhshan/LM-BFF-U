@@ -107,6 +107,9 @@ def main():
         elif condition['task_name'] == "miras-sparrow":
             args.key = 'miras-sparrow_dev_eval_acc'
             args.test_key = 'miras-sparrow_test_eval_acc'
+        elif condition['task_name'] == "farexstance":
+            args.key = 'farexstance_dev_eval_f1'
+            args.test_key = "farexstance_test_eval_f1"
         else:
             raise NotImplementedError
 

@@ -135,7 +135,6 @@ DATA_DIR=data/k-shot/$TASK/$K-$SEED
 python run.py \
   --task_name $TASK \
   --data_dir $DATA_DIR \
-  --overwrite_output_dir \
   --no_train \
   --eval_strategy steps \
   --do_predict \
@@ -155,7 +154,6 @@ python run.py \
   --tag $TAG \
   --template $TEMPLATE \
   --mapping $MAPPING \
-  --save_safetensors False \
   --report_to none \
   --overwrite_cache \
   $TASK_EXTRA \
