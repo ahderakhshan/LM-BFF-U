@@ -496,8 +496,8 @@ class Trainer(transformers.Trainer):
         for batch in eval_dataloader:
             print({k: (v.shape if hasattr(v, "shape") else type(v)) for k, v in batch.items()})
             break
-        output = self.prediction_loop(eval_dataloader, description="Evaluation")
-        #output = self.evaluation_loop(eval_dataloader, description="Evaluation")
+        #output = self.prediction_loop(eval_dataloader, description="Evaluation")
+        output = self.evaluation_loop(eval_dataloader, description="Evaluation")
 
         print(output.metrics)
         self.log(output.metrics)
