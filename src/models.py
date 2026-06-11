@@ -224,9 +224,19 @@ class XLMRobertaForPromptFinetuning(XLMRobertaPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
         self.num_labels = config.num_labels
-        self.roberta = XLMRobertaModel(config)
+        # self.roberta = XLMRobertaModel(config)
         self.classifier = XLMRobertaClassificationHead(config)
+        # self.lm_head = XLMRobertaLMHead(config)
+        self.roberta = XLMRobertaModel.from_pretrained(
+            config._name_or_path,
+            config=config
+        )
+
+        # IMPORTANT: use pretrained LM head (NOT random init)
         self.lm_head = XLMRobertaLMHead(config)
+        self.lm_head.load_state_dict(
+            XLMRobertaLMHead.from_pretrained(config._name_or_path).state_dict()
+        )
         self.post_init()
 
         # These attributes should be assigned once the model is initialized
