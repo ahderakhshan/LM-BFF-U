@@ -301,14 +301,14 @@ class Trainer(transformers.Trainer):
             model = torch.nn.DataParallel(model)
 
         # Distributed training (should be after apex fp16 initialization)
-        # print(f"args local rank {self.args.local_rank}")
-        # if self.args.local_rank != -1:
-        #     model = torch.nn.parallel.DistributedDataParallel(
-        #         model,
-        #         device_ids=[self.args.local_rank],
-        #         output_device=self.args.local_rank,
-        #         find_unused_parameters=True,
-        #     )
+        print(f"args local rank {self.args.local_rank}")
+        if self.args.local_rank != -1:
+            model = torch.nn.parallel.DistributedDataParallel(
+                model,
+                device_ids=[self.args.local_rank],
+                output_device=self.args.local_rank,
+                find_unused_parameters=True,
+            )
 
         # Train
         if is_torch_xla_available():
