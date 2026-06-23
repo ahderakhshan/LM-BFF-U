@@ -29,7 +29,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="farstail"
+TASKS="miras-sparrow"
 
 SEEDS="100 13 21 42 87"
 
@@ -113,7 +113,7 @@ for TASK in $TASKS; do
                 TASK_EXTRA="--del_a_last_char"
                 ;;
             miras-sparrow)
-                TEMPLATE=*cls*mask*_بود*sent_0*sep+*
+                TEMPLATE=*cls**sent_0**mask*بود.*sep+*
                 MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'منفی'}"
                 ;;
         esac
