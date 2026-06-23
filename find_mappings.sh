@@ -14,6 +14,6 @@ do
         LR=$lr \
         SEED=$seed \
         MODEL=xlm-roberta-large \
-        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping/manual_template/$TASK/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping/manual_template/miras-sparrow/16-$seed.txt --mapping_id $mapping_id --no_predict"
     done
 done
