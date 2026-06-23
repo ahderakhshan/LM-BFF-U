@@ -96,7 +96,7 @@ case $TASK in
     farstail)
       TEMPLATE=*cls***sent_0*؟*mask*،*sent_1**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
@@ -104,12 +104,12 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras-sparrow)
-      TEMPLATE=*cls**mask*بود*sent_0**sep+*
+      TEMPLATE=*cls**sent_0**mask*بود.*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     parsinlu-food-sentiment)
-      TEMPLATE=*cls*mask*بود_*sent_0*sep+*
+      TEMPLATE=*cls**sent_0**mask*بود.*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;

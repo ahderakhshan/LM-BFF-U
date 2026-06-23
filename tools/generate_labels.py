@@ -17,7 +17,8 @@ from transformers import HfArgumentParser, TrainingArguments, set_seed
 
 from src.label_search import find_labels
 from src.dataset import FewShotDataset
-from src.models import BertForPromptFinetuning, RobertaForPromptFinetuning, resize_token_type_embeddings
+from src.models import BertForPromptFinetuning, RobertaForPromptFinetuning, resize_token_type_embeddings,\
+    XLMRobertaForPromptFinetuning
 from src.trainer import Trainer
 from src.processors import output_modes_mapping, num_labels_mapping
 
@@ -122,6 +123,9 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
         default=False,
     )
 
+    del_a_last_char: bool = field(default=False)
+    del_b_last_char: bool = field(default=False)
+
 
 def fix_encoding(garbled_text):
     # Convert the garbled string to bytes assuming it was interpreted as Latin-1
@@ -203,6 +207,8 @@ def main():
         model_fn = RobertaForPromptFinetuning
     elif config.model_type == 'bert':
         model_fn = BertForPromptFinetuning
+    elif config.model_type == "xlm-roberta":
+        model_fn = XLMRobertaForPromptFinetuning
     else:
         raise NotImplementedError
     special_tokens = []
@@ -223,6 +229,8 @@ def main():
         cache_dir=model_args.cache_dir,
     )
     special_token = "Ġ"
+    if config.model_type == "xlm-roberta":
+        special_token = '▁'
     # For BERT, increase the size of the segment (token type) embeddings
     if config.model_type == 'bert':
         model.resize_token_embeddings(len(tokenizer))

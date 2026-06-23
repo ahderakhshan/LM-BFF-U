@@ -11,10 +11,10 @@
 K=16
 
 # Training steps
-MAX_STEP=200
+MAX_STEP=1000
 
 # Validation steps
-EVAL_STEP=20
+EVAL_STEP=100
 
 # Task specific parameters
 # The default length is 128 and the default number of samples is 16.
@@ -96,7 +96,7 @@ case $TASK in
     farstail)
       TEMPLATE=*cls***sent_0*؟*mask*،*sent_1**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
@@ -104,7 +104,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras-sparrow)
-      TEMPLATE=*cls**mask*بود*sent_0**sep+*
+      TEMPLATE=*cls**sent_0**mask*بود.*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;

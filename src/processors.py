@@ -230,27 +230,29 @@ class NewFarstailProcessor:
         """See base class."""
         return ["c", "e", "n"]
 
-    def get_train_examples(self, data_dir):
+    def get_train_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
         return self._create_examples(pd.read_csv(os.path.join(data_dir, "train.csv"), header=None).values.tolist(),
-                                     "train")
+                                     "train", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def get_dev_examples(self, data_dir):
+    def get_dev_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
-        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(), "dev")
+        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(),
+                                     "dev", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def get_test_examples(self, data_dir):
+    def get_test_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
         return self._create_examples(pd.read_csv(os.path.join(data_dir, "test.csv"), header=None).values.tolist(),
-                                     "test")
+                                     "test", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def _create_examples(self, lines, set_type):
+    def _create_examples(self, lines, set_type, del_a_last_char=False, del_b_last_char=False):
         """Creates examples for the training, dev and test sets."""
         examples = []
+        puncs = ["،", ".", "؟", "!", ":"]
         for (i, line) in enumerate(lines):
             guid = "%s-%s" % (set_type, line[0])
-            text_a = line[0]
-            text_b = line[1]
+            text_a = line[0][:-1] if del_a_last_char and line[0][-1] in puncs else line[0]
+            text_b = line[1][:-1] if del_b_last_char and line[1][-1] in puncs else line[1]
             label = line[2]
             examples.append(CustomExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
         return examples
@@ -271,27 +273,29 @@ class NewFarexstanceProcessor:
         """See base class."""
         return ["unrelated", "discuss", "disagree", "agree"]
 
-    def get_train_examples(self, data_dir):
+    def get_train_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
         return self._create_examples(pd.read_csv(os.path.join(data_dir, "train.csv"), header=None).values.tolist(),
-                                     "train")
+                                     "train", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def get_dev_examples(self, data_dir):
+    def get_dev_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
-        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(), "dev")
+        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(),
+                                     "dev", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def get_test_examples(self, data_dir):
+    def get_test_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
         return self._create_examples(pd.read_csv(os.path.join(data_dir, "test.csv"), header=None).values.tolist(),
-                                     "test")
+                                     "test", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def _create_examples(self, lines, set_type):
+    def _create_examples(self, lines, set_type, del_a_last_char=False, del_b_last_char=False):
         """Creates examples for the training, dev and test sets."""
         examples = []
+        puncs = ["،", ".", "؟", "!", ":"]
         for (i, line) in enumerate(lines):
             guid = "%s-%s" % (set_type, line[0])
-            text_a = line[0]
-            text_b = line[1]
+            text_a = line[0][:-1] if del_a_last_char and line[0][-1] in puncs else line[0]
+            text_b = line[1][:-1] if del_b_last_char and line[1][-1] in puncs else line[1]
             label = line[2]
             examples.append(CustomExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
         return examples
@@ -300,6 +304,7 @@ class NewFarexstanceProcessor:
 class NewTextClassificationProcessor:
     def __init__(self, task_name):
         self.task_name = task_name
+        self.puncs = ["،", ".", "؟", "!", ":"]
 
     def get_example_from_tensor_dict(self, tensor_dict):
         """See base class."""
@@ -310,19 +315,20 @@ class NewTextClassificationProcessor:
             str(tensor_dict["label"].numpy()),
         )
 
-    def get_train_examples(self, data_dir):
+    def get_train_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
         return self._create_examples(pd.read_csv(os.path.join(data_dir, "train.csv"), header=None).values.tolist(),
-                                     "train")
+                                     "train", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def get_dev_examples(self, data_dir):
+    def get_dev_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
-        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(), "dev")
+        return self._create_examples(pd.read_csv(os.path.join(data_dir, "dev.csv"), header=None).values.tolist(),
+                                     "dev", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
-    def get_test_examples(self, data_dir):
+    def get_test_examples(self, data_dir, del_a_last_char=False, del_b_last_char=False):
         """See base class."""
         return self._create_examples(pd.read_csv(os.path.join(data_dir, "test.csv"), header=None).values.tolist(),
-                                     "test")
+                                     "test", del_a_last_char=del_a_last_char, del_b_last_char=del_b_last_char)
 
     def get_labels(self):
         """See base class."""
@@ -347,7 +353,7 @@ class NewTextClassificationProcessor:
         else:
             raise Exception("task_name not supported.")
 
-    def _create_examples(self, lines, set_type):
+    def _create_examples(self, lines, set_type, del_a_last_char=False, del_b_last_char=False):
         """Creates examples for the training, dev and test sets."""
         examples = []
         for (i, line) in enumerate(lines):
@@ -359,9 +365,11 @@ class NewTextClassificationProcessor:
                 else:
                     print("not added")
             elif self.task_name == "miras-sparrow":
-                examples.append(CustomExample(guid=guid, text_a=line[1], label=line[0]))
+                examples.append(CustomExample(guid=guid, text_a=line[1][:-1]
+                if del_a_last_char and line[1][-1] in self.puncs else line[1], label=line[0]))
             elif self.task_name == "parsinlu-food-sentiment":
-                examples.append(CustomExample(guid=guid, text_a=line[1], label=line[0]))
+                examples.append(CustomExample(guid=guid, text_a=line[1][:-1]
+                if del_a_last_char and line[1][-1] in self.puncs else line[1], label=line[0]))
             else:
                 raise Exception("Task_name not supported.")
         print(f"len examples is {len(examples)}")

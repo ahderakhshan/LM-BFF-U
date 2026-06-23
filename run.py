@@ -214,6 +214,14 @@ class DynamicDataTrainingArguments(DataTrainingArguments):
         metadata={"help": "(DO NOT List of templates (only initialized after the program starts."}
     )
 
+    del_a_last_char: bool = field(
+        default=False
+    )
+
+    del_b_last_char: bool = field(
+        default=False
+    )
+
 
 @dataclass
 class DynamicTrainingArguments(TrainingArguments):

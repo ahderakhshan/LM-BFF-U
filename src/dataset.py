@@ -346,13 +346,13 @@ class FewShotDataset(torch.utils.data.Dataset):
                 logger.info(f"Creating features from dataset file at {args.data_dir}")
 
                 # The support examples are sourced from the training set.
-                self.support_examples = self.processor.get_train_examples(args.data_dir)
+                self.support_examples = self.processor.get_train_examples(args.data_dir, del_a_last_char=args.del_a_last_char, del_b_last_char=args.del_b_last_char)
                 print(f"support_examples: {self.support_examples}")
                 print(f"mode: {mode}")
                 if mode == "dev":
-                    self.query_examples = self.processor.get_dev_examples(args.data_dir)
+                    self.query_examples = self.processor.get_dev_examples(args.data_dir, del_a_last_char=args.del_a_last_char, del_b_last_char=args.del_b_last_char)
                 elif mode == "test":
-                    self.query_examples = self.processor.get_test_examples(args.data_dir)
+                    self.query_examples = self.processor.get_test_examples(args.data_dir, del_a_last_char=args.del_a_last_char, del_b_last_char=args.del_b_last_char)
                 else:
                     self.query_examples = self.support_examples
 
