@@ -154,7 +154,6 @@ python run.py \
   --seed $SEED \
   --tag $TAG \
   --template $TEMPLATE \
-  --mapping $MAPPING \
   --save_safetensors False \
   --report_to none \
   --overwrite_cache \
