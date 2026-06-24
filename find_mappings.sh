@@ -1,7 +1,13 @@
-for mapping_id in {0..99}
+counter=0
+for mapping_id in {0..19}
 do
     for seed in 13 21 42 87 100
     do
+        ((counter++))
+        if [ "$counter" -le 44 ]; then
+            echo "paased ${counter}"
+            continue
+        fi
         # To save time, we fix these hyper-parameters
         bs=8
         lr=1e-5
