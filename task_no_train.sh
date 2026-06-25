@@ -1,5 +1,5 @@
 
-for task in miras-sparrow farstail farexstance
+for task in miras-sparrow
 do
   for seed in 13
   do
@@ -7,14 +7,14 @@ do
       do
           for lr in 5e-5
           do
-              TAG="${task}_no-train_no-demo" \
+              TAG="${task}_no-train_no-demo_autolabel" \
               TYPE=prompt \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_no_train.sh
+              bash run_experiment_no_train.sh "--mapping_path final_label_mapping/miras-sparrow/16-$seed.txt --mapping_id 0"
           done
       done
   done
