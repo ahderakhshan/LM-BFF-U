@@ -7,14 +7,14 @@ do
       do
           for lr in 5e-5
           do
-              TAG="${task}_no-train_no-demo_autolabel" \
+              TAG="${task}_no-train_no-demo_manuallabel" \
               TYPE=prompt \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_no_train.sh "--mapping_path final_label_mapping/miras-sparrow/16-$seed.sort.txt --mapping_id 0"
+              bash run_experiment_no_train.sh
           done
       done
   done
