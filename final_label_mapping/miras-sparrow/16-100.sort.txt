@@ -1,4 +1,4 @@
-﻿{"Positive": "اینجا", "Negative": "خراب", "Neutral": "زود"}
+{"Positive": "اینجا", "Negative": "خراب", "Neutral": "زود"}
 {"Positive": "قوی", "Negative": "خراب", "Neutral": "لطف"}
 {"Positive": "قوی", "Negative": "خراب", "Neutral": "پست"}
 {"Positive": "کی", "Negative": "خراب", "Neutral": "دیر"}

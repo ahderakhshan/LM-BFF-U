@@ -1,4 +1,4 @@
-﻿{"Positive": "مطمئن", "Negative": "بیشتر", "Neutral": "عزیز"}
+{"Positive": "مطمئن", "Negative": "بیشتر", "Neutral": "عزیز"}
 {"Positive": "ممتاز", "Negative": "بیشتر", "Neutral": "منتظر"}
 {"Positive": "ممتاز", "Negative": "منفی", "Neutral": "سوال"}
 {"Positive": "واقعا", "Negative": "رفته", "Neutral": "خوشحال"}

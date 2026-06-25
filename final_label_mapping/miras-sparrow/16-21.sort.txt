@@ -1,4 +1,4 @@
-﻿{"Positive": "ممتاز", "Negative": "ممکن", "Neutral": "لطفا"}
+{"Positive": "ممتاز", "Negative": "ممکن", "Neutral": "لطفا"}
 {"Positive": "ممتاز", "Negative": "تلخ", "Neutral": "لطفا"}
 {"Positive": "ممتاز", "Negative": "دیگه", "Neutral": "لطفا"}
 {"Positive": "ممتاز", "Negative": "می", "Neutral": "لطفا"}

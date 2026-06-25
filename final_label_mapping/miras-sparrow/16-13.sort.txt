@@ -1,4 +1,4 @@
-﻿{"Positive": "که", "Negative": "بدی", "Neutral": "زود"}
+{"Positive": "که", "Negative": "بدی", "Neutral": "زود"}
 {"Positive": "العاده", "Negative": "تلخ", "Neutral": "مختصر"}
 {"Positive": "جدا", "Negative": "بدی", "Neutral": "پست"}
 {"Positive": "قبول", "Negative": "بدی", "Neutral": "طولانی"}

@@ -1,4 +1,4 @@
-﻿{"Positive": "رایگان", "Negative": "منفی", "Neutral": "خطا"}
+{"Positive": "رایگان", "Negative": "منفی", "Neutral": "خطا"}
 {"Positive": "خوشمزه", "Negative": "سیاه", "Neutral": "توجه"}
 {"Positive": "بالا", "Negative": "منفی", "Neutral": "توجه"}
 {"Positive": "جذاب", "Negative": "فاجعه", "Neutral": "راهنمایی"}

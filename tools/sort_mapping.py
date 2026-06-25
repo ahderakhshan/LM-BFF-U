@@ -158,14 +158,14 @@ def main():
         print("Seed %d has %d results" % (seed, len(seed_result[seed])))
 
         # Load all mappings
-        with open(os.path.join(args.mapping_dir, print_name, "{}-{}.txt".format(args.k, seed)), encoding="utf-8-sig") as f:
+        with open(os.path.join(args.mapping_dir, print_name, "{}-{}.txt".format(args.k, seed)), encoding="utf-8") as f:
             mappings = []
             for line in f:
                 mappings.append(line.strip())
 
         # Write sorted mappings
-        fsort = open(os.path.join(args.mapping_dir, print_name, "{}-{}.sort.txt".format(args.k, seed)), 'w', encoding="utf-8-sig")
-        fscore = open(os.path.join(args.mapping_dir, print_name, "{}-{}.score.txt".format(args.k, seed)), 'w', encoding="utf-8-sig")
+        fsort = open(os.path.join(args.mapping_dir, print_name, "{}-{}.sort.txt".format(args.k, seed)), 'w', encoding="utf-8")
+        fscore = open(os.path.join(args.mapping_dir, print_name, "{}-{}.score.txt".format(args.k, seed)), 'w', encoding="utf-8")
 
         seed_result[seed].sort(key=lambda x: x[args.key], reverse=True)
         for item in seed_result[seed]:
