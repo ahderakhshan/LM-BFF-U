@@ -36,7 +36,7 @@ do
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_no_train.sh "--mapping_path final_label_mapping/miras-sparrow/16-$seed.score.txt --mapping_id 0"
+              bash run_experiment_no_train.sh "--mapping_path final_label_mapping/miras-sparrow/16-$seed.sort.txt --mapping_id 0"
           done
       done
   done
