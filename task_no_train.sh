@@ -29,14 +29,14 @@ do
       do
           for lr in 5e-5
           do
-              TAG="${task}_no-train_demo_manuallabel" \
+              TAG="${task}_no-train_demo_autolabel" \
               TYPE=prompt-demo \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_no_train.sh
+              bash run_experiment_no_train.sh "--mapping_path my_auto_label_mapping/miras-sparrow/16-$seed.score.txt --mapping_id 0"
           done
       done
   done
