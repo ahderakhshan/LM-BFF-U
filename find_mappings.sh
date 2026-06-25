@@ -4,7 +4,7 @@ do
     for seed in 13 21 42 87 100
     do
         ((counter++))
-        if [ "$counter" -le 44 ]; then
+        if [ "$counter" -le 64 ]; then
             echo "paased ${counter}"
             continue
         fi
@@ -21,6 +21,6 @@ do
         SEED=$seed \
         MODEL=xlm-roberta-large \
         bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping/manual_template/miras-sparrow/16-$seed.txt --mapping_id $mapping_id --no_predict"
-        sleep 60s
+        sleep 120s
     done
 done
