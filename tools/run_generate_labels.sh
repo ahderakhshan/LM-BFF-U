@@ -113,7 +113,7 @@ for TASK in $TASKS; do
                 TASK_EXTRA="--del_a_last_char"
                 ;;
             miras-sparrow)
-                TEMPLATE=*cls**sent_0**mask*بود.*sep+*
+                TEMPLATE=*cls**sent_0**mask*است.*sep+*
                 MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'منفی'}"
                 ;;
         esac
@@ -135,7 +135,7 @@ for TASK in $TASKS; do
                        --k_likely $K_LIKELY \
                        --k_neighbors $K_NEIGHBORS \
                        --n_pairs $(($N_PAIRS / $NUM_TEMPLATES)) \
-                       --max_seq_len 256 \
+                       --max_seq_len 512 \
                        --per_device_eval_batch_size 16 \
                        $TASK_EXTRA
             done
