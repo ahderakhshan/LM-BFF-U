@@ -3,17 +3,17 @@ for mapping_id in {0..19}
 do
     for seed in 13 21 42 87 100
     do
-        ((counter++))
-        if [ "$counter" -le 64 ]; then
-            echo "paased ${counter}"
-            continue
-        fi
+#        ((counter++))
+#        if [ "$counter" -le 64 ]; then
+#            echo "paased ${counter}"
+#            continue
+#        fi
         # To save time, we fix these hyper-parameters
         bs=8
         lr=1e-5
 
         # Since we only use dev performance here, use --no_predict to skip testing
-        TAG=exp-mapping \
+        TAG=exp-mapping-mirassparrow \
         TYPE=prompt \
         TASK=miras-sparrow \
         BS=$bs \
