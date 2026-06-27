@@ -1,5 +1,5 @@
 
-for task in miras-sparrow
+for task in farstail
 do
   for seed in 13
   do
