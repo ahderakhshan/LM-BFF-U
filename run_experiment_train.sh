@@ -104,8 +104,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras-sparrow)
-      TEMPLATE=*cls**sent_0**mask*بود.*sep+*
-      MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
+      TEMPLATE=*cls**sent_0**mask*است.*sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     parsinlu-food-sentiment)
@@ -155,7 +154,6 @@ python run.py \
   --seed $SEED \
   --tag $TAG \
   --template $TEMPLATE \
-  --mapping $MAPPING \
   --save_safetensors False \
   --report_to none \
   --overwrite_cache \
