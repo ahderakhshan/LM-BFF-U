@@ -23,7 +23,7 @@ do
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_train_demo-filter.sh
+              bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/miras-sparrow/16-$seed.sort.txt --mapping_id 0"
               sleep 120s
               ((counter++))
               if (( counter % 10 == 0 )); then

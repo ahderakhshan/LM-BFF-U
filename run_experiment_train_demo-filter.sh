@@ -105,7 +105,6 @@ case $TASK in
       ;;
     miras-sparrow)
       TEMPLATE=*cls**sent_0**mask*است.*sep+*
-      MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
     parsinlu-food-sentiment)
@@ -155,7 +154,6 @@ python run.py \
   --seed $SEED \
   --tag $TAG \
   --template $TEMPLATE \
-  --mapping $MAPPING \
   --save_safetensors False \
   --report_to none \
   --overwrite_cache \
