@@ -27,7 +27,7 @@ do
               sleep 120s
               ((counter++))
               if (( counter % 10 == 0 )); then
-                sleep 600s
+                sleep 900s
               fi
           done
       done
