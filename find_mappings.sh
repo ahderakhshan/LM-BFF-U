@@ -1,7 +1,7 @@
 counter=0
-for mapping_id in {0..19}
+for mapping_id in 6 17
 do
-    for seed in 13 21 42 87 100
+    for seed in 21
     do
 #        ((counter++))
 #        if [ "$counter" -le 64 ]; then
@@ -21,6 +21,5 @@ do
         SEED=$seed \
         MODEL=xlm-roberta-large \
         bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping/manual_template/farstail/16-$seed.txt --mapping_id $mapping_id --no_predict"
-        sleep 120s
     done
 done
