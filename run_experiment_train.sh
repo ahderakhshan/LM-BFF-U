@@ -94,7 +94,7 @@ case $TASK in
         TASK_EXTRA="--first_sent_limit 110  --double_demo"
         ;;
     farstail)
-      TEMPLATE=*cls***sent_0*؟*mask*،*sent_1**sep+*
+      TEMPLATE=*cls**sent_0*؟*mask*،*sent_1**sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char"
       ;;
     miras)

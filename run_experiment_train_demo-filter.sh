@@ -95,7 +95,6 @@ case $TASK in
         ;;
     farstail)
       TEMPLATE=*cls***sent_0*؟*mask*،*sent_1**sep+*
-      MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
     miras)
