@@ -94,7 +94,7 @@ case $TASK in
         TASK_EXTRA="--first_sent_limit 110  --double_demo"
         ;;
     farstail)
-      TEMPLATE=*cls***sent_0*؟*mask*،*sent_1**sep+*
+      TEMPLATE=*cls**sent_0*؟*mask*،*sent_1**sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
     miras)
@@ -156,6 +156,8 @@ python run.py \
   --save_safetensors False \
   --report_to none \
   --overwrite_cache \
+  --save_logit \
+  --save_logit_dir $TASK-result \
   $TASK_EXTRA \
   $1
 

@@ -11,10 +11,10 @@
 K=16
 
 # Training steps
-MAX_STEP=100
+MAX_STEP=1000
 
 # Validation steps
-EVAL_STEP=50
+EVAL_STEP=100
 
 # Task specific parameters
 # The default length is 128 and the default number of samples is 16.
