@@ -157,7 +157,7 @@ python run.py \
   --report_to none \
   --overwrite_cache \
   --save_logit \
-  --save_logit_dir $TASK-result
+  --save_logit_dir $TASK-result \
   $TASK_EXTRA \
   $1
 
