@@ -650,7 +650,7 @@ def main():
                     preds = np.argmax(logits, axis=1)
                     seed = data_args.data_dir.split("/")[-1]
                     os.makedirs(training_args.save_logit_dir, exist_ok=True)
-                    np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}.npy".format(test_dataset.task_name, training_args.seed, training_args.per_device_batch_size, training_args.learning_rate)), logits)
+                    np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}.npy".format(test_dataset.task_name, training_args.seed, training_args.gradient_accumulation_steps, training_args.learning_rate)), logits)
 
             test_results.update(test_result)
 
