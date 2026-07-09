@@ -156,6 +156,8 @@ python run.py \
   --save_safetensors False \
   --report_to none \
   --overwrite_cache \
+  --save_logit \
+  --save_logit_dir $TASK-result
   $TASK_EXTRA \
   $1
 
