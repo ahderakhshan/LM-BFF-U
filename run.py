@@ -647,10 +647,20 @@ def main():
                     predictions = output.predictions
                     num_logits = predictions.shape[-1]
                     logits = predictions.reshape([test_dataset.num_sample, -1, num_logits]).mean(axis=0)
-                    preds = np.argmax(logits, axis=1)
-                    seed = data_args.data_dir.split("/")[-1]
                     os.makedirs(training_args.save_logit_dir, exist_ok=True)
-                    np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}.npy".format(test_dataset.task_name, training_args.seed, training_args.gradient_accumulation_steps, training_args.learning_rate)), logits)
+                    np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}-test.npy".format(data_args.tag, training_args.seed, training_args.gradient_accumulation_steps, training_args.learning_rate)), logits)
+                    with torch.no_grad():
+                        train_output = trainer.evaluate(eval_dataset=train_dataset)
+                        train_predictions = train_output.predictions
+                        train_num_logits = train_predictions.shape[-1]
+                        train_logits = train_predictions.reshape([train_dataset.num_sample, -1, train_num_logits]).mean(axis=0)
+                        np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}-train.npy".format(data_args.tag, training_args.seed, training_args.gradient_accumulation_steps, training_args.learning_rate)), train_logits)
+                    with torch.no_grad():
+                        eval_output = trainer.evaluate(eval_dataset=eval_dataset)
+                        eval_predictions = eval_output.predictions
+                        eval_num_logits = eval_predictions.shape[-1]
+                        eval_logits = eval_predictions.reshape([eval_dataset.num_sample, -1, eval_num_logits]).mean(axis=0)
+                        np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}-dev.npy".format(data_args.tag, training_args.seed, training_args.gradient_accumulation_steps, training_args.learning_rate)), eval_logits)
 
             test_results.update(test_result)
 
