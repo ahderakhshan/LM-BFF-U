@@ -10,11 +10,11 @@
 counter=0
 for task in farstail
 do
-  for seed in 21
+  for seed in 21 42
   do
-      for bs in 2
+      for bs in 2 4 8
       do
-          for lr in 1e-5
+          for lr in 1e-5 2e-5 5e-5
           do
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
