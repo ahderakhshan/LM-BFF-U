@@ -650,6 +650,7 @@ def main():
                     os.makedirs(training_args.save_logit_dir, exist_ok=True)
                     np.save(os.path.join(training_args.save_logit_dir, "{}-{}-{}-{}-test.npy".format(data_args.tag, training_args.seed, training_args.gradient_accumulation_steps, training_args.learning_rate)), logits)
                     with torch.no_grad():
+                        trainer.compute_metrics = build_compute_metrics_fn(train_dataset.args.task_name)
                         train_output = trainer.evaluate(eval_dataset=train_dataset)
                         train_predictions = train_output.predictions
                         train_num_logits = train_predictions.shape[-1]
