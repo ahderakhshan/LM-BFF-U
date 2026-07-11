@@ -1,20 +1,20 @@
-python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail
-python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail --do_test --seed 42
-for seed in 13 21 87 100
-do
-    for task in farstail
-    do
-        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
-    done
-done
+#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail
+#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail --do_test --seed 42
+#for seed in 13 21 87 100
+#do
+#    for task in farstail
+#    do
+#        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
+#    done
+#done
 counter=0
 for task in farstail
 do
-  for seed in 13 21 42 87 100
+  for seed in 21
   do
-      for bs in 2 4 8
+      for bs in 2
       do
-          for lr in 1e-5 2e-5 5e-5
+          for lr in 1e-5
           do
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
