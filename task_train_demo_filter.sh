@@ -16,6 +16,10 @@ do
       do
           for lr in 1e-5 2e-5 5e-5
           do
+              if (( counter <= 6 )); then
+                ((counter++))
+                continue
+              fi
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
               TASK="${task}" \

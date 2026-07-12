@@ -99,8 +99,8 @@ def main():
             args.key = 'mpqa_dev_eval_acc'
             args.test_key = 'mpqa_test_eval_acc'
         elif condition['task_name'] == 'farstail':
-            args.key = 'farstail_dev_eval_acc'
-            args.test_key = 'farstail_test_eval_acc'
+            args.key = 'farstail_dev_eval_f1_score'
+            args.test_key = 'farstail_test_eval_f1_score'
         elif condition['task_name'] == 'miras':
             args.key = 'miras_dev_eval_acc'
             args.test_key = 'miras_test_eval_acc'
