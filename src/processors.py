@@ -11,10 +11,10 @@ import json
 import itertools
 import random
 import transformers
-#from transformers.data.processors.utils import InputFeatures
-#from transformers import DataProcessor, InputExample
-#from transformers.data.processors.glue import *
-#from transformers.data.metrics import glue_compute_metrics
+# from transformers.data.processors.utils import InputFeatures
+# from transformers import DataProcessor, InputExample
+# from transformers.data.processors.glue import *
+# from transformers.data.metrics import glue_compute_metrics
 import dataclasses
 from dataclasses import dataclass, asdict
 from typing import List, Optional, Union
@@ -25,6 +25,7 @@ import logging
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 logger = logging.getLogger(__name__)
+
 
 # class MrpcProcessor(DataProcessor):
 #     """Processor for the MRPC data set (GLUE version)."""
@@ -215,6 +216,7 @@ class CustomExample:
         self.text_b = text_b
         self.label = label
 
+
 class NewFarstailProcessor:
 
     def get_example_from_tensor_dict(self, tensor_dict):
@@ -350,6 +352,8 @@ class NewTextClassificationProcessor:
             return ["Positive", "Negative", "Neutral"]
         elif self.task_name == "parsinlu-food-sentiment":
             return ["Positive", "Negative", "Neutral"]
+        elif self.task_name == "persian_news_tc":
+            return [0, 1, 2, 3, 4, 5, 6, 7]
         else:
             raise Exception("task_name not supported.")
 
@@ -370,6 +374,10 @@ class NewTextClassificationProcessor:
             elif self.task_name == "parsinlu-food-sentiment":
                 examples.append(CustomExample(guid=guid, text_a=line[1][:-1]
                 if del_a_last_char and line[1][-1] in self.puncs else line[1], label=line[0]))
+            elif self.task_name == "persian_news_tc":
+                examples.append(CustomExample(guid=guid, text_a=line[0][:-1]
+                                              if del_a_last_char and line[0][-1] in self.puncs else line[0],
+                                              label=line[2]))
             else:
                 raise Exception("Task_name not supported.")
         print(f"len examples is {len(examples)}")
@@ -754,12 +762,13 @@ class NewTextClassificationProcessor:
 #                 raise Exception("Task_name not supported.")
 #
 #         return examples
-        
+
 def text_classification_metrics(task_name, preds, labels):
     return {"acc": (preds == labels).mean(),
             "f1_score": f1_score(labels, preds, average="macro"),
             "precision": precision_score(labels, preds, average="macro"),
             "recall": recall_score(labels, preds, average="macro")}
+
 
 # Add your task to the following mappings
 
@@ -786,6 +795,7 @@ processors_mapping = {
     "miras-sparrow": NewTextClassificationProcessor("miras-sparrow"),
     "parsinlu-food-sentiment": NewTextClassificationProcessor("parsinlu-food-sentiment"),
     "farexstance": NewFarexstanceProcessor(),
+    "persian_news_tc": NewTextClassificationProcessor("persian_news_tc"),
 }
 
 num_labels_mapping = {
@@ -809,7 +819,8 @@ num_labels_mapping = {
     "miras": 3,
     "miras-sparrow": 3,
     "parsinlu-food-sentiment": 3,
-    "farexstance": 4
+    "farexstance": 4,
+    "persian_news_tc": 8,
 }
 
 output_modes_mapping = {
@@ -835,6 +846,7 @@ output_modes_mapping = {
     "miras-sparrow": "classification",
     "parsinlu-food-sentiment": "classification",
     "farexstance": "classification",
+    "persian_news_tc": "classification",
 }
 
 # Return a function that takes (task_name, preds, labels) as inputs
@@ -861,6 +873,7 @@ compute_metrics_mapping = {
     "miras-sparrow": text_classification_metrics,
     "parsinlu-food-sentiment": text_classification_metrics,
     "farexstance": text_classification_metrics,
+    "persian_news_tc": text_classification_metrics,
 }
 
 # For regression task only: median

@@ -1,5 +1,5 @@
 
-for task in farstail
+for task in persian_news_tc
 do
   for seed in 13
   do
