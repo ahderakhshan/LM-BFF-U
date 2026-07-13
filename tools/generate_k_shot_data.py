@@ -48,6 +48,8 @@ def get_label(task, line):
             return line[2]
         elif task == "farexstance":
             return line[2]
+        elif task == "persian_news_tc":
+            return line[2]
         else:
             raise NotImplementedError
 
@@ -76,7 +78,10 @@ def load_datasets(data_dir, tasks):
             splits = ["train", "test"]
             for split in splits:
                 filename = os.path.join(dirname, f"{split}.csv")
-                dataset[split] = pd.read_csv(filename, header=None)
+                if task == "persian_news_tc":
+                    dataset[split] = pd.read_csv(filename, header=None, on_bad_lines='skip')
+                else:
+                    dataset[split] = pd.read_csv(filename, header=None)
             datasets[task] = dataset
     return datasets
 
@@ -145,7 +150,9 @@ def main():
                 elif task == "farexstance":
                     train_header = ["claim", "title", "label"]
                     train_lines = dataset["train"].values.tolist()
-
+                elif task == "persian_news_tc":
+                    train_header = ["content", "label", "label_id", "content_len"]
+                    train_lines = dataset["train"].values[1:].tolist()
                 np.random.shuffle(train_lines)
 
             # Set up dir
