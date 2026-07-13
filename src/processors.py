@@ -353,7 +353,7 @@ class NewTextClassificationProcessor:
         elif self.task_name == "parsinlu-food-sentiment":
             return ["Positive", "Negative", "Neutral"]
         elif self.task_name == "persian_news_tc":
-            return [str(i) for i in range(8)]
+            return [i for i in range(8)]
         else:
             raise Exception("task_name not supported.")
 
