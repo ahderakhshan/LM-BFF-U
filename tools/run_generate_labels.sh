@@ -116,7 +116,7 @@ for TASK in $TASKS; do
                 TEMPLATE=*cls**sent_0**mask*است.*sep+*
                 MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'منفی'}"
                 ;;
-            farextance)
+            farexstance)
                 TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
                 MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
               ;;
