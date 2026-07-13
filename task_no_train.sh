@@ -1,5 +1,5 @@
 
-for task in persian_news_tc
+for task in farexstance
 do
   for seed in 13
   do
