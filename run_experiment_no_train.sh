@@ -158,7 +158,7 @@ python run.py \
   --seed $SEED \
   --tag $TAG \
   --template $TEMPLATE \
-  --mapping $MAPPING \
+  --mapping "$MAPPING" \
   --report_to none \
   --overwrite_cache \
   $TASK_EXTRA \
