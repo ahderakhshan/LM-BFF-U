@@ -29,7 +29,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="farstail"
+TASKS="farexstance"
 
 SEEDS="100 13 21 42 87"
 
@@ -116,6 +116,9 @@ for TASK in $TASKS; do
                 TEMPLATE=*cls**sent_0**mask*است.*sep+*
                 MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'منفی'}"
                 ;;
+            farextance)
+              TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
+              MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
         esac
 
         if [[ $LOAD_TEMPLATES = "true" ]]; then
