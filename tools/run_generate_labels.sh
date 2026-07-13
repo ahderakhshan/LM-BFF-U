@@ -117,8 +117,8 @@ for TASK in $TASKS; do
                 MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'منفی'}"
                 ;;
             farextance)
-              TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
-              MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
+                TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
+                MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
               ;;
         esac
 
