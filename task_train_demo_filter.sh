@@ -7,19 +7,15 @@
 #        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
 #    done
 #done
-counter=0
+#counter=0
 for task in farstail
 do
-  for seed in 13 21 42 87 100
+  for seed in 13
   do
-      for bs in 2 4 8
+      for bs in 8
       do
-          for lr in 1e-5 2e-5 5e-5
+          for lr in 1e-5
           do
-              if (( counter <= 6 )); then
-                ((counter++))
-                continue
-              fi
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
               TASK="${task}" \
@@ -28,11 +24,26 @@ do
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
               bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/farstail/16-$seed.sort.txt --mapping_id 0"
-              sleep 180s
-              ((counter++))
-              if (( counter % 10 == 0 )); then
-                sleep 900s
-              fi
+          done
+      done
+  done
+done
+for task in farstail
+do
+  for seed in 100
+  do
+      for bs in 4
+      do
+          for lr in 2e-5
+          do
+              TAG="${task}_train_demo-filter" \
+              TYPE=prompt-demo \
+              TASK="${task}" \
+              BS=$bs \
+              LR=$lr \
+              SEED=$seed \
+              MODEL=FacebookAI/xlm-roberta-large \
+              bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/farstail/16-$seed.sort.txt --mapping_id 0"
           done
       done
   done
