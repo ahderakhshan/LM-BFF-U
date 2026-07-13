@@ -119,6 +119,7 @@ for TASK in $TASKS; do
             farextance)
               TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
               MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
+              ;;
         esac
 
         if [[ $LOAD_TEMPLATES = "true" ]]; then
