@@ -113,7 +113,6 @@ case $TASK in
       ;;
     farexstance)
       TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
-      MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
 
