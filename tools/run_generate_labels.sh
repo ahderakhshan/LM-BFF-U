@@ -155,7 +155,7 @@ for TASK in $TASKS; do
                    --model_name_or_path $MODEL_NAME \
                    --output_file $OUTPUT_DIR//manual_template/$TASK/$K-$SEED.txt \
                    --template $TEMPLATE \
-                   --mapping $MAPPING \
+                   --mapping "$MAPPING" \
                    --task_name $TASK \
                    --data_dir $DATA_DIR/$TASK/$K-$SEED \
                    --k_likely $K_LIKELY \
