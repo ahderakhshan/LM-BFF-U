@@ -120,6 +120,11 @@ for TASK in $TASKS; do
                 TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
                 MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
               ;;
+            persian_news_tc)
+                TEMPLATE=*cls**sent_0*:*mask**sep+*
+                MAPPING="{0: 'اجتماعی', 1: 'اقتصادی', 2: 'جهانی', 3: 'سیاسی', 4: 'علمی', 5: 'فرهنگی',6: 'ورزشی', 7: 'پزشکی'}"
+                TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char"
+      ;;
         esac
 
         if [[ $LOAD_TEMPLATES = "true" ]]; then
