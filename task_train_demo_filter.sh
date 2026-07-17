@@ -24,6 +24,11 @@ do
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
               bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/farexstance/16-$seed.sort.txt --mapping_id 0"
+              sleep 120s
+              ((counter++))
+              if (( counter % 10 == 0 )); then
+                sleep 900
+              fi
           done
       done
   done
