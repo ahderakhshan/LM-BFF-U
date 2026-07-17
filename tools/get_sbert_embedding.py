@@ -43,8 +43,6 @@ def get_sentence(task, line):
         elif task == "miras-sparrow":
             return line[1]
         elif task == "farexstance":
-            print(f"line 0 is: {line[0]}")
-            print(f"line 1 is {line[1]}")
             return line[0] + ' ' + line[1]
         else:
             raise NotImplementedError
