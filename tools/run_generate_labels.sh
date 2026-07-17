@@ -162,7 +162,7 @@ for TASK in $TASKS; do
                    --k_neighbors $K_NEIGHBORS \
                    --n_pairs $N_PAIRS \
                    --max_seq_len 512 \
-                   --per_device_eval_batch_size 2 \
+                   --per_device_eval_batch_size 1 \
                    $TASK_EXTRA
         fi
     done
