@@ -1,16 +1,16 @@
 #python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farexstance
-python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farexstance --do_test --seed 42
-for seed in 13 21 87 100
-do
-    for task in farexstance
-    do
-        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
-    done
-done
+#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farexstance --do_test --seed 42
+#for seed in 13 21 87 100
+#do
+#    for task in farexstance
+#    do
+#        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
+#    done
+#done
 counter=0
 for task in farexstance
 do
-  for seed in 13 21 42 87 100
+  for seed in 100
   do
       for bs in 2 4 8
       do
