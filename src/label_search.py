@@ -156,7 +156,7 @@ def find_labels(
     # best_idx = np.argsort(-np.array(pairing_scores))[:top_n]
     final_parings.sort(reverse=True)
     best_scores = [x[0] for x in final_parings]
-    best_pairings = [x[1] for x in final_parings]
+    best_pairings = [x[2] for x in final_parings]
 
     logger.info("Automatically searched pairings:")
     for i, indices in enumerate(best_pairings):
