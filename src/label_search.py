@@ -136,6 +136,7 @@ def find_labels(
     # Score each pairing.
     pairing_scores = []
     final_parings = []
+    counter = 0
     while True:
         pairings = list(itertools.islice(full_pairings, 10**8))
         if not pairings:
@@ -145,9 +146,10 @@ def find_labels(
                 chunksize = max(10, int(len(pairings) / 1000))
                 for score, pairing in workers.imap(eval_pairing, pairings, chunksize=chunksize):
                     if len(final_parings) < 100:
-                        heapq.heappush(final_parings, (score, pairing))
+                        heapq.heappush(final_parings, (score, counter, pairing))
                     elif score > final_parings[0][0]:
-                        heapq.heapreplace(final_parings, (score, pairing))
+                        heapq.heapreplace(final_parings, (score, counter, pairing))
+                    counter += 1
                     pbar.update()
 
     # Take top-n.

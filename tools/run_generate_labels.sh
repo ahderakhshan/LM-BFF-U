@@ -31,7 +31,7 @@ N_PAIRS=100
 
 TASKS="persian_news_tc"
 
-SEEDS="100 13 21 42 87"
+SEEDS="100"
 
 TASK_EXTRA=""
 
