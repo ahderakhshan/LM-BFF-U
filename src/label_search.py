@@ -135,7 +135,7 @@ def find_labels(
     # Score each pairing.
     pairing_scores = []
     while True:
-        pairings = list(itertools.islice(full_pairings, 10**6))
+        pairings = list(itertools.islice(full_pairings, 10**8))
         if not pairings:
             break
         with multiprocessing.Pool(initializer=init, initargs=(train_logits, train_labels)) as workers:
