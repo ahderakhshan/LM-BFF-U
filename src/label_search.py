@@ -123,7 +123,7 @@ def find_labels(
         label_candidates = likely_indices
 
     # Brute-force search all valid pairings.
-    pairings = list(itertools.product(*label_candidates))
+    full_pairings = itertools.product(*label_candidates)
 
     if is_regression:
         eval_pairing = eval_pairing_corr
@@ -134,12 +134,16 @@ def find_labels(
 
     # Score each pairing.
     pairing_scores = []
-    with multiprocessing.Pool(initializer=init, initargs=(train_logits, train_labels)) as workers:
-        with tqdm.tqdm(total=len(pairings)) as pbar:
-            chunksize = max(10, int(len(pairings) / 1000))
-            for score in workers.imap(eval_pairing, pairings, chunksize=chunksize):
-                pairing_scores.append(score)
-                pbar.update()
+    while True:
+        pairings = list(itertools.islice(full_pairings, 10**6))
+        if not pairings:
+            break
+        with multiprocessing.Pool(initializer=init, initargs=(train_logits, train_labels)) as workers:
+            with tqdm.tqdm(total=len(pairings)) as pbar:
+                chunksize = max(10, int(len(pairings) / 1000))
+                for score in workers.imap(eval_pairing, pairings, chunksize=chunksize):
+                    pairing_scores.append(score)
+                    pbar.update()
 
     # Take top-n.
     best_idx = np.argsort(-np.array(pairing_scores))[:top_n]
