@@ -124,7 +124,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char"
       ;;
     sentipers_binary)
-      TEMPLATE=*cls**sent_0**mask*بود.*sep+*
+      TEMPLATE=*cls**sent_0**mask**sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
 
