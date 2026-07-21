@@ -21,7 +21,7 @@ TEMPLATE_DIR="auto_template/"
 NUM_TEMPLATES=10
 
 # Filter options to top K words (conditional) per class.
-K_LIKELY=30
+K_LIKELY=100
 
 # Special case: we may need to further re-rank based on K-NN.
 K_NEIGHBORS=30
@@ -29,9 +29,9 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="persian_news_tc"
+TASKS="sentipers_binary"
 
-SEEDS="100"
+SEEDS="13 21 42 87 100"
 
 TASK_EXTRA=""
 
@@ -124,7 +124,12 @@ for TASK in $TASKS; do
                 TEMPLATE=*cls**sent_0*:*mask**sep+*
                 MAPPING="{0: 'اجتماعی', 1: 'اقتصادی', 2: 'جهانی', 3: 'سیاسی', 4: 'علمی', 5: 'فرهنگی',6: 'ورزشی', 7: 'پزشکی'}"
                 TASK_EXTRA="--max_seq_len 512 --del_a_last_char"
-      ;;
+              ;;
+            sentipers_binary)
+                TEMPLATE=*cls**sent_0**mask*است.*sep+*
+                MAPPING="{'Positive':'خوب','Negative':'بد'}"
+                TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+              ;;
         esac
 
         if [[ $LOAD_TEMPLATES = "true" ]]; then

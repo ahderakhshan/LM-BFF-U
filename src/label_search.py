@@ -9,7 +9,6 @@ import scipy.spatial as spatial
 import scipy.special as special
 import scipy.stats as stats
 import logging
-import heapq
 
 logger = logging.getLogger(__name__)
 
@@ -61,7 +60,7 @@ def eval_pairing_acc(pairing):
     label_logits = np.take(logits, pairing, axis=-1)
     preds = np.argmax(label_logits, axis=-1)
     correct = np.sum(preds == labels)
-    return correct / len(labels), pairing
+    return correct / len(labels)
 
 
 def eval_pairing_corr(pairing):
@@ -124,7 +123,7 @@ def find_labels(
         label_candidates = likely_indices
 
     # Brute-force search all valid pairings.
-    full_pairings = itertools.product(*label_candidates)
+    pairings = list(itertools.product(*label_candidates))
 
     if is_regression:
         eval_pairing = eval_pairing_corr
@@ -135,28 +134,17 @@ def find_labels(
 
     # Score each pairing.
     pairing_scores = []
-    final_parings = []
-    counter = 0
-    while True:
-        pairings = list(itertools.islice(full_pairings, 10**8))
-        if not pairings:
-            break
-        with multiprocessing.Pool(initializer=init, initargs=(train_logits, train_labels)) as workers:
-            with tqdm.tqdm(total=len(pairings)) as pbar:
-                chunksize = max(10, int(len(pairings) / 1000))
-                for score, pairing in workers.imap(eval_pairing, pairings, chunksize=chunksize):
-                    if len(final_parings) < 100:
-                        heapq.heappush(final_parings, (score, -counter, pairing))
-                    elif score > final_parings[0][0]:
-                        heapq.heapreplace(final_parings, (score, -counter, pairing))
-                    counter += 1
-                    pbar.update()
+    with multiprocessing.Pool(initializer=init, initargs=(train_logits, train_labels)) as workers:
+        with tqdm.tqdm(total=len(pairings)) as pbar:
+            chunksize = max(10, int(len(pairings) / 1000))
+            for score in workers.imap(eval_pairing, pairings, chunksize=chunksize):
+                pairing_scores.append(score)
+                pbar.update()
 
     # Take top-n.
-    # best_idx = np.argsort(-np.array(pairing_scores))[:top_n]
-    final_parings.sort(reverse=True)
-    best_scores = [x[0] for x in final_parings]
-    best_pairings = [x[2] for x in final_parings]
+    best_idx = np.argsort(-np.array(pairing_scores))[:top_n]
+    best_scores = [pairing_scores[i] for i in best_idx]
+    best_pairings = [pairings[i] for i in best_idx]
 
     logger.info("Automatically searched pairings:")
     for i, indices in enumerate(best_pairings):
