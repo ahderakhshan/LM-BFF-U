@@ -8,18 +8,15 @@ do
         lr=1e-5
 
         # Since we only use dev performance here, use --no_predict to skip testing
-        TAG=exp-mapping-farexstance \
+        TAG=exp-mapping-sentipers_binary \
         TYPE=prompt \
-        TASK=farexstance \
+        TASK=sentipers_binary \
         BS=$bs \
         LR=$lr \
         SEED=$seed \
         MODEL=xlm-roberta-large \
         bash run_experiments_find_mappings.sh "--mapping_path final_mappings/sentipers_binary/16-$seed.txt --mapping_id $mapping_id --no_predict"
         ((counter++))
-        sleep 150s
-        if (( counter % 10 == 0 )); then
-          sleep 900
-        fi
+        sleep 10s
     done
 done
