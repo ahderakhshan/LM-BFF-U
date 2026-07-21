@@ -1,5 +1,5 @@
 
-for task in persian_news_tc
+for task in sentipers_binary
 do
   for seed in 13
   do
