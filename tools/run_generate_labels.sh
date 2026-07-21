@@ -128,7 +128,7 @@ for TASK in $TASKS; do
             sentipers_binary)
                 TEMPLATE=*cls**sent_0**mask*است.*sep+*
                 MAPPING="{'Positive':'خوب','Negative':'بد'}"
-                TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+                TASK_EXTRA="--max_seq_len 512"
               ;;
         esac
 
