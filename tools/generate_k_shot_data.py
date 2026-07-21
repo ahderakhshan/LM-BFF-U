@@ -50,6 +50,8 @@ def get_label(task, line):
             return line[2]
         elif task == "persian_news_tc":
             return line[2]
+        elif task == "sentipers_binary":
+            return line[2]
         else:
             raise NotImplementedError
 
@@ -152,6 +154,9 @@ def main():
                     train_lines = dataset["train"].values.tolist()
                 elif task == "persian_news_tc":
                     train_header = ["content", "label", "label_id", "content_len"]
+                    train_lines = dataset["train"].values[1:].tolist()
+                elif task == "sentipers_binary":
+                    train_header = ["Sentence", "Label Integer", "Label"]
                     train_lines = dataset["train"].values[1:].tolist()
                 np.random.shuffle(train_lines)
 
