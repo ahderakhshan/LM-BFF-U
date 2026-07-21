@@ -15,7 +15,7 @@ do
         LR=$lr \
         SEED=$seed \
         MODEL=xlm-roberta-large \
-        bash run_experiments_find_mappings.sh "--mapping_path final_label_mappings/sentipers_binary/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiments_find_mappings.sh "--mapping_path final_label_mapping/sentipers_binary/16-$seed.txt --mapping_id $mapping_id --no_predict"
         ((counter++))
         sleep 10s
     done
