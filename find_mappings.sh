@@ -15,7 +15,7 @@ do
         LR=$lr \
         SEED=$seed \
         MODEL=xlm-roberta-large \
-        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping/manual_template/farexstance/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiments_find_mappings.sh "--mapping_path final_mappings/sentipers_binary/16-$seed.txt --mapping_id $mapping_id --no_predict"
         ((counter++))
         sleep 150s
         if (( counter % 10 == 0 )); then
