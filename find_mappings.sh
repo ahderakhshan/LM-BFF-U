@@ -3,7 +3,7 @@ for mapping_id in {0..19}
 do
     for seed in 13 21 42 87 100
     do
-        if (( counter -le 25 )); then
+        if (( counter <= 12 )); then
           ((counter++))
           continue
         fi
@@ -20,10 +20,10 @@ do
         SEED=$seed \
         MODEL=xlm-roberta-large \
         bash run_experiments_find_mappings.sh "--mapping_path final_label_mapping/sentipers_binary/16-$seed.txt --mapping_id $mapping_id --no_predict"
-        sleep 120s
-        ((counter++))
-        if (( counter % 10 == 0 )); then
-          sleep 900
-        fi
+#        sleep 120s
+#        ((counter++))
+#        if (( counter % 10 == 0 )); then
+#          sleep 900
+#        fi
     done
 done
