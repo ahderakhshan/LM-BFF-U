@@ -3,7 +3,7 @@ for mapping_id in {0..19}
 do
     for seed in 13 21 42 87 100
     do
-        if (( counter <= 12 )); then
+        if (( counter <= 25 )); then
           ((counter++))
           continue
         fi
