@@ -3,6 +3,10 @@ for mapping_id in {0..19}
 do
     for seed in 13 21 42 87 100
     do
+        if (( counter -le 12 )); then
+          ((counter++))
+          continue
+        fi
         # To save time, we fix these hyper-parameters
         bs=8
         lr=1e-5
