@@ -110,6 +110,9 @@ def main():
         elif condition['task_name'] == "farexstance":
             args.key = 'farexstance_dev_eval_acc'
             args.test_key = "farexstance_test_eval_acc"
+        elif condition['task_name'] == "sentipers_binary":
+            args.key = 'sentipers_binary_dev_eval_acc'
+            args.test_key = "sentipers_binary_dev_eval_acc"
         else:
             raise NotImplementedError
 
