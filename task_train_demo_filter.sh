@@ -1,16 +1,16 @@
-#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farexstance
-#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farexstance --do_test --seed 42
-#for seed in 13 21 87 100
-#do
-#    for task in farexstance
-#    do
-#        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
-#    done
-#done
-counter=0
-for task in farexstance
+python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_binary
+python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_binary --do_test --seed 42
+for seed in 13 21 87 100
 do
-  for seed in 100
+    for task in sentipers_binary
+    do
+        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
+    done
+done
+counter=0
+for task in sentipers_binary
+do
+  for seed in 13 21 42 87 100
   do
       for bs in 2 4 8
       do
@@ -23,7 +23,7 @@ do
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/farexstance/16-$seed.sort.txt --mapping_id 0"
+              bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/sentipers_binary/16-$seed.sort.txt --mapping_id 0"
               sleep 120s
               ((counter++))
               if (( counter % 10 == 0 )); then

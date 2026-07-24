@@ -44,17 +44,21 @@ def get_sentence(task, line):
             return line[1]
         elif task == "farexstance":
             return line[0] + ' ' + line[1]
+        elif task == "sentipers_binary":
+            return line[0]
         else:
             raise NotImplementedError
 
+
 def split_header(task, lines):
     """Returns if the task file has a header or not."""
-    if task in ["CoLA", "farstail", "miras", "miras-sparrow", "farexstance"]:
+    if task in ["CoLA", "farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary"]:
         return [], lines
     elif task in ["MNLI", "MRPC", "QNLI", "QQP", "RTE", "SNLI", "SST-2", "STS-B", "WNLI"]:
         return lines[0:1], lines[1:]
     else:
         raise ValueError("Unknown GLUE task.")
+
 
 def load_datasets(data_dir, task, do_test=False):
     dataset = {}
@@ -67,7 +71,7 @@ def load_datasets(data_dir, task, do_test=False):
         if do_test:
             splits.append('test')
     for split in splits:
-        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras", "miras-sparrow", "farexstance"]:
+        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary"]:
             filename = os.path.join(data_dir, f"{split}.csv")
             dataset[split] = pd.read_csv(filename, header=None).values.tolist()
         else:
@@ -77,6 +81,7 @@ def load_datasets(data_dir, task, do_test=False):
                 header, content = split_header(task, lines)
             dataset[split] = content
     return dataset
+
 
 def main():
     parser = argparse.ArgumentParser()
