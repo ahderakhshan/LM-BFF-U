@@ -7,6 +7,7 @@ do
         cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
     done
 done
+sleep 10800s
 counter=0
 for task in sentipers_binary
 do
