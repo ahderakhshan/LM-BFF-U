@@ -16,7 +16,7 @@ do
       do
           for lr in 1e-5 2e-5 5e-5
           do
-              if ((counter < 25)); then
+              if ((counter <= 25)); then
                 echo "$counter continued"
                 ((counter++))
                 continue
