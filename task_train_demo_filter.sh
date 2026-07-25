@@ -19,6 +19,7 @@ do
               if ((counter < 25)); then
                 echo "$counter continued"
                 ((counter++))
+                continue
               fi
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
