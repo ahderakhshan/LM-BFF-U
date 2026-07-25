@@ -1,13 +1,12 @@
-python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_binary
-python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_binary --do_test --seed 42
-for seed in 13 21 87 100
-do
-    for task in sentipers_binary
-    do
-        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
-    done
-done
-sleep 10800s
+#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_binary
+#python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_binary --do_test --seed 42
+#for seed in 13 21 87 100
+#do
+#    for task in sentipers_binary
+#    do
+#        cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
+#    done
+#done
 counter=0
 for task in sentipers_binary
 do
@@ -17,6 +16,10 @@ do
       do
           for lr in 1e-5 2e-5 5e-5
           do
+              if ((counter < 25)); then
+                echo "$counter continued"
+                ((counter++))
+              fi
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
               TASK="${task}" \
