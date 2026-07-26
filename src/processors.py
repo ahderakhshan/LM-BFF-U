@@ -356,6 +356,8 @@ class NewTextClassificationProcessor:
             return [i for i in range(8)]
         elif self.task_name == "sentipers_binary":
             return ["Positive", "Negative"]
+        elif self.task_name == "sentipers_multiclass":
+            return ["Very Positive", "Positive", "Neutral", "Negative", "Very Negative"]
         else:
             raise Exception("task_name not supported.")
 
@@ -381,6 +383,9 @@ class NewTextClassificationProcessor:
                                               if del_a_last_char and line[0][-1] in self.puncs else line[0],
                                               label=line[2]))
             elif self.task_name == "sentipers_binary":
+                examples.append(CustomExample(guid=guid, text_a=line[0][:-1]
+                if del_a_last_char and line[0][-1] in self.puncs else line[0], label=line[2]))
+            elif self.task_name == "sentipers_multiclass":
                 examples.append(CustomExample(guid=guid, text_a=line[0][:-1]
                 if del_a_last_char and line[0][-1] in self.puncs else line[0], label=line[2]))
             else:
@@ -802,6 +807,7 @@ processors_mapping = {
     "farexstance": NewFarexstanceProcessor(),
     "persian_news_tc": NewTextClassificationProcessor("persian_news_tc"),
     "sentipers_binary": NewTextClassificationProcessor("sentipers_binary"),
+    "sentipers_multiclass": NewTextClassificationProcessor("sentipers_multiclass"),
 }
 
 num_labels_mapping = {
@@ -828,6 +834,7 @@ num_labels_mapping = {
     "farexstance": 4,
     "persian_news_tc": 8,
     "sentipers_binary": 2,
+    "sentipers_multiclass": 5,
 }
 
 output_modes_mapping = {
@@ -855,6 +862,7 @@ output_modes_mapping = {
     "farexstance": "classification",
     "persian_news_tc": "classification",
     "sentipers_binary": "classification",
+    "sentipers_multiclass": "classification"
 }
 
 # Return a function that takes (task_name, preds, labels) as inputs
@@ -883,6 +891,7 @@ compute_metrics_mapping = {
     "farexstance": text_classification_metrics,
     "persian_news_tc": text_classification_metrics,
     "sentipers_binary": text_classification_metrics,
+    "sentipers_multiclass": text_classification_metrics,
 }
 
 # For regression task only: median
