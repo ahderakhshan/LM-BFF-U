@@ -130,7 +130,7 @@ case $TASK in
       ;;
     sentipers_multiclass)
       TEMPLATE=*cls**sent_0**mask**sep+*
-      MAPPING="{'Very Positive':'عالی', 'Positive': 'خوب', 'Neutral': 'متوسط','Negative':'بد', 'Very Negative': 'افتضاح'}"
+      MAPPING="{'Very Positive':'عالی', 'Positive': 'خوب', 'Neutral': 'متوسط','Negative':'بد', 'Very Negative': 'فاجعه'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
 
 esac
