@@ -118,6 +118,11 @@ case $TASK in
     sentipers_binary)
       TEMPLATE=*cls**sent_0**mask*است.*sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      ;;
+    sentipers_multiclass)
+      TEMPLATE=*cls**sent_0**mask**sep+*
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      ;;
 
 esac
 
