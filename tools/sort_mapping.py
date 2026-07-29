@@ -135,6 +135,9 @@ def main():
         elif condition['task_name'] == "sentipers_binary":
             args.key = 'sentipers_binary_dev_eval_acc'
             print_name = condition['task_name']
+        elif condition['task_name'] == "sentipers_multiclass":
+            args.key = "sentipers_multiclass_dev_eval_acc"
+            print_name = condition['task_name']
         else:
             raise NotImplementedError
 
