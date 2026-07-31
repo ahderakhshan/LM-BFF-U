@@ -3,6 +3,11 @@ for mapping_id in {0..19}
 do
     for seed in 13 21 42 87 100
     do
+        if ((counter <= 45)); then
+          ((counter++))
+          echo "$counter passed"
+          continue
+        fi
         # To save time, we fix these hyper-parameters
         bs=8
         lr=1e-5
