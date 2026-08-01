@@ -1,6 +1,4 @@
 #
-sleep 15h
-python tools/sort_mapping.py --condition "{'tag': 'exp-mapping-sentipers_multiclass', 'task_name': 'sentipers_multiclass'}" --mapping_dir my_auto_label_mapping/manual_template
 counter=0
 for task in sentipers_multiclass
 do
@@ -17,7 +15,7 @@ do
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_train.sh "--mapping_path my_auto_label_mapping/manual_template/sentipers_multiclass/16-$seed.sort.txt --mapping_id 0"
+              bash run_experiment_train.sh "--mapping_path final_label_mapping/sentipers_multiclass/16-$seed.sort.txt --mapping_id 0"
               sleep 120s
               ((counter++))
               if (( counter % 10 == 0 )); then
@@ -44,7 +42,7 @@ do
               LR=$lr \
               SEED=$seed \
               MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_train.sh "--mapping_path my_auto_label_mapping/manual_template/sentipers_multiclass/16-$seed.sort.txt --mapping_id 0"
+              bash run_experiment_train.sh "--mapping_path final_label_mapping/sentipers_multiclass/16-$seed.sort.txt --mapping_id 0"
               sleep 120s
               ((counter++))
               if (( counter % 10 == 0 )); then
