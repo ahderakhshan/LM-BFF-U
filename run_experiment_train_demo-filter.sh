@@ -118,7 +118,11 @@ case $TASK in
     sentipers_binary)
       TEMPLATE=*cls**sent_0**mask*است.*sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
-
+      ;;
+    sentipers_multiclass)
+      TEMPLATE=*cls**sent_0**mask**sep+*
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
+      ;;
 esac
 
 # Gradient accumulation steps

@@ -14,7 +14,7 @@ def get_sentence(task, line):
             return line[1]
     else:
         # GLUE tasks
-        if task not in ["farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary"]:
+        if task not in ["farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary", "sentipers_multiclass"]:
             line = line.strip().split('\t')
         if task == 'CoLA':
             return line[-1]
@@ -46,13 +46,15 @@ def get_sentence(task, line):
             return line[0] + ' ' + line[1]
         elif task == "sentipers_binary":
             return line[0]
+        elif task == "sentipers_multiclass":
+            return line[0]
         else:
             raise NotImplementedError
 
 
 def split_header(task, lines):
     """Returns if the task file has a header or not."""
-    if task in ["CoLA", "farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary"]:
+    if task in ["CoLA", "farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary", "sentipers_multiclass"]:
         return [], lines
     elif task in ["MNLI", "MRPC", "QNLI", "QQP", "RTE", "SNLI", "SST-2", "STS-B", "WNLI"]:
         return lines[0:1], lines[1:]
@@ -71,7 +73,7 @@ def load_datasets(data_dir, task, do_test=False):
         if do_test:
             splits.append('test')
     for split in splits:
-        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary"]:
+        if task in ['mr', 'sst-5', 'subj', 'trec', 'cr', 'mpqa', "farstail", "miras", "miras-sparrow", "farexstance", "sentipers_binary", "sentipers_multiclass"]:
             filename = os.path.join(data_dir, f"{split}.csv")
             dataset[split] = pd.read_csv(filename, header=None).values.tolist()
         else:
