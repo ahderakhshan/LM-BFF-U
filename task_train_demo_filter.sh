@@ -2,7 +2,7 @@ python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" 
 python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task sentipers_multiclass --do_test --seed 42
 for seed in 13 21 87 100
 do
-    for task in sentipers_binary
+    for task in sentipers_multiclass
     do
         cp data/k-shot/$task/16-42/test.npy  data/k-shot/$task/16-$seed/
     done
