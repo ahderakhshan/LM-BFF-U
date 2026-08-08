@@ -114,8 +114,8 @@ def main():
             args.key = 'sentipers_binary_dev_eval_f1_score'
             args.test_key = "sentipers_binary_test_eval_f1_score"
         elif condition['task_name'] == "sentipers_multiclass":
-            args.key = 'sentipers_multiclass_dev_eval_acc'
-            args.test_key = 'sentipers_multiclass_dev_eval_acc'
+            args.key = 'sentipers_multiclass_dev_eval_f1_score'
+            args.test_key = 'sentipers_multiclass_test_eval_f1_score'
         else:
             raise NotImplementedError
 
