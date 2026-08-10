@@ -21,6 +21,7 @@ do
                 echo "$counter passed"
                 sleep 1s
                 ((counter++))
+                continue
               fi
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
