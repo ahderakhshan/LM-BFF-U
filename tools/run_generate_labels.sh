@@ -21,7 +21,7 @@ TEMPLATE_DIR="auto_template/"
 NUM_TEMPLATES=10
 
 # Filter options to top K words (conditional) per class.
-K_LIKELY=45
+K_LIKELY=100
 
 # Special case: we may need to further re-rank based on K-NN.
 K_NEIGHBORS=30

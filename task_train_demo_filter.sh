@@ -17,6 +17,11 @@ do
       do
           for lr in 1e-5 2e-5 5e-5
           do
+              if ((counter <= 41)); then
+                echo "$counter passed"
+                sleep 1s
+                ((counter++))
+              fi
               TAG="${task}_train_demo-filter" \
               TYPE=prompt-demo \
               TASK="${task}" \
