@@ -7,7 +7,7 @@ K=16
 DATA_DIR="data/k-shot"
 
 # Output directory where results will be written.
-OUTPUT_DIR="my_auto_label_mapping"
+OUTPUT_DIR="my_auto_label_mapping2"
 
 # Pre-trained model name (roberta-*, bert-*), see Transformers.
 MODEL_NAME="xlm-roberta-large"
