@@ -94,8 +94,8 @@ case $TASK in
         TASK_EXTRA="--first_sent_limit 110  --double_demo"
         ;;
     farstail)
-      TEMPLATE=*cls**sent_0*؟*mask*،*sent_1**sep+*
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large --del_a_last_char"
+      TEMPLATE=*cls**sent_0*،*sent_1*؟*mask**sep+*
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large --del_a_last_char --del_b_last_char"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
