@@ -1,5 +1,5 @@
 
-for task in sentipers_multiclass
+for task in miras-sparrow
 do
   for seed in 13
   do
@@ -7,13 +7,13 @@ do
       do
           for lr in 5e-5
           do
-              TAG="${task}_no-train_no-demo_mapping-selection" \
+              TAG="${task}_no-train_no-demo_mapping-selection_cpt0" \
               TYPE=prompt \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL=FacebookAI/xlm-roberta-large \
+              MODEL="/home/user2/fnlp/cpt_model/CPT_MODEL" \
               bash run_experiment_no_train.sh
           done
       done
