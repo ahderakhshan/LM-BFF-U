@@ -104,7 +104,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras-sparrow)
-      TEMPLATE=*cls**sent_0**mask*بود.*sep+*
+      TEMPLATE=*cls**sent_0**mask**sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
