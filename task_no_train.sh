@@ -1,4 +1,5 @@
-
+for model_counter in 50 100 150 200 250
+do
 for task in farstail
 do
   for seed in 13
@@ -13,13 +14,13 @@ do
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL="/home/user2/fnlp/cpt_model/CPT_MODEL" \
+              MODEL="/home/user2/fnlp/pet/pet/new_model2_${model_counter}}" \
               bash run_experiment_no_train.sh
           done
       done
   done
 done
-
+done
 
 #for task in miras-sparrow
 #do
