@@ -1,4 +1,4 @@
-for task in miras-sparrwo farexstance sentipers_binary sentipers_multiclass
+for task in miras-sparrow
 do
 for model_counter in 50 100 150 200 250
 do
