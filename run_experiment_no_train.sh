@@ -104,7 +104,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter_model /kaggle/working/all_minilm/roberta-fa-zwnj-base --demo_filter"
       ;;
     miras-sparrow)
-      TEMPLATE=*cls**sent_0**mask**sep+*
+      TEMPLATE=*cls**sent_0**mask*است.*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد','Neutral':'متوسط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
@@ -114,7 +114,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     farexstance)
-      TEMPLATE=*cls**sent_1**mask**sent_0*است.*sep+*
+      TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
       MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
@@ -124,12 +124,12 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char"
       ;;
     sentipers_binary)
-      TEMPLATE=*cls**sent_0**mask**sep+*
+      TEMPLATE=*cls**sent_0**mask*است.*sep+*
       MAPPING="{'Positive':'خوب','Negative':'بد'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     sentipers_multiclass)
-      TEMPLATE=*cls**sent_0**mask**sep+*
+      TEMPLATE=*cls**sent_0**mask*است.*sep+*
       MAPPING="{'Very Positive':'عالی', 'Positive': 'خوب', 'Neutral': 'متوسط','Negative':'بد', 'Very Negative': 'فاجعه'}"
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
 
