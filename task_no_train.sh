@@ -14,7 +14,7 @@ do
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL="/home/user2/fnlp/pet/pet/new_model2_${model_counter}}" \
+              MODEL="/home/user2/fnlp/pet/pet/new_model2_${model_counter}/" \
               bash run_experiment_no_train.sh
           done
       done
