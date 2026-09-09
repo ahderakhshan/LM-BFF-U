@@ -1,6 +1,6 @@
 for task in miras-sparrow farexstance sentipers_binary sentipers_multiclass
 do
-for model_counter in 50 100 150 200 250
+for model_counter in 50 100 150 200 250 300 350 400
 do
   for seed in 13
   do
@@ -14,7 +14,7 @@ do
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL="/home/user2/fnlp/pet/pet/new_model2_${model_counter}/" \
+              MODEL="/home/user2/fnlp/pet/pet/new_model400it_${model_counter}/" \
               bash run_experiment_no_train.sh
           done
       done
