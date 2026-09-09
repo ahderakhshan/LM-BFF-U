@@ -1,4 +1,4 @@
-for task in farstail
+for task in farstail miras-sparrow sentipers_binary sentipers_multiclass farexstance
 do
 for model_counter in 50 100 150 200 250 300 350 400
 do
