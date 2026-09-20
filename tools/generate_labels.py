@@ -18,7 +18,7 @@ from transformers import HfArgumentParser, TrainingArguments, set_seed
 from src.label_search import find_labels
 from src.dataset import FewShotDataset
 from src.models import BertForPromptFinetuning, RobertaForPromptFinetuning, resize_token_type_embeddings,\
-    XLMRobertaForPromptFinetuning
+    XLMRobertaForPromptFinetuning, AlbertForPromptFinetuning
 from src.trainer import Trainer
 from src.processors import output_modes_mapping, num_labels_mapping
 
@@ -209,6 +209,8 @@ def main():
         model_fn = BertForPromptFinetuning
     elif config.model_type == "xlm-roberta":
         model_fn = XLMRobertaForPromptFinetuning
+    elif config.model_type == "albert":
+        model_fn = AlbertForPromptFinetuning
     else:
         raise NotImplementedError
     special_tokens = []
