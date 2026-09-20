@@ -353,7 +353,8 @@ class AlbertForPromptFinetuning(AlbertPreTrainedModel):
         # Encode everything
         outputs = self.albert(
             input_ids=input_ids,
-            attention_mask=attention_mask
+            attention_mask=attention_mask,
+            token_type_ids=token_type_ids
         )
 
         # Get <mask> token representation

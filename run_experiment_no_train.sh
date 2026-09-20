@@ -15,7 +15,6 @@ MAX_STEP=1000
 
 # Validation steps
 EVAL_STEP=100
-TOKENIZER_NAME="xlm-roberta-large"
 # Task specific parameters
 # The default length is 128 and the default number of samples is 16.
 # For some tasks, we use longer length or double demo (when using demonstrations, double the maximum length).
