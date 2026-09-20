@@ -117,7 +117,7 @@ for TASK in $TASKS; do
                 ;;
             parsinlu-food-sentiment)
                 TEMPLATE=*cls**sent_0**mask*است.*sep+*
-                MAPPING="{'Positive':'خ','Neutral':'م','Negative':'د'}"
+                MAPPING="{'Positive':'د','Neutral':'ب','Negative':'خ'}"
                 ;;
             farexstance)
                 TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
