@@ -28,7 +28,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="miras-sparrow"
+TASKS="parsinlu-food-sentiment"
 
 SEEDS="13 21 42 87 100"
 
@@ -112,6 +112,10 @@ for TASK in $TASKS; do
                 TASK_EXTRA="--del_a_last_char --del_b_last_char"
                 ;;
             miras-sparrow)
+                TEMPLATE=*cls**sent_0**mask*است.*sep+*
+                MAPPING="{'Positive':'خ','Neutral':'م','Negative':'د'}"
+                ;;
+            parsinlu-food-sentiment)
                 TEMPLATE=*cls**sent_0**mask*است.*sep+*
                 MAPPING="{'Positive':'خ','Neutral':'م','Negative':'د'}"
                 ;;
