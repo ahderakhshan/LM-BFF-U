@@ -231,7 +231,7 @@ def main():
         cache_dir=model_args.cache_dir,
     )
     special_token = "Ġ"
-    if config.model_type == "xlm-roberta":
+    if config.model_type in ["xlm-roberta", "albert"]:
         special_token = '▁'
     # For BERT, increase the size of the segment (token type) embeddings
     if config.model_type == 'bert':
