@@ -10,8 +10,7 @@ DATA_DIR="data/k-shot"
 OUTPUT_DIR="my_auto_label_mapping_cpt_0"
 
 # Pre-trained model name (roberta-*, bert-*), see Transformers.
-MODEL_NAME="/home/user2/fnlp/cpt_model/CPT_MODEL"
-TOKENIZER_NAME="xlm-roberta-large"
+MODEL_NAME="cservan/multilingual-albert-base-cased-128k"
 # For auto T + L, we first generate automatic templates. Then, for each template, we
 # generate automatic labels. Finally we will train all auto template X auto labels and
 # select the best (based on dev). If we are doing this, then we must specify the auto T
@@ -164,7 +163,6 @@ for TASK in $TASKS; do
                    --overwrite_output_dir \
                    --output_dir /tmp/output \
                    --model_name_or_path $MODEL_NAME \
-                   --tokenizer_name $TOKENIZER_NAME \
                    --output_file $OUTPUT_DIR//manual_template/$TASK/$K-$SEED.txt \
                    --template $TEMPLATE \
                    --mapping "$MAPPING" \
