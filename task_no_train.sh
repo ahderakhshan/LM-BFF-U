@@ -1,6 +1,4 @@
-for task in persian_news_tc
-do
-for model_counter in 50 100 150 200 250 300 350 400
+for task in miras-sparrow
 do
   for seed in 13
   do
@@ -8,18 +6,17 @@ do
       do
           for lr in 5e-5
           do
-              TAG="${task}_no-train_no-demo_mapping-selection_cpt0" \
+              TAG="${task}_no-train_no-demo" \
               TYPE=prompt \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL="/home/user2/fnlp/pet/pet/new_model400it_${model_counter}/" \
+              MODEL=cservan/multilingual-albert-base-cased-128k \
               bash run_experiment_no_train.sh
           done
       done
   done
-done
 done
 
 #for task in miras-sparrow
