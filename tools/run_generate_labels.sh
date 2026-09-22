@@ -178,6 +178,7 @@ for TASK in $TASKS; do
                    --n_pairs $N_PAIRS \
                    --max_seq_len 512 \
                    --per_device_eval_batch_size 16 \
+                   --use_full_length \
                    $TASK_EXTRA
         fi
     done
