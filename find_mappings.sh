@@ -15,7 +15,7 @@ do
         # Since we only use dev performance here, use --no_predict to skip testing
         TAG=exp-mapping-mirassparrow-cpt200 \
         TYPE=prompt \
-        TASK=miras-sparroow \
+        TASK=miras-sparrow \
         BS=$bs \
         LR=$lr \
         SEED=$seed \
