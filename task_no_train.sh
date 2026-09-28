@@ -6,13 +6,13 @@ do
       do
           for lr in 5e-5
           do
-              TAG="${task}_no-train_no-demo" \
+              TAG="${task}_no-train_no-demo_cpt_check" \
               TYPE=prompt \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL=cservan/multilingual-albert-base-cased-128k \
+              MODEL='/home/user2/fnlp/pet/pet/new_model400it_200/' \
               bash run_experiment_no_train.sh
           done
       done

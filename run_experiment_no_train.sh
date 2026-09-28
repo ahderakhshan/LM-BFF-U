@@ -169,6 +169,7 @@ python run.py \
   --mapping "$MAPPING" \
   --report_to none \
   --overwrite_cache \
+  --tokenizer_name_or_path xlm-roberta-large \
   $TASK_EXTRA \
   $1 
 
