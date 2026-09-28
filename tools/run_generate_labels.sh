@@ -115,7 +115,7 @@ for TASK in $TASKS; do
                 ;;
             miras-sparrow)
                 TEMPLATE=*cls**sent_0**mask*است.*sep+*
-                MAPPING="{'Positive':'خ','Neutral':'م','Negative':'د'}"
+                MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'بد'}"
                 TASK_EXTRA="--max_seq_len 512"
                 ;;
             parsinlu-food-sentiment)
