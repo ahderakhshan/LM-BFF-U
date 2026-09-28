@@ -146,6 +146,7 @@ python run.py \
   --eval_strategy steps \
   --no_predict \
   --model_name_or_path $MODEL \
+  --tokenizer_name xlm-roberta-large \
   --few_shot_type $TYPE \
   --num_k $K \
   --per_device_train_batch_size $REAL_BS \
