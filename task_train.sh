@@ -13,7 +13,7 @@ do
 #                continue
 #              fi
               TAG="${task}_train_no-demo_cpt200" \
-              TYPE=prompt \
+              TYPE=prompt-demo \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
