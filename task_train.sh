@@ -1,6 +1,6 @@
 #
 counter=0
-for task in mirassparrow
+for task in miras-sparrow
 do
   for seed in 13 21 42 87 100
   do
