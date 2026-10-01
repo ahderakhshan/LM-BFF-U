@@ -1,4 +1,4 @@
-sleep 1h
+#sleep 1h
 #python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail
 #python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail --do_test --seed 42
 #for seed in 13 21 87 100
@@ -9,7 +9,7 @@ sleep 1h
 #    done
 #done
 counter=0
-for task in farstail
+for task in miras-sparrow
 do
   for seed in 13 21 42 87 100
   do
@@ -23,14 +23,14 @@ do
 #                ((counter++))
 #                continue
 #              fi
-              TAG="${task}_train_demo-filter1" \
+              TAG="${task}_train_demo-filter_cpt200" \
               TYPE=prompt-demo \
               TASK="${task}" \
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL=FacebookAI/xlm-roberta-large \
-              bash run_experiment_train_demo-filter.sh "--mapping_path final_label_mapping/farstail/16-$seed.sort.txt --mapping_id 0"
+              MODEL='/home/user2/fnlp/pet/pet/new_model400it_200/'  \
+              bash run_experiment_train_demo-filter.sh  "--mapping_path my_auto_label_mapping_cpt_200it/manual_template/miras-sparrow/16-$seed.sort.txt --mapping_id 0"
               sleep 120s
               ((counter++))
               if (( counter % 10 == 0 )); then
