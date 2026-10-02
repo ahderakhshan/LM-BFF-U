@@ -13,14 +13,14 @@ do
         lr=1e-5
 
         # Since we only use dev performance here, use --no_predict to skip testing
-        TAG=exp-mapping-mirassparrow-cpt200 \
+        TAG=exp-farstail-cpt200 \
         TYPE=prompt \
-        TASK=miras-sparrow \
+        TASK=farstail \
         BS=$bs \
         LR=$lr \
         SEED=$seed \
         MODEL='/home/user2/fnlp/pet/pet/new_model400it_200/'  \
-        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_200it/manual_template/miras-sparrow/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_200it/manual_template/farstail/16-$seed.txt --mapping_id $mapping_id --no_predict"
         sleep 120s
         ((counter++))
         if (( counter % 10 == 0 )); then
