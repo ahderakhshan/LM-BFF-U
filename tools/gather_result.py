@@ -105,8 +105,8 @@ def main():
             args.key = 'miras_dev_eval_acc'
             args.test_key = 'miras_test_eval_acc'
         elif condition['task_name'] == "miras-sparrow":
-            args.key = 'miras-sparrow_dev_eval_acc'
-            args.test_key = 'miras-sparrow_test_eval_acc'
+            args.key = 'miras-sparrow_dev_eval_f1_score'
+            args.test_key = 'miras-sparrow_test_eval_f1_score'
         elif condition['task_name'] == "farexstance":
             args.key = 'farexstance_dev_eval_acc'
             args.test_key = "farexstance_test_eval_acc"

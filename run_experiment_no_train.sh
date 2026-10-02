@@ -95,7 +95,7 @@ case $TASK in
     farstail)
       TEMPLATE=*cls**sent_0*،*sent_1*؟*mask**sep+*
       MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
-      TASK_EXTRA="--max_seq_len 512 --num_sample 16 --del_a_last_char --del_b_last_char"
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     miras)
       TEMPLATE=*cls*mask*_بود*sent_0*sep+*
