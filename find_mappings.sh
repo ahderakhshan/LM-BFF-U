@@ -13,7 +13,7 @@ do
         lr=1e-5
 
         # Since we only use dev performance here, use --no_predict to skip testing
-        TAG=exp-farstail-cpt200 \
+        TAG=exp-mapping-farstail-cpt200 \
         TYPE=prompt \
         TASK=farstail \
         BS=$bs \
