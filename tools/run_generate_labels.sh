@@ -28,7 +28,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="farstail"
+TASKS="farexstance"
 
 SEEDS="13 21 42 87 100"
 
@@ -122,7 +122,7 @@ for TASK in $TASKS; do
                 MAPPING="{'Positive':'د','Neutral':'ب','Negative':'خ'}"
                 ;;
             farexstance)
-                TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
+                TEMPLATE=*cls**sent_1**mask**sent_0*است.*sep+*
                 MAPPING="{'agree':'موافق','disagree':'مخالف','unrelated':'جدا','discuss':'مرتبط'}"
               ;;
             persian_news_tc)
