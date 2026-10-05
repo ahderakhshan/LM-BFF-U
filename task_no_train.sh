@@ -1,4 +1,4 @@
-for task in farstail
+for task in farexstance
 do
   for seed in 13
   do
