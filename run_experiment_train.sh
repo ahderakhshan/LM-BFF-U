@@ -112,7 +112,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     farexstance)
-      TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
+      TEMPLATE=*cls**sent_1**mask**sent_0*است.*sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     sentipers_binary)
