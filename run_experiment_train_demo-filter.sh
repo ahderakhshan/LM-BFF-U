@@ -112,7 +112,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     farexstance)
-      TEMPLATE=*cls**sent_1**mask*با*sent_0*است.**sep+*
+      TEMPLATE=*cls**sent_1**mask**sent_0*است.*sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16 --demo_filter --demo_filter_model PartAI/Tooka-SBERT-V2-Large"
       ;;
     sentipers_binary)
