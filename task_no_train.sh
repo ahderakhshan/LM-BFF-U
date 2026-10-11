@@ -1,4 +1,4 @@
-for task in farexstance
+for task in sentipers_multiclass
 do
   for seed in 13
   do
