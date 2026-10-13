@@ -12,7 +12,7 @@ do
 #                ((counter++))
 #                continue
 #              fi
-              TAG="${task}_train_no-demo_cpt200" \
+              TAG="${task}_train_no-demo_cpt200-2" \
               TYPE=prompt \
               TASK="${task}" \
               BS=$bs \
@@ -44,7 +44,7 @@ do
 #                ((counter++))
 #                continue
 #              fi
-              TAG="${task}_train_demo_cpt200" \
+              TAG="${task}_train_demo_cpt200-2" \
               TYPE=prompt-demo \
               TASK="${task}" \
               BS=$bs \
