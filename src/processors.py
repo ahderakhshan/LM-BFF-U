@@ -808,6 +808,8 @@ processors_mapping = {
     "persian_news_tc": NewTextClassificationProcessor("persian_news_tc"),
     "sentipers_binary": NewTextClassificationProcessor("sentipers_binary"),
     "sentipers_multiclass": NewTextClassificationProcessor("sentipers_multiclass"),
+    "persian_news_tc-1": NewTextClassificationProcessor("persian_news_tc-1"),
+    "persian_news_tc-2": NewTextClassificationProcessor("persian_news_tc-2"),
 }
 
 num_labels_mapping = {
@@ -835,6 +837,8 @@ num_labels_mapping = {
     "persian_news_tc": 8,
     "sentipers_binary": 2,
     "sentipers_multiclass": 5,
+    "persian_news_tc-1": 4,
+    "persian_news_tc-2": 4,
 }
 
 output_modes_mapping = {
@@ -862,7 +866,9 @@ output_modes_mapping = {
     "farexstance": "classification",
     "persian_news_tc": "classification",
     "sentipers_binary": "classification",
-    "sentipers_multiclass": "classification"
+    "sentipers_multiclass": "classification",
+    "persian_news_tc-1": "classification",
+    "persian_news_tc-2": "classification",
 }
 
 # Return a function that takes (task_name, preds, labels) as inputs
@@ -892,6 +898,8 @@ compute_metrics_mapping = {
     "persian_news_tc": text_classification_metrics,
     "sentipers_binary": text_classification_metrics,
     "sentipers_multiclass": text_classification_metrics,
+    "persian_news_tc-1": text_classification_metrics,
+    "persian_news_tc-2": text_classification_metrics,
 }
 
 # For regression task only: median
