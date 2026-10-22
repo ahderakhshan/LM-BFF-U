@@ -1,4 +1,4 @@
-for task in sentipers_binary
+for task in miras-sparrow
 do
   for seed in 13
   do
@@ -12,7 +12,7 @@ do
               BS=$bs \
               LR=$lr \
               SEED=$seed \
-              MODEL='/home/user2/fnlp/pet/pet/new_model400it_200/' \
+              MODEL='/home/user2/fnlp/pet/pet/new_model400it_400/' \
               bash run_experiment_no_train.sh
           done
       done
