@@ -7,10 +7,10 @@ K=16
 DATA_DIR="data/k-shot"
 
 # Output directory where results will be written.
-OUTPUT_DIR="my_auto_label_mapping_cpt_200it"
+OUTPUT_DIR="my_auto_label_mapping_cpt_400it"
 
 # Pre-trained model name (roberta-*, bert-*), see Transformers.
-MODEL_NAME="/home/user2/fnlp/pet/pet/new_model400it_200/"
+MODEL_NAME="/home/user2/fnlp/pet/pet/new_model400it_400/"
 # For auto T + L, we first generate automatic templates. Then, for each template, we
 # generate automatic labels. Finally we will train all auto template X auto labels and
 # select the best (based on dev). If we are doing this, then we must specify the auto T
@@ -28,7 +28,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="persian_news_tc-1 persian_news_tc-2"
+TASKS="miras-sparrow"
 
 SEEDS="13 21 42 87 100"
 
@@ -113,7 +113,7 @@ for TASK in $TASKS; do
                 MAPPING="{'e':'بله','c':'خیر','n':'شاید'}"
                 ;;
             miras-sparrow)
-                TEMPLATE=*cls**sent_0**mask*است.*sep+*
+                TEMPLATE=*cls**sent_0**mask*sep+*
                 MAPPING="{'Positive':'خوب','Neutral':'متوسط','Negative':'بد'}"
                 TASK_EXTRA="--max_seq_len 512"
                 ;;
