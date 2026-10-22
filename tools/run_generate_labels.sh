@@ -28,7 +28,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="sentipers_binary"
+TASKS="persian_news_tc-1 persian_news_tc-2"
 
 SEEDS="13 21 42 87 100"
 
@@ -138,6 +138,16 @@ for TASK in $TASKS; do
             sentipers_multiclass)
                 TEMPLATE=*cls**sent_0**mask**sep+*
                 MAPPING="{'Very Positive':'عالی', 'Positive': 'خوب', 'Neutral': 'متوسط','Negative':'بد', 'Very Negative': 'فاجعه'}"
+                TASK_EXTRA="--max_seq_len 512"
+              ;;
+            persian_news_tc-1)
+                TEMPLATE=*cls*mask*:*sent_0**sep+*
+                MAPPING="{0: 'اجتماعی', 1: 'اقتصادی', 2: 'جهانی', 3: 'سیاسی'}"
+                TASK_EXTRA="--max_seq_len 512"
+              ;;
+            persian_news_tc-2)
+                TEMPLATE=*cls*mask*:*sent_0**sep+*
+                MAPPING="{ 4: 'علمی', 5: 'فرهنگی',6: 'ورزشی', 7: 'پزشکی'}"
                 TASK_EXTRA="--max_seq_len 512"
               ;;
         esac
