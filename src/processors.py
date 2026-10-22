@@ -354,6 +354,10 @@ class NewTextClassificationProcessor:
             return ["Positive", "Negative", "Neutral"]
         elif self.task_name == "persian_news_tc":
             return [i for i in range(8)]
+        elif self.task_name == "persian_news_tc-1":
+            return [i for i in range(4)]
+        elif self.task_name == "persian_news_tc-2":
+            return [4, 5, 6, 7]
         elif self.task_name == "sentipers_binary":
             return ["Positive", "Negative"]
         elif self.task_name == "sentipers_multiclass":
@@ -378,7 +382,7 @@ class NewTextClassificationProcessor:
             elif self.task_name == "parsinlu-food-sentiment":
                 examples.append(CustomExample(guid=guid, text_a=line[1][:-1]
                 if del_a_last_char and line[1][-1] in self.puncs else line[1], label=line[0]))
-            elif self.task_name == "persian_news_tc":
+            elif self.task_name in ["persian_news_tc", "persian_news_tc-1", "persian_news_tc-2"]:
                 examples.append(CustomExample(guid=guid, text_a=line[0][:-1]
                                               if del_a_last_char and line[0][-1] in self.puncs else line[0],
                                               label=line[2]))
