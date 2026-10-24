@@ -19,7 +19,7 @@ do
         BS=$bs \
         LR=$lr \
         SEED=$seed \
-        MODEL='/home/user2/fnlp/pet/pet/new_model400it_400/'  \
+        MODEL='/home/user2/fnlp/pet/pet/new_model400it_400 /'  \
         bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/miras-sparrow/16-$seed.txt --mapping_id $mapping_id --no_predict"
         sleep 120s
         ((counter++))
