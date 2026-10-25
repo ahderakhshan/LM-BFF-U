@@ -123,6 +123,10 @@ case $TASK in
       TEMPLATE=*cls**sent_0**mask**sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
+    persian_news_tc)
+      TEMPLATE=*cls*mask*:*sent_0**sep+*
+      TASK_EXTRA="--max_seq_len 512 --num_sample 16"
+      ;;
 
 esac
 

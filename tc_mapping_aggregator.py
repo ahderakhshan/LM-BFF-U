@@ -12,6 +12,7 @@ def aggregate_mappings(mappings1, mappings2):
             mapping = {}
             mapping.update(mapping1)
             mapping.update(mapping2)
+            mapping = {int(k): v for k,v in mapping.items()}
             results.append(mapping)
     return results
 
