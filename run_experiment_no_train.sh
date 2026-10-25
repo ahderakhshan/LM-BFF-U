@@ -165,7 +165,6 @@ python run.py \
   --seed $SEED \
   --tag $TAG \
   --template $TEMPLATE \
-  --mapping "$MAPPING" \
   --report_to none \
   --overwrite_cache \
   --tokenizer_name xlm-roberta-large \
