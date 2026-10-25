@@ -118,8 +118,7 @@ case $TASK in
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     persian_news_tc)
-      TEMPLATE=*cls*mask*:*sent_0***sep+*
-      MAPPING="{0: 'اجتماعی', 1: 'اقتصادی', 2: 'جهانی', 3: 'سیاسی', 4: 'علمی', 5: 'فرهنگی',6: 'ورزشی', 7: 'پزشکی'}"
+      TEMPLATE=*cls*mask*:*sent_0**sep+*
       TASK_EXTRA="--max_seq_len 512 --num_sample 16"
       ;;
     sentipers_binary)
