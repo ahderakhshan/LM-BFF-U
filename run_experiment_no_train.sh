@@ -151,6 +151,7 @@ python run.py \
   --eval_strategy steps \
   --do_predict \
   --model_name_or_path $MODEL \
+  --mapping $MAPPING \
   --few_shot_type $TYPE \
   --num_k $K \
   --per_device_train_batch_size $REAL_BS \
