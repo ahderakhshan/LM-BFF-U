@@ -9,7 +9,7 @@
 #    done
 #done
 counter=0
-for task in miras-sparrow
+for task in farstail
 do
   for seed in 13 21 42 87 100
   do
@@ -30,7 +30,7 @@ do
               LR=$lr \
               SEED=$seed \
               MODEL='/home/user2/fnlp/pet/pet/new_model400it_400/'  \
-              bash run_experiment_train_demo-filter.sh  "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/miras-sparrow/16-$seed.sort.txt --mapping_id 0"
+              bash run_experiment_train_demo-filter.sh  "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/farstail/16-$seed.sort.txt --mapping_id 0"
               sleep 120s
               ((counter++))
               if (( counter % 15 == 0 )); then
