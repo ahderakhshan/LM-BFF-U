@@ -1,4 +1,4 @@
-for task in sentipers_multiclass
+for task in sentipers_binary
 do
   for seed in 13
   do
