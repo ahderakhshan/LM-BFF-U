@@ -1,4 +1,4 @@
-sleep 3h
+#sleep 3h
 #python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail
 #python tools/get_sbert_embedding.py --sbert_model "PartAI/Tooka-SBERT-V2-Large" --task farstail --do_test --seed 42
 #for seed in 13 21 87 100
