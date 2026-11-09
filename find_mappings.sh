@@ -13,14 +13,14 @@ do
         lr=1e-5
 
         # Since we only use dev performance here, use --no_predict to skip testing
-        TAG=exp-mapping-sentipers_binary-cpt400 \
+        TAG=exp-mapping-sentipers_multiclass-cpt400 \
         TYPE=prompt \
-        TASK=sentipers_binary \
+        TASK=sentipers_multiclass \
         BS=$bs \
         LR=$lr \
         SEED=$seed \
         MODEL='/home/user2/fnlp/pet/pet/new_model400it_400/'  \
-        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/sentipers_binary/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/sentipers_multiclass/16-$seed.txt --mapping_id $mapping_id --no_predict"
         sleep 90s
         ((counter++))
         if (( counter % 10 == 0 )); then
