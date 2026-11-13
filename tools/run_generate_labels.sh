@@ -28,7 +28,7 @@ K_NEIGHBORS=30
 # How many label mappings per template to keep at the end.
 N_PAIRS=100
 
-TASKS="sentipers_binary"
+TASKS="persian_news_tc-1 persian_news_tc-2"
 
 SEEDS="13 21 42 87 100"
 
