@@ -20,7 +20,7 @@ do
         LR=$lr \
         SEED=$seed \
         MODEL='/home/user2/fnlp/pet/pet/new_model400it_400/'  \
-        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/sentipers_multiclass/16-$seed.txt --mapping_id $mapping_id --no_predict"
+        bash run_experiments_find_mappings.sh "--mapping_path my_auto_label_mapping_cpt_400it/manual_template/persian_news_tc/16-$seed.txt --mapping_id $mapping_id --no_predict"
         sleep 90s
         ((counter++))
         if (( counter % 10 == 0 )); then
